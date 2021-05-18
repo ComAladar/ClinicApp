@@ -16,25 +16,25 @@ namespace ClinicAppUI.Forms
     {
         private void SelectHomeControl()
         {
-            panelMainUC.Controls["homeControl"].BringToFront();
+            panelMainUC.Controls["homeUserControl"].BringToFront();
             buttonHome.Visible = false;
         }
 
         private void SelectPatientControl()
         {
-            panelMainUC.Controls["patientControl"].BringToFront();
+            panelMainUC.Controls["patientUserControl"].BringToFront();
             buttonHome.Visible = true;
         }
 
         private void SelectScheduleControl()
         {
-            panelMainUC.Controls["scheduleControl"].BringToFront();
+            panelMainUC.Controls["scheduleUserControl"].BringToFront();
             buttonHome.Visible = true;
         }
 
         private void SelectStaffControl()
         {
-            panelMainUC.Controls["staffControl"].BringToFront();
+            panelMainUC.Controls["staffUserControl"].BringToFront();
             buttonHome.Visible = true;
         }
 
@@ -48,9 +48,9 @@ namespace ClinicAppUI.Forms
         {
             buttonHome.Visible = false;
 
-            HomeUserControl homeControl = new HomeUserControl();
-            homeControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(homeControl);
+            HomeUserControl home1Control = new HomeUserControl();
+            home1Control.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(home1Control);
 
             PatientUserControl patientControl = new PatientUserControl();
             patientControl.Dock = DockStyle.Fill;
@@ -80,6 +80,12 @@ namespace ClinicAppUI.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             SelectScheduleControl();
+        }
+
+        private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
         }
     }
 }

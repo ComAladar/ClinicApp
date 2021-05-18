@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "ScheduleControl";
+            this.Name = "ScheduleUserControl";
             this.Size = new System.Drawing.Size(810, 416);
             this.ResumeLayout(false);
 

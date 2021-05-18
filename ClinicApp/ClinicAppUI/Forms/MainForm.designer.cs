@@ -36,11 +36,11 @@
             this.panelMainUC = new System.Windows.Forms.Panel();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.LoginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EnterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ModesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EnterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +126,18 @@
             this.LoginToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.LoginToolStripMenuItem.Text = "Вход";
             // 
+            // EnterToolStripMenuItem
+            // 
+            this.EnterToolStripMenuItem.Name = "EnterToolStripMenuItem";
+            this.EnterToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.EnterToolStripMenuItem.Text = "Войти";
+            // 
+            // ExitToolStripMenuItem
+            // 
+            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.ExitToolStripMenuItem.Text = "Выйти";
+            // 
             // ModesToolStripMenuItem
             // 
             this.ModesToolStripMenuItem.Name = "ModesToolStripMenuItem";
@@ -143,18 +155,7 @@
             this.InfoToolStripMenuItem.Name = "InfoToolStripMenuItem";
             this.InfoToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.InfoToolStripMenuItem.Text = "О Приложении";
-            // 
-            // EnterToolStripMenuItem
-            // 
-            this.EnterToolStripMenuItem.Name = "EnterToolStripMenuItem";
-            this.EnterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.EnterToolStripMenuItem.Text = "Войти";
-            // 
-            // ExitToolStripMenuItem
-            // 
-            this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.ExitToolStripMenuItem.Text = "Выйти";
+            this.InfoToolStripMenuItem.Click += new System.EventHandler(this.InfoToolStripMenuItem_Click);
             // 
             // MainForm
             // 

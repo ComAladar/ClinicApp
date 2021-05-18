@@ -134,7 +134,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listBoxStaff);
             this.Controls.Add(this.buttonSearch);
-            this.Name = "StaffControl";
+            this.Name = "StaffUserControl";
             this.Size = new System.Drawing.Size(810, 416);
             this.ResumeLayout(false);
 

@@ -45,9 +45,9 @@
             this.labelDeveloperName.AutoSize = true;
             this.labelDeveloperName.Location = new System.Drawing.Point(15, 95);
             this.labelDeveloperName.Name = "labelDeveloperName";
-            this.labelDeveloperName.Size = new System.Drawing.Size(111, 13);
+            this.labelDeveloperName.Size = new System.Drawing.Size(156, 13);
             this.labelDeveloperName.TabIndex = 3;
-            this.labelDeveloperName.Text = "Author: Nikita Gromov";
+            this.labelDeveloperName.Text = "Разработчик: Никита Громов";
             // 
             // labelAppName
             // 
@@ -74,18 +74,18 @@
             this.labelAuthor.AutoSize = true;
             this.labelAuthor.Location = new System.Drawing.Point(12, 239);
             this.labelAuthor.Name = "labelAuthor";
-            this.labelAuthor.Size = new System.Drawing.Size(113, 13);
+            this.labelAuthor.Size = new System.Drawing.Size(124, 13);
             this.labelAuthor.TabIndex = 8;
-            this.labelAuthor.Text = "2021 Nikita Gromov ©";
+            this.labelAuthor.Text = "2021 Никита Громов ©";
             // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
             this.labelEmail.Location = new System.Drawing.Point(15, 141);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(100, 13);
+            this.labelEmail.Size = new System.Drawing.Size(161, 13);
             this.labelEmail.TabIndex = 9;
-            this.labelEmail.Text = "e-mail for feedback:";
+            this.labelEmail.Text = "Электронная почта для связи:";
             // 
             // labelGitHub
             // 
@@ -101,14 +101,14 @@
             this.labelIcons.AutoSize = true;
             this.labelIcons.Location = new System.Drawing.Point(15, 186);
             this.labelIcons.Name = "labelIcons";
-            this.labelIcons.Size = new System.Drawing.Size(63, 13);
+            this.labelIcons.Size = new System.Drawing.Size(123, 13);
             this.labelIcons.TabIndex = 11;
-            this.labelIcons.Text = "All icons by:";
+            this.labelIcons.Text = "Иконки взяты с сайта:";
             // 
             // linkLabelEmail
             // 
             this.linkLabelEmail.AutoSize = true;
-            this.linkLabelEmail.Location = new System.Drawing.Point(112, 141);
+            this.linkLabelEmail.Location = new System.Drawing.Point(173, 141);
             this.linkLabelEmail.Name = "linkLabelEmail";
             this.linkLabelEmail.Size = new System.Drawing.Size(126, 13);
             this.linkLabelEmail.TabIndex = 12;
@@ -130,7 +130,7 @@
             // linkLabelIcons
             // 
             this.linkLabelIcons.AutoSize = true;
-            this.linkLabelIcons.Location = new System.Drawing.Point(74, 186);
+            this.linkLabelIcons.Location = new System.Drawing.Point(135, 186);
             this.linkLabelIcons.Name = "linkLabelIcons";
             this.linkLabelIcons.Size = new System.Drawing.Size(55, 13);
             this.linkLabelIcons.TabIndex = 14;
