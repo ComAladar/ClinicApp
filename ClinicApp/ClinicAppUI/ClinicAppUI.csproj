@@ -117,6 +117,9 @@
     <Compile Include="UserControls\StaffUserControl.designer.cs">
       <DependentUpon>StaffUserControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEditPatientForm.resx">
       <DependentUpon>AddEditPatientForm.cs</DependentUpon>
     </EmbeddedResource>
