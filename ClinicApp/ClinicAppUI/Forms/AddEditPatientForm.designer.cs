@@ -1,6 +1,6 @@
-﻿namespace ClinicMain
+﻿namespace ClinicAppUI.Forms
 {
-    partial class AddViewAppointmentForm
+    partial class AddEditPatientForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(401, 165);
+            this.label1.Location = new System.Drawing.Point(357, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // AddViewAppointmentForm
+            // AddEditPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Name = "AddViewAppointmentForm";
-            this.Text = "AddViewAppointmentForm";
+            this.Name = "AddEditPatientForm";
+            this.Text = "AddEditPatientForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

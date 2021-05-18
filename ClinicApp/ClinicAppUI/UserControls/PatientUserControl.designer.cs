@@ -1,4 +1,4 @@
-﻿namespace ClinicMain
+﻿namespace ClinicAppUI.UserControls
 {
     partial class PatientUserControl
     {

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicAppUI.Forms;
 
-namespace ClinicMain
+namespace ClinicAppUI
 {
     static class Program
     {

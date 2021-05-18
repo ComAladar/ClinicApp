@@ -1,4 +1,4 @@
-﻿namespace ClinicMain
+﻿namespace ClinicAppUI.Forms
 {
     partial class MainForm
     {
