@@ -17,7 +17,7 @@ namespace ClinicAppUI.Forms
         private void SelectHomeControl()
         {
             panelMainUC.Controls["homeUserControl"].BringToFront();
-            buttonHome.Visible = false;
+            buttonHome.Visible = true;
         }
 
         private void SelectPatientControl()
@@ -46,11 +46,11 @@ namespace ClinicAppUI.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            buttonHome.Visible = false;
+            buttonHome.Visible = true;
 
-            HomeUserControl home1Control = new HomeUserControl();
-            home1Control.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(home1Control);
+            HomeUserControl homeControl = new HomeUserControl();
+            homeControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(homeControl);
 
             PatientUserControl patientControl = new PatientUserControl();
             patientControl.Dock = DockStyle.Fill;
@@ -79,13 +79,17 @@ namespace ClinicAppUI.Forms
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SelectScheduleControl();
+            SelectStaffControl();
         }
 
         private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.Show();
+            //AboutForm aboutForm = new AboutForm();
+            //aboutForm.Show();
+            //AddEditPatientForm testForm = new AddEditPatientForm();
+            //testForm.Show();
+            AddViewAppointmentForm testForm = new AddViewAppointmentForm();
+            testForm.Show();
         }
     }
 }

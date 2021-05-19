@@ -153,8 +153,11 @@
             this.Controls.Add(this.labelAppVersion);
             this.Controls.Add(this.labelAppName);
             this.Controls.Add(this.labelDeveloperName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(350, 300);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(350, 300);
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.Text = "О Приложении";
