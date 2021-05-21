@@ -35,27 +35,36 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Название = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Дата = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Автор = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Сообщение = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -132,6 +141,43 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Информация пользователя";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(6, 191);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
+            this.dateTimePicker1.TabIndex = 5;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(6, 152);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(219, 20);
+            this.textBox6.TabIndex = 5;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(6, 113);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(219, 20);
+            this.textBox5.TabIndex = 5;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(6, 74);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(219, 20);
+            this.textBox4.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 175);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Дата регистрации";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -149,6 +195,15 @@
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "Квалификация";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 136);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(85, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "Специальность";
             // 
             // textBox3
             // 
@@ -175,24 +230,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Шаблоны документов";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 136);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(85, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Специальность";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 175);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Дата регистрации";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button3);
@@ -208,39 +245,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Расписание";
             // 
-            // listBox1
+            // button3
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 35);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 199);
-            this.listBox1.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Приемы сегодня";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 245);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Начать прием";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(132, 35);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 199);
-            this.listBox2.TabIndex = 3;
+            this.button3.Location = new System.Drawing.Point(132, 245);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(119, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Данные пациента";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -251,47 +263,99 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Последующие приемы";
             // 
-            // textBox4
+            // listBox2
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 74);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(219, 20);
-            this.textBox4.TabIndex = 0;
+            this.listBox2.FormattingEnabled = true;
+            this.listBox2.Location = new System.Drawing.Point(132, 35);
+            this.listBox2.Name = "listBox2";
+            this.listBox2.Size = new System.Drawing.Size(120, 199);
+            this.listBox2.TabIndex = 3;
             // 
-            // textBox5
+            // button2
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 113);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(219, 20);
-            this.textBox5.TabIndex = 5;
+            this.button2.Location = new System.Drawing.Point(6, 245);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Начать прием";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // label6
             // 
-            this.textBox6.Location = new System.Drawing.Point(6, 152);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(219, 20);
-            this.textBox6.TabIndex = 5;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Приемы сегодня";
             // 
-            // dateTimePicker1
+            // listBox1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 191);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(6, 35);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 199);
+            this.listBox1.TabIndex = 0;
             // 
-            // button3
+            // groupBox5
             // 
-            this.button3.Location = new System.Drawing.Point(132, 245);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Данные пациента";
-            this.button3.UseVisualStyleBackColor = true;
+            this.groupBox5.Controls.Add(this.button4);
+            this.groupBox5.Controls.Add(this.dataGridView1);
+            this.groupBox5.Location = new System.Drawing.Point(246, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(561, 130);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Обьявления";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Название,
+            this.Дата,
+            this.Автор,
+            this.Сообщение});
+            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(499, 105);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // Название
+            // 
+            this.Название.HeaderText = "Название";
+            this.Название.Name = "Название";
+            // 
+            // Дата
+            // 
+            this.Дата.HeaderText = "Дата";
+            this.Дата.Name = "Дата";
+            // 
+            // Автор
+            // 
+            this.Автор.HeaderText = "Автор";
+            this.Автор.Name = "Автор";
+            // 
+            // Сообщение
+            // 
+            this.Сообщение.HeaderText = "Сообщение";
+            this.Сообщение.Name = "Сообщение";
+            this.Сообщение.Width = 150;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(511, 101);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(44, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Добав";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // HomeUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -304,6 +368,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,5 +400,12 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Название;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Дата;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Автор;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Сообщение;
     }
 }

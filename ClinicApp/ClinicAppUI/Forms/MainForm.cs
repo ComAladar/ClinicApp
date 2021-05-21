@@ -72,24 +72,27 @@ namespace ClinicAppUI.Forms
             SelectHomeControl();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+
+        private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
+        }
+
+        private void buttonPatient_Click(object sender, EventArgs e)
         {
             SelectPatientControl();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonStaff_Click(object sender, EventArgs e)
         {
             SelectStaffControl();
         }
 
-        private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void buttonSchedule_Click(object sender, EventArgs e)
         {
-            //AboutForm aboutForm = new AboutForm();
-            //aboutForm.Show();
-            //AddEditPatientForm testForm = new AddEditPatientForm();
-            //testForm.Show();
-            AddViewAppointmentForm testForm = new AddViewAppointmentForm();
-            testForm.Show();
+            SelectScheduleControl();
         }
     }
 }

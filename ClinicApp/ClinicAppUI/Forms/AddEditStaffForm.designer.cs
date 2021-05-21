@@ -60,16 +60,18 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBoxRank = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxContacts.SuspendLayout();
             this.groupBoxRank.SuspendLayout();
@@ -381,6 +383,34 @@
             this.groupBoxRank.TabStop = false;
             this.groupBoxRank.Text = "Специальность и должность";
             // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(223, 85);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(100, 20);
+            this.textBox15.TabIndex = 7;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(223, 35);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(100, 20);
+            this.textBox14.TabIndex = 6;
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(9, 82);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 20);
+            this.textBox13.TabIndex = 5;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(9, 35);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 20);
+            this.textBox12.TabIndex = 4;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -395,9 +425,9 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(220, 69);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(83, 13);
+            this.label19.Size = new System.Drawing.Size(121, 13);
             this.label19.TabIndex = 2;
-            this.label19.Text = "Трудовой стаж";
+            this.label19.Text = "Дата трудоустройства";
             // 
             // label18
             // 
@@ -417,34 +447,6 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Квалификация";
             // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(9, 35);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 4;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(9, 82);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 5;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(223, 35);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 6;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(223, 85);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 7;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(494, 268);
@@ -463,11 +465,31 @@
             this.button2.Text = "Отмена";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 268);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Логин";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(62, 268);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Пароль";
+            // 
             // AddEditStaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 305);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBoxRank);
@@ -482,6 +504,7 @@
             this.groupBoxRank.ResumeLayout(false);
             this.groupBoxRank.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -528,5 +551,7 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label8;
     }
 }
