@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClinicAppDataBase
+namespace ClinicAppDataBase.Repositories
 {
-    public class Patient
+    class MessageBoardRepository
     {
     }
 }

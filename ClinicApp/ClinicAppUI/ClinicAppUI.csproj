@@ -178,7 +178,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ClinicAppBusinessLogic\ClinicAppBusinessLogic.csproj">
+      <Project>{64b111bb-ccab-43b6-80dd-01ff9dd506d0}</Project>
+      <Name>ClinicAppBusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClinicAppDataBase\ClinicAppDataBase.csproj">
+      <Project>{c5d0120d-31d3-4a68-afad-0a3fefe891c7}</Project>
+      <Name>ClinicAppDataBase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>

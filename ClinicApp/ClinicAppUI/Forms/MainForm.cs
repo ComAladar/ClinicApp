@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicAppBusinessLogic;
 using ClinicAppUI.UserControls;
+using ClinicAppBusinessLogic;
+using ClinicAppDataBase;
 
 namespace ClinicAppUI.Forms
 {
     public partial class MainForm : Form
     {
+        private ClinicContext db;
+        private EnumerationHandler enumerationHandler;
+
         private void SelectHomeControl()
         {
             panelMainUC.Controls["homeUserControl"].BringToFront();
@@ -41,6 +48,8 @@ namespace ClinicAppUI.Forms
         public MainForm()
         {
             InitializeComponent();
+            db = new ClinicContext();
+            db.Schedules.Load();
         }
 
 

@@ -61,7 +61,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -69,7 +68,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBoxMisc = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -333,7 +331,6 @@
             this.groupBoxContacts.Controls.Add(this.textBox8);
             this.groupBoxContacts.Controls.Add(this.textBox7);
             this.groupBoxContacts.Controls.Add(this.textBox6);
-            this.groupBoxContacts.Controls.Add(this.textBox5);
             this.groupBoxContacts.Controls.Add(this.textBox4);
             this.groupBoxContacts.Controls.Add(this.label17);
             this.groupBoxContacts.Controls.Add(this.label16);
@@ -341,7 +338,6 @@
             this.groupBoxContacts.Controls.Add(this.label14);
             this.groupBoxContacts.Controls.Add(this.label13);
             this.groupBoxContacts.Controls.Add(this.label12);
-            this.groupBoxContacts.Controls.Add(this.label11);
             this.groupBoxContacts.Controls.Add(this.label10);
             this.groupBoxContacts.Location = new System.Drawing.Point(149, 134);
             this.groupBoxContacts.Name = "groupBoxContacts";
@@ -391,13 +387,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(84, 20);
             this.textBox6.TabIndex = 11;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(125, 35);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(84, 20);
-            this.textBox5.TabIndex = 10;
             // 
             // textBox4
             // 
@@ -459,15 +448,6 @@
             this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "Улица/проспект";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(122, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Район";
             // 
             // label10
             // 
@@ -569,7 +549,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBoxAppointments;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
@@ -587,7 +566,6 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox13;
