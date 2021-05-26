@@ -56,6 +56,11 @@
     <Compile Include="ClinicContext.cs" />
     <Compile Include="Entities\MessageBoard.cs" />
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Migrations\202105260709362_InitialMigration.cs" />
+    <Compile Include="Migrations\202105260709362_InitialMigration.Designer.cs">
+      <DependentUpon>202105260709362_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\Staff.cs" />
@@ -74,6 +79,14 @@
       <Project>{64b111bb-ccab-43b6-80dd-01ff9dd506d0}</Project>
       <Name>ClinicAppBusinessLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105260709362_InitialMigration.resx">
+      <DependentUpon>202105260709362_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\MigrationCommands.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

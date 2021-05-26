@@ -1,0 +1,3 @@
+﻿enable-migration
+add-migration " "
+update-database
