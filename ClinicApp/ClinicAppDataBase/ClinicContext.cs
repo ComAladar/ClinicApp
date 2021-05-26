@@ -15,8 +15,8 @@ namespace ClinicAppDataBase
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Patient> Patients { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
-        public DbSet<MessageBoard> MessagesBoard { get; set; }
-        public DbSet<Staff> Staff { get; set; }
+        public DbSet<MessageBoard> MessageBoards { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
 
         //static ClinicContext()
         //{

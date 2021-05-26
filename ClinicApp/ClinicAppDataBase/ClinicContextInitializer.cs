@@ -13,7 +13,7 @@ namespace ClinicAppDataBase
         protected override void Seed(ClinicContext db)
         {
             Staff adminStaff = new Staff();
-            db.Staff.Add(adminStaff);
+            db.Staffs.Add(adminStaff);
             db.SaveChanges();
         }
     }

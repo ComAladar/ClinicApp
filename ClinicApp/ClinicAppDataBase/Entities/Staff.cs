@@ -35,7 +35,7 @@ namespace ClinicAppDataBase.Entities
         //
 
         //СВЯЗЬ STAFF--->MESSAGEBOARD 1 К МНОГИМ
-        public ICollection<MessageBoard> MessagesBoard { get; set; }
+        public ICollection<MessageBoard> MessageBoards { get; set; }
         //
 
         //ИНИЦИАЛИЗАЦИЯ СВЯЗЕЙ?
@@ -43,7 +43,7 @@ namespace ClinicAppDataBase.Entities
         {
             Appointments = new List<Appointment>();
             Schedules = new List<Schedule>();
-            MessagesBoard = new List<MessageBoard>();
+            MessageBoards = new List<MessageBoard>();
         }
         //
         public int Id

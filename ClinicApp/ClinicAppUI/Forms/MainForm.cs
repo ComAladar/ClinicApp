@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicAppBusinessLogic;
 using ClinicAppUI.UserControls;
-using ClinicAppBusinessLogic;
 using ClinicAppDataBase;
 
 namespace ClinicAppUI.Forms
