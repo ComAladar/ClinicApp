@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClinicAppBusinessLogic
+namespace ClinicAppBusinessLogic.Enumerations
 {
      public class EnumerationHandler
     {

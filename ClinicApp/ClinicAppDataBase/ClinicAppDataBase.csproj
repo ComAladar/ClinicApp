@@ -60,11 +60,29 @@
     <Compile Include="Migrations\202105260709362_InitialMigration.Designer.cs">
       <DependentUpon>202105260709362_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105261018181_DateTimeChanged.cs" />
+    <Compile Include="Migrations\202105261018181_DateTimeChanged.designer.cs">
+      <DependentUpon>202105261018181_DateTimeChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105270852043_BLLEdits.cs" />
+    <Compile Include="Migrations\202105270852043_BLLEdits.designer.cs">
+      <DependentUpon>202105270852043_BLLEdits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105270855598_DateTime readonly fix.cs" />
+    <Compile Include="Migrations\202105270855598_DateTime readonly fix.designer.cs">
+      <DependentUpon>202105270855598_DateTime readonly fix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105270901515_SexBugFix.cs" />
+    <Compile Include="Migrations\202105270901515_SexBugFix.designer.cs">
+      <DependentUpon>202105270901515_SexBugFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Repositories\AppointmentRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\MessageBoardRepository.cs" />
     <Compile Include="Repositories\PatientRepository.cs" />
     <Compile Include="Repositories\ScheduleRepository.cs" />
@@ -83,6 +101,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202105260709362_InitialMigration.resx">
       <DependentUpon>202105260709362_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105261018181_DateTimeChanged.resx">
+      <DependentUpon>202105261018181_DateTimeChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270852043_BLLEdits.resx">
+      <DependentUpon>202105270852043_BLLEdits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270855598_DateTime readonly fix.resx">
+      <DependentUpon>202105270855598_DateTime readonly fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105270901515_SexBugFix.resx">
+      <DependentUpon>202105270901515_SexBugFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

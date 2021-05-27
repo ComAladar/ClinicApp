@@ -10,8 +10,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClinicAppBusinessLogic;
+using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppUI.UserControls;
 using ClinicAppDataBase;
+using ClinicAppDataBase.Entities;
+using ClinicAppDataBase.Repositories;
 
 namespace ClinicAppUI.Forms
 {
@@ -48,7 +51,7 @@ namespace ClinicAppUI.Forms
         {
             InitializeComponent();
             db = new ClinicContext();
-            db.Schedules.Load();
+            db.Staffs.Load();
         }
 
 

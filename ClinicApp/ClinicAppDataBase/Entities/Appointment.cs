@@ -7,6 +7,7 @@ using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
 using ClinicAppBusinessLogic;
+using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
@@ -15,13 +16,12 @@ namespace ClinicAppDataBase.Entities
         private int _id;
         //private string _appointmentType;
         private AppointmentType _appointmentType;
-        private DateTime _dateOfAppointment;
         private string _complaints;
         private string _anamnesis;
         private string _condition;
         private string _diagnosis;
         private string _icdCode;
-        private string _recomendations;
+        private string _recommendations;
         private string _medicinalTherapy;
 
         //Проверить и разузнать насчет типа int?  СВЯЗЬ 1 К 1 SCHEDULE--->APPOINTMENT
@@ -61,26 +61,6 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
-        public DateTime DateOfAppointment
-        {
-            get
-            {
-                return _dateOfAppointment;
-            }
-            set
-            {
-                _dateOfAppointment = value;
-            }
-        }
-
-        //private string _complaints;
-        //private string _anamnesis;
-        //private string _condition;
-        //private string _diagnosis;
-        //private string _icdCode;
-        //private string _recomendations;
-        //private string _medicinalTherapy;
-
         public string Complains
         {
             get
@@ -89,6 +69,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Поле заполнено неверно.");
+                }
                 _complaints = value;
             }
         }
@@ -101,6 +86,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Поле заполнено неверно.");
+                }
                 _anamnesis = value;
             }
         }
@@ -113,6 +103,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Поле заполнено неверно.");
+                }
                 _condition = value;
             }
         }
@@ -125,6 +120,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Поле заполнено неверно.");
+                }
                 _diagnosis = value;
             }
         }
@@ -137,19 +137,24 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Поле заполнено неверно.");
+                }
                 _icdCode = value;
             }
         }
 
-        public string Recomendations
+        public string Recommendations
         {
             get
             {
-                return _recomendations;
+                return _recommendations;
             }
             set
             {
-                _recomendations = value;
+                _recommendations = value;
             }
         }
 

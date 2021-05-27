@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccessType.cs" />
-    <Compile Include="AppointmentType.cs" />
-    <Compile Include="EnumerationHandler.cs" />
+    <Compile Include="Enumerations\AccessType.cs" />
+    <Compile Include="Enumerations\AppointmentType.cs" />
+    <Compile Include="Enumerations\EnumerationHandler.cs" />
     <Compile Include="ExcelExporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Enumerations\SexType.cs" />
+    <Compile Include="WordFillUp.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

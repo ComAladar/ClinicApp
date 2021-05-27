@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ClinicAppBusinessLogic;
+using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
@@ -13,9 +16,9 @@ namespace ClinicAppDataBase.Entities
         private string _name;
         private string _surname;
         private string _patronymic;
-        private byte _sex; //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
+        private SexType _sex; //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
         private DateTime _dateOfBirth;
-        private DateTime _dateOfRegistration = DateTime.Now;
+        private DateTime _dateOfRegistration=DateTime.Now;
         private string _phoneNumber;
         private string _email;
         private string _login;
@@ -45,6 +48,8 @@ namespace ClinicAppDataBase.Entities
             Schedules = new List<Schedule>();
             MessageBoards = new List<MessageBoard>();
         }
+
+        private static int _length=30;
         //
         public int Id
         {
@@ -66,6 +71,15 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Имя не может быть пустой!");
+                }
+                if (value.Length > _length)
+                {
+                    throw new ArgumentException("Максимальная длина имя не должна быть больше " + _length + " символов.");
+                }
                 _name = value;
             }
         }
@@ -78,6 +92,15 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentException(
+                        "Фамилия не может быть пустой!");
+                }
+                if (value.Length > _length)
+                {
+                    throw new ArgumentException("Максимальная длина фамилии не должна быть больше " + _length + " символов.");
+                }
                 _surname = value;
             }
         }
@@ -90,11 +113,15 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (value.Length > _length)
+                {
+                    throw new ArgumentException("Максимальная длина отчества не должна быть больше " + _length + " символов.");
+                }
                 _patronymic = value;
             }
         }
 
-        private byte Sex
+        public SexType Sex
         {
             get
             {
@@ -107,6 +134,7 @@ namespace ClinicAppDataBase.Entities
 
         }
 
+        [Column(TypeName ="datetime2")]
         public DateTime DateOfBirth
         {
             get
@@ -115,15 +143,24 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (value > DateTime.Now.Date)
+                {
+                    throw new ArgumentException("Дата рождения введена с ошибкой.");
+                }
                 _dateOfBirth = value;
             }
         }
 
+        [Column(TypeName = "datetime2")]
         public DateTime DateOfRegistration
         {
             get
             {
                 return _dateOfRegistration;
+            }
+            set
+            {
+                _dateOfRegistration = value;
             }
         }
 
@@ -135,6 +172,10 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (Regex.IsMatch(value, @"[0-9]{11}", RegexOptions.IgnoreCase)==false)
+                {
+                    throw new ArgumentException("Номер телефона был задан неверно.");
+                }
                 _phoneNumber = value;
             }
         }
@@ -147,17 +188,15 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (Regex.IsMatch(value,
+                    @"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})",
+                    RegexOptions.IgnoreCase)==false)
+                {
+                    throw new ArgumentException("Email имеет неверный формат.");
+                }
                 _email = value;
             }
         }
-
-        //private string _login;
-        //private string _password;
-        //private string _access;
-        //private string _qualification;
-        //private string _position;
-        //private string _speciality;
-        //private DateTime _dateOfEmployment;
 
         public string Login
         {
@@ -167,6 +206,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                //Проверить робит ли
+                if (Regex.IsMatch(value, @"^(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){1})(?=\D*\d)") == false)
+                {
+                    throw new ArgumentException("Логин имеет неверный формат.");
+                }
                 _login = value;
             }
         }
@@ -179,6 +223,10 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (Regex.IsMatch(value, @"^(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){1})(?=\D*\d)") == false)
+                {
+                    throw new ArgumentException("Пароль имеет неверный формат.");
+                }
                 _password = value;
             }
         }
@@ -231,6 +279,7 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        [Column(TypeName = "datetime2")]
         public DateTime DateOfEmployment
         {
             get

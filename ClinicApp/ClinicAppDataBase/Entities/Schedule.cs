@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,8 +11,6 @@ namespace ClinicAppDataBase.Entities
     {
         private int _id;
         private DateTime _dateOfSchedule;
-
-
 
         //Проверить и разузнать насчет типа int?  СВЯЗЬ 1 К 1 SCHEDULE--->APPOINTMENT
         public Appointment Appointment { get; set; }
@@ -39,6 +37,7 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        [Column(TypeName = "datetime2")]
         public DateTime DateOfSchedule
         {
             get
@@ -47,6 +46,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
+                if (value<DateTime.Now.Date)
+                {
+                    throw new ArgumentException(
+                        "Дата приема введена неверно.");
+                }
                 _dateOfSchedule = value;
             }
         }

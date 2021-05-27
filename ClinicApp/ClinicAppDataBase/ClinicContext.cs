@@ -18,9 +18,9 @@ namespace ClinicAppDataBase
         public DbSet<MessageBoard> MessageBoards { get; set; }
         public DbSet<Staff> Staffs { get; set; }
 
-        //static ClinicContext()
-        //{
-        //    Database.SetInitializer<ClinicContext>(new ClinicContextInitializer());
-        //}
+        static ClinicContext()
+        {
+            Database.SetInitializer<ClinicContext>(new ClinicContextInitializer());
+        }
     }
 }
