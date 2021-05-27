@@ -17,7 +17,7 @@ namespace ClinicAppDataBase.Entities
         private string _surname;
         private string _patronymic;
         private SexType _sex; //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
-        private DateTime _dateOfBirth;
+        private DateTime _dateOfBirth=DateTime.Now;
         private DateTime _dateOfRegistration=DateTime.Now;
         private string _city;
         private string _street;
@@ -226,7 +226,7 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (Regex.IsMatch(value, @"[0-9]{11}", RegexOptions.IgnoreCase) == false)
+                if (Regex.IsMatch(value, @"[0-9]{10,11}", RegexOptions.IgnoreCase) == false)
                 {
                     throw new ArgumentException("Номер телефона был задан неверно.");
                 }

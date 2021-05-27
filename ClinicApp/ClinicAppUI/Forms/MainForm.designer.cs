@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.buttonSchedule = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.buttonStaff = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonPatient = new System.Windows.Forms.Button();
             this.buttonHome = new System.Windows.Forms.Button();
             this.panelMainUC = new System.Windows.Forms.Panel();
@@ -41,9 +44,6 @@
             this.ModesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -63,8 +63,18 @@
             this.panel1.Size = new System.Drawing.Size(810, 50);
             this.panel1.TabIndex = 1;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(528, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(80, 30);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Обновить";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // buttonSchedule
             // 
+            this.buttonSchedule.Enabled = false;
             this.buttonSchedule.Location = new System.Drawing.Point(270, 3);
             this.buttonSchedule.Name = "buttonSchedule";
             this.buttonSchedule.Size = new System.Drawing.Size(80, 30);
@@ -73,8 +83,18 @@
             this.buttonSchedule.UseVisualStyleBackColor = true;
             this.buttonSchedule.Click += new System.EventHandler(this.buttonSchedule_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(442, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(80, 30);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Отменить";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // buttonStaff
             // 
+            this.buttonStaff.Enabled = false;
             this.buttonStaff.Location = new System.Drawing.Point(184, 3);
             this.buttonStaff.Name = "buttonStaff";
             this.buttonStaff.Size = new System.Drawing.Size(80, 30);
@@ -83,8 +103,18 @@
             this.buttonStaff.UseVisualStyleBackColor = true;
             this.buttonStaff.Click += new System.EventHandler(this.buttonStaff_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(356, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(80, 30);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // buttonPatient
             // 
+            this.buttonPatient.Enabled = false;
             this.buttonPatient.Location = new System.Drawing.Point(98, 3);
             this.buttonPatient.Name = "buttonPatient";
             this.buttonPatient.Size = new System.Drawing.Size(80, 30);
@@ -164,33 +194,6 @@
             this.InfoToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
             this.InfoToolStripMenuItem.Text = "О Приложении";
             this.InfoToolStripMenuItem.Click += new System.EventHandler(this.InfoToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(356, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 30);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(442, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 30);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Отменить";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(528, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 30);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Обновить";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

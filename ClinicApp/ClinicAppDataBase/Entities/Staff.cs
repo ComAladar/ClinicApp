@@ -113,7 +113,7 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (value.Length > _length)
+                if (value.Length > _length && value != null)
                 {
                     throw new ArgumentException("Максимальная длина отчества не должна быть больше " + _length + " символов.");
                 }
@@ -172,7 +172,7 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (Regex.IsMatch(value, @"[0-9]{11}", RegexOptions.IgnoreCase)==false)
+                if (Regex.IsMatch(value, @"[0-9]{10}", RegexOptions.IgnoreCase)==false)
                 {
                     throw new ArgumentException("Номер телефона был задан неверно.");
                 }
@@ -206,8 +206,8 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                //Проверить робит ли
-                if (Regex.IsMatch(value, @"^(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){1})(?=\D*\d)") == false)
+                //Проверить робит ли Первыми должны быть минимум 5 букв потом цифры(может и не быть)
+                if (Regex.IsMatch(value, @"^(?=.{5,10}$)(?=[a-zA-Z]){5}(?=[^0-9])") == false)
                 {
                     throw new ArgumentException("Логин имеет неверный формат.");
                 }
@@ -223,7 +223,7 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (Regex.IsMatch(value, @"^(?=\w{6,10}\z)(?=[^a-z]*[a-z])(?=(?:[^A-Z]*[A-Z]){1})(?=\D*\d)") == false)
+                if (Regex.IsMatch(value, @"^(?=.{5,10}$)(?=[a-zA-Z]){5}(?=[^0-9])") == false)
                 {
                     throw new ArgumentException("Пароль имеет неверный формат.");
                 }

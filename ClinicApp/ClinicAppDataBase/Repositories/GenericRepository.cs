@@ -45,6 +45,7 @@ namespace ClinicAppDataBase.Repositories
 
         public void Delete(TEntity item)
         {
+            _context.Entry(item).State = EntityState.Deleted;
             _dbSet.Remove(item);
             _context.SaveChanges();
         }

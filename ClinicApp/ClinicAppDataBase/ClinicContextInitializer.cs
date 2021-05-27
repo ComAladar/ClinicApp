@@ -14,7 +14,11 @@ namespace ClinicAppDataBase
     {
         protected override void Seed(ClinicContext db)
         {
-            Staff adminStaff = new Staff{Access =(AccessType) 0,Name = "Администратор",Login = "admin",Password = "admin"};
+            Staff adminStaff = new Staff{Access =(AccessType) 0,
+                Name = "Администратор",Login = "admin",Password = "admin",
+                Surname = "Администратор",Patronymic = "Администратор",Appointments = null,
+                DateOfBirth = DateTime.Now,DateOfEmployment = DateTime.Now,
+                DateOfRegistration = DateTime.Now,Email ="testmail@mail.com",PhoneNumber = "9131111111"};
             db.Staffs.Add(adminStaff);
             db.SaveChanges();
         }

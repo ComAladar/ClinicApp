@@ -20,62 +20,67 @@ namespace ClinicAppUI.Forms
 {
     public partial class MainForm : Form
     {
-        private ClinicContext db;
-        private EnumerationHandler enumerationHandler;
+        private ClinicContext Db;
+        private HomeUserControl homeControl;
+        private PatientUserControl patientControl;
+        private ScheduleUserControl scheduleControl;
+        private StaffUserControl staffControl;
+
+        public Staff CurrentUser { get; set; }
+
 
         private void SelectHomeControl()
         {
+            homeControl.Db = Db;
             panelMainUC.Controls["homeUserControl"].BringToFront();
-            buttonHome.Visible = true;
         }
 
         private void SelectPatientControl()
         {
+            patientControl.Db = Db;
+            patientControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["patientUserControl"].BringToFront();
-            buttonHome.Visible = true;
+
         }
 
         private void SelectScheduleControl()
         {
             panelMainUC.Controls["scheduleUserControl"].BringToFront();
-            buttonHome.Visible = true;
         }
 
         private void SelectStaffControl()
         {
             panelMainUC.Controls["staffUserControl"].BringToFront();
-            buttonHome.Visible = true;
         }
+
 
         public MainForm()
         {
             InitializeComponent();
-            db = new ClinicContext();
-            db.Staffs.Load();
+            Db = new ClinicContext();
         }
 
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            buttonHome.Visible = true;
-
-            HomeUserControl homeControl = new HomeUserControl();
+            homeControl = new HomeUserControl();
             homeControl.Dock = DockStyle.Fill;
             panelMainUC.Controls.Add(homeControl);
 
-            PatientUserControl patientControl = new PatientUserControl();
+            patientControl = new PatientUserControl();
             patientControl.Dock = DockStyle.Fill;
             panelMainUC.Controls.Add(patientControl);
 
-            ScheduleUserControl scheduleControl = new ScheduleUserControl();
+            scheduleControl = new ScheduleUserControl();
             scheduleControl.Dock = DockStyle.Fill;
             panelMainUC.Controls.Add(scheduleControl);
 
-            StaffUserControl staffControl = new StaffUserControl();
+            staffControl = new StaffUserControl();
             staffControl.Dock = DockStyle.Fill;
             panelMainUC.Controls.Add(staffControl);
 
             SelectHomeControl();
+            homeControl.ButtonLoginClick += new EventHandler(HomeControl_ButtonLogicClick);
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -104,6 +109,14 @@ namespace ClinicAppUI.Forms
         private void buttonSchedule_Click(object sender, EventArgs e)
         {
             SelectScheduleControl();
+        }
+
+        protected void HomeControl_ButtonLogicClick(object sender, EventArgs e)
+        {
+            CurrentUser = homeControl.CurrentUser;
+            buttonPatient.Enabled = true;
+            buttonSchedule.Enabled = true;
+            buttonStaff.Enabled = true;
         }
     }
 }

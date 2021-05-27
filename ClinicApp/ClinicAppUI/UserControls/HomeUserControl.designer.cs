@@ -28,146 +28,146 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBoxLogin = new System.Windows.Forms.GroupBox();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.labelLogin = new System.Windows.Forms.Label();
+            this.groupBoxUserInfo = new System.Windows.Forms.GroupBox();
+            this.textBoxSpecialty = new System.Windows.Forms.TextBox();
+            this.textBoxPosition = new System.Windows.Forms.TextBox();
+            this.textBoxQualification = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxFullName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTemplates = new System.Windows.Forms.GroupBox();
+            this.groupBoxSchedule = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBoxMessages = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Название = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Дата = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Автор = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Сообщение = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button4 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
+            this.textBoxRegistrationDate = new System.Windows.Forms.TextBox();
+            this.groupBoxLogin.SuspendLayout();
+            this.groupBoxUserInfo.SuspendLayout();
+            this.groupBoxSchedule.SuspendLayout();
+            this.groupBoxMessages.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // groupBoxLogin
             // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(231, 130);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Вход в систему";
+            this.groupBoxLogin.Controls.Add(this.checkBoxShowPassword);
+            this.groupBoxLogin.Controls.Add(this.buttonLogin);
+            this.groupBoxLogin.Controls.Add(this.textBoxPassword);
+            this.groupBoxLogin.Controls.Add(this.labelPassword);
+            this.groupBoxLogin.Controls.Add(this.textBoxLogin);
+            this.groupBoxLogin.Controls.Add(this.labelLogin);
+            this.groupBoxLogin.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxLogin.Name = "groupBoxLogin";
+            this.groupBoxLogin.Size = new System.Drawing.Size(231, 130);
+            this.groupBoxLogin.TabIndex = 1;
+            this.groupBoxLogin.TabStop = false;
+            this.groupBoxLogin.Text = "Вход в систему";
             // 
-            // button1
+            // buttonLogin
             // 
-            this.button1.Location = new System.Drawing.Point(143, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Войти";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonLogin.Location = new System.Drawing.Point(143, 101);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(82, 23);
+            this.buttonLogin.TabIndex = 2;
+            this.buttonLogin.Text = "Войти";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBoxPassword.Location = new System.Drawing.Point(6, 74);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPassword.TabIndex = 2;
             // 
-            // label3
+            // labelPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Пароль";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Location = new System.Drawing.Point(6, 58);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(45, 13);
+            this.labelPassword.TabIndex = 3;
+            this.labelPassword.Text = "Пароль";
             // 
-            // textBox1
+            // textBoxLogin
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.textBoxLogin.Location = new System.Drawing.Point(6, 35);
+            this.textBoxLogin.Name = "textBoxLogin";
+            this.textBoxLogin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxLogin.TabIndex = 4;
             // 
-            // label2
+            // labelLogin
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Логин";
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Location = new System.Drawing.Point(6, 19);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(38, 13);
+            this.labelLogin.TabIndex = 2;
+            this.labelLogin.Text = "Логин";
             // 
-            // groupBox2
+            // groupBoxUserInfo
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.label18);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(3, 139);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(231, 274);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Информация пользователя";
+            this.groupBoxUserInfo.Controls.Add(this.textBoxRegistrationDate);
+            this.groupBoxUserInfo.Controls.Add(this.textBoxSpecialty);
+            this.groupBoxUserInfo.Controls.Add(this.textBoxPosition);
+            this.groupBoxUserInfo.Controls.Add(this.textBoxQualification);
+            this.groupBoxUserInfo.Controls.Add(this.label8);
+            this.groupBoxUserInfo.Controls.Add(this.label5);
+            this.groupBoxUserInfo.Controls.Add(this.label4);
+            this.groupBoxUserInfo.Controls.Add(this.label18);
+            this.groupBoxUserInfo.Controls.Add(this.textBoxFullName);
+            this.groupBoxUserInfo.Controls.Add(this.label1);
+            this.groupBoxUserInfo.Enabled = false;
+            this.groupBoxUserInfo.Location = new System.Drawing.Point(3, 139);
+            this.groupBoxUserInfo.Name = "groupBoxUserInfo";
+            this.groupBoxUserInfo.Size = new System.Drawing.Size(231, 274);
+            this.groupBoxUserInfo.TabIndex = 2;
+            this.groupBoxUserInfo.TabStop = false;
+            this.groupBoxUserInfo.Text = "Информация пользователя";
             // 
-            // dateTimePicker1
+            // textBoxSpecialty
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(6, 191);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 20);
-            this.dateTimePicker1.TabIndex = 5;
+            this.textBoxSpecialty.Location = new System.Drawing.Point(6, 152);
+            this.textBoxSpecialty.Name = "textBoxSpecialty";
+            this.textBoxSpecialty.ReadOnly = true;
+            this.textBoxSpecialty.Size = new System.Drawing.Size(219, 20);
+            this.textBoxSpecialty.TabIndex = 5;
             // 
-            // textBox6
+            // textBoxPosition
             // 
-            this.textBox6.Location = new System.Drawing.Point(6, 152);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(219, 20);
-            this.textBox6.TabIndex = 5;
+            this.textBoxPosition.Location = new System.Drawing.Point(6, 113);
+            this.textBoxPosition.Name = "textBoxPosition";
+            this.textBoxPosition.ReadOnly = true;
+            this.textBoxPosition.Size = new System.Drawing.Size(219, 20);
+            this.textBoxPosition.TabIndex = 5;
             // 
-            // textBox5
+            // textBoxQualification
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 113);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(219, 20);
-            this.textBox5.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 74);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(219, 20);
-            this.textBox4.TabIndex = 0;
+            this.textBoxQualification.Location = new System.Drawing.Point(6, 74);
+            this.textBoxQualification.Name = "textBoxQualification";
+            this.textBoxQualification.ReadOnly = true;
+            this.textBoxQualification.Size = new System.Drawing.Size(219, 20);
+            this.textBoxQualification.TabIndex = 0;
             // 
             // label8
             // 
@@ -205,12 +205,13 @@
             this.label18.TabIndex = 1;
             this.label18.Text = "Специальность";
             // 
-            // textBox3
+            // textBoxFullName
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(219, 20);
-            this.textBox3.TabIndex = 0;
+            this.textBoxFullName.Location = new System.Drawing.Point(6, 35);
+            this.textBoxFullName.Name = "textBoxFullName";
+            this.textBoxFullName.ReadOnly = true;
+            this.textBoxFullName.Size = new System.Drawing.Size(219, 20);
+            this.textBoxFullName.TabIndex = 0;
             // 
             // label1
             // 
@@ -221,29 +222,31 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Ф.И.О. Пользователя";
             // 
-            // groupBox3
+            // groupBoxTemplates
             // 
-            this.groupBox3.Location = new System.Drawing.Point(576, 139);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(231, 274);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Шаблоны документов";
+            this.groupBoxTemplates.Enabled = false;
+            this.groupBoxTemplates.Location = new System.Drawing.Point(576, 139);
+            this.groupBoxTemplates.Name = "groupBoxTemplates";
+            this.groupBoxTemplates.Size = new System.Drawing.Size(231, 274);
+            this.groupBoxTemplates.TabIndex = 3;
+            this.groupBoxTemplates.TabStop = false;
+            this.groupBoxTemplates.Text = "Шаблоны документов";
             // 
-            // groupBox4
+            // groupBoxSchedule
             // 
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.listBox2);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.listBox1);
-            this.groupBox4.Location = new System.Drawing.Point(240, 139);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(330, 274);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Расписание";
+            this.groupBoxSchedule.Controls.Add(this.button3);
+            this.groupBoxSchedule.Controls.Add(this.label7);
+            this.groupBoxSchedule.Controls.Add(this.listBox2);
+            this.groupBoxSchedule.Controls.Add(this.button2);
+            this.groupBoxSchedule.Controls.Add(this.label6);
+            this.groupBoxSchedule.Controls.Add(this.listBox1);
+            this.groupBoxSchedule.Enabled = false;
+            this.groupBoxSchedule.Location = new System.Drawing.Point(240, 139);
+            this.groupBoxSchedule.Name = "groupBoxSchedule";
+            this.groupBoxSchedule.Size = new System.Drawing.Size(330, 274);
+            this.groupBoxSchedule.TabIndex = 4;
+            this.groupBoxSchedule.TabStop = false;
+            this.groupBoxSchedule.Text = "Расписание";
             // 
             // button3
             // 
@@ -297,16 +300,26 @@
             this.listBox1.Size = new System.Drawing.Size(120, 199);
             this.listBox1.TabIndex = 0;
             // 
-            // groupBox5
+            // groupBoxMessages
             // 
-            this.groupBox5.Controls.Add(this.button4);
-            this.groupBox5.Controls.Add(this.dataGridView1);
-            this.groupBox5.Location = new System.Drawing.Point(246, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(561, 130);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Обьявления";
+            this.groupBoxMessages.Controls.Add(this.button4);
+            this.groupBoxMessages.Controls.Add(this.dataGridView1);
+            this.groupBoxMessages.Enabled = false;
+            this.groupBoxMessages.Location = new System.Drawing.Point(246, 3);
+            this.groupBoxMessages.Name = "groupBoxMessages";
+            this.groupBoxMessages.Size = new System.Drawing.Size(561, 130);
+            this.groupBoxMessages.TabIndex = 5;
+            this.groupBoxMessages.TabStop = false;
+            this.groupBoxMessages.Text = "Обьявления";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(511, 101);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(44, 23);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "Добав";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -342,70 +355,81 @@
             this.Сообщение.Name = "Сообщение";
             this.Сообщение.Width = 150;
             // 
-            // button4
+            // checkBoxShowPassword
             // 
-            this.button4.Location = new System.Drawing.Point(511, 101);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(44, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Добав";
-            this.button4.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(6, 100);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxShowPassword.TabIndex = 0;
+            this.checkBoxShowPassword.Text = "Показать пароль";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+            // 
+            // textBoxRegistrationDate
+            // 
+            this.textBoxRegistrationDate.Location = new System.Drawing.Point(6, 191);
+            this.textBoxRegistrationDate.Name = "textBoxRegistrationDate";
+            this.textBoxRegistrationDate.ReadOnly = true;
+            this.textBoxRegistrationDate.Size = new System.Drawing.Size(219, 20);
+            this.textBoxRegistrationDate.TabIndex = 0;
             // 
             // HomeUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxMessages);
+            this.Controls.Add(this.groupBoxSchedule);
+            this.Controls.Add(this.groupBoxTemplates);
+            this.Controls.Add(this.groupBoxUserInfo);
+            this.Controls.Add(this.groupBoxLogin);
             this.Name = "HomeUserControl";
             this.Size = new System.Drawing.Size(810, 416);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
+            this.groupBoxLogin.ResumeLayout(false);
+            this.groupBoxLogin.PerformLayout();
+            this.groupBoxUserInfo.ResumeLayout(false);
+            this.groupBoxUserInfo.PerformLayout();
+            this.groupBoxSchedule.ResumeLayout(false);
+            this.groupBoxSchedule.PerformLayout();
+            this.groupBoxMessages.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.GroupBox groupBoxLogin;
+        private System.Windows.Forms.Label labelLogin;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxLogin;
+        private System.Windows.Forms.GroupBox groupBoxUserInfo;
+        private System.Windows.Forms.GroupBox groupBoxTemplates;
+        private System.Windows.Forms.TextBox textBoxFullName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBoxSchedule;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxSpecialty;
+        private System.Windows.Forms.TextBox textBoxPosition;
+        private System.Windows.Forms.TextBox textBoxQualification;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBoxMessages;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Название;
         private System.Windows.Forms.DataGridViewTextBoxColumn Дата;
         private System.Windows.Forms.DataGridViewTextBoxColumn Автор;
         private System.Windows.Forms.DataGridViewTextBoxColumn Сообщение;
+        private System.Windows.Forms.CheckBox checkBoxShowPassword;
+        private System.Windows.Forms.TextBox textBoxRegistrationDate;
     }
 }
