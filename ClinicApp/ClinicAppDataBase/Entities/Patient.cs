@@ -263,5 +263,7 @@ namespace ClinicAppDataBase.Entities
                 _miscInformation = value;
             }
         }
+
+        public InUseType InUse { get; set; }
     }
 }

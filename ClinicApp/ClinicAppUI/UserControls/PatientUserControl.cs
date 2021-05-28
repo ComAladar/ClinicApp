@@ -31,10 +31,8 @@ namespace ClinicAppUI.UserControls
             set
             {
                 _db = value;
-                GetPatients();
-                //GetAppointments();
-                PatientsListBoxFillUp();
-                //AppointmentsListBoxFillUp();
+                UpdatePatients();
+                UpdateAppointments();
             }
             
         }
@@ -43,6 +41,17 @@ namespace ClinicAppUI.UserControls
         public List<Appointment> AppointmentsList { get; set; } = new List<Appointment>();
         public EnumerationHandler EnumHandler = new EnumerationHandler();
 
+        private void UpdatePatients()
+        {
+            GetPatients();
+            PatientsListBoxFillUp();
+        }
+
+        private void UpdateAppointments()
+        {
+            GetAppointments();
+            AppointmentsListBoxFillUp();
+        }
 
         private void GetPatients()
         {
@@ -110,7 +119,6 @@ namespace ClinicAppUI.UserControls
             {
                 return;
             }
-
             var tempPatient = PatientsList[listBoxPatients.SelectedIndex];
             textBoxSurname.Text = tempPatient.Surname;
             textBoxName.Text = tempPatient.Name;
@@ -152,8 +160,7 @@ namespace ClinicAppUI.UserControls
                 var updatedPatient = patientForm.Patient;
                 GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
                 patientRepo.Add(updatedPatient);
-                GetPatients();
-                PatientsListBoxFillUp();
+                UpdatePatients();
             }
         }
 
@@ -163,17 +170,38 @@ namespace ClinicAppUI.UserControls
             {
                 return;
             }
+
             AddEditPatientForm patientForm = new AddEditPatientForm();
             patientForm.Patient = PatientsList[listBoxPatients.SelectedIndex];
-            patientForm.ShowDialog();
-            if (patientForm.DialogResult == DialogResult.OK)
+            if (patientForm.Patient.InUse == 0)
             {
-                var updatedPatient = patientForm.Patient;
+                //TODO: ЗАШОООООООООООООООООООО ПЕРЕКЛЕПАТЬ
+                using (ClinicContext Db = new ClinicContext())
+                {
+                    patientForm.Patient.InUse = (InUseType)1;
                 GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
-                patientRepo.Modify(updatedPatient);
-                GetPatients();
-                PatientsListBoxFillUp();
+                patientRepo.Modify(patientForm.Patient);
+                patientForm.ShowDialog();
+                if (patientForm.DialogResult == DialogResult.OK)
+                {
+                    var updatedPatient = patientForm.Patient;
+                    updatedPatient.InUse = 0;
+                    patientRepo.Modify(updatedPatient);
+                    UpdatePatients();
+                }
+                else
+                {
+                    patientForm.Patient.InUse = 0;
+                    patientRepo.Modify(patientForm.Patient);
+                    UpdatePatients();
+                }
+                }
             }
+            else
+            {
+                MessageBox.Show("В данный момент запись редактируется.");
+            }
+
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -190,9 +218,8 @@ namespace ClinicAppUI.UserControls
                 var index = listBoxPatients.SelectedIndex;
                 var selectedPatient = PatientsList[index];
                 GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
-                patientRepo.Delete(selectedPatient);
-                GetPatients();
-                PatientsListBoxFillUp();
+                patientRepo.DeleteById(selectedPatient.Id);
+                UpdatePatients();
             }
         }
 

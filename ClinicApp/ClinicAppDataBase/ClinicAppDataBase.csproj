@@ -76,17 +76,16 @@
     <Compile Include="Migrations\202105270901515_SexBugFix.designer.cs">
       <DependentUpon>202105270901515_SexBugFix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105281003033_InUseAddMigration.cs" />
+    <Compile Include="Migrations\202105281003033_InUseAddMigration.designer.cs">
+      <DependentUpon>202105281003033_InUseAddMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\Staff.cs" />
-    <Compile Include="Repositories\AppointmentRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
-    <Compile Include="Repositories\MessageBoardRepository.cs" />
-    <Compile Include="Repositories\PatientRepository.cs" />
-    <Compile Include="Repositories\ScheduleRepository.cs" />
-    <Compile Include="Repositories\StaffRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -113,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105270901515_SexBugFix.resx">
       <DependentUpon>202105270901515_SexBugFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105281003033_InUseAddMigration.resx">
+      <DependentUpon>202105281003033_InUseAddMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

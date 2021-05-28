@@ -48,6 +48,22 @@ namespace ClinicAppDataBase.Repositories
             _context.Entry(item).State = EntityState.Deleted;
             _dbSet.Remove(item);
             _context.SaveChanges();
+
+        }
+
+        public void DeleteById(int id)
+        {
+            var obj=_dbSet.Find(id);
+            if (obj == null) return;
+            _dbSet.Remove(obj);
+            _context.SaveChanges();
+        }
+
+        public void ModifyById(int id)
+        {
+            var obj = _dbSet.Find(id);
+            if (obj == null) return;
+            _context.SaveChanges();
         }
 
         //сложные методы

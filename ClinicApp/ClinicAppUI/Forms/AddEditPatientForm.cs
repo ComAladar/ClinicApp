@@ -41,7 +41,6 @@ namespace ClinicAppUI.Forms
                 textBoxPhone.Text = _patient.PhoneNumber;
                 textBoxEmail.Text = _patient.Email;
                 richTextBoxMiscInfo.Text = _patient.MiscInformation;
-
             }
         }
 

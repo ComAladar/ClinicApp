@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
+            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.labelLogin = new System.Windows.Forms.Label();
             this.groupBoxUserInfo = new System.Windows.Forms.GroupBox();
+            this.textBoxRegistrationDate = new System.Windows.Forms.TextBox();
             this.textBoxSpecialty = new System.Windows.Forms.TextBox();
             this.textBoxPosition = new System.Windows.Forms.TextBox();
             this.textBoxQualification = new System.Windows.Forms.TextBox();
@@ -59,8 +61,6 @@
             this.Дата = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Автор = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Сообщение = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
-            this.textBoxRegistrationDate = new System.Windows.Forms.TextBox();
             this.groupBoxLogin.SuspendLayout();
             this.groupBoxUserInfo.SuspendLayout();
             this.groupBoxSchedule.SuspendLayout();
@@ -83,6 +83,17 @@
             this.groupBoxLogin.TabStop = false;
             this.groupBoxLogin.Text = "Вход в систему";
             // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(6, 100);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(114, 17);
+            this.checkBoxShowPassword.TabIndex = 0;
+            this.checkBoxShowPassword.Text = "Показать пароль";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+            // 
             // buttonLogin
             // 
             this.buttonLogin.Location = new System.Drawing.Point(143, 101);
@@ -99,6 +110,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.Text = "admin";
             // 
             // labelPassword
             // 
@@ -115,6 +127,7 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(100, 20);
             this.textBoxLogin.TabIndex = 4;
+            this.textBoxLogin.Text = "admin";
             // 
             // labelLogin
             // 
@@ -144,6 +157,14 @@
             this.groupBoxUserInfo.TabIndex = 2;
             this.groupBoxUserInfo.TabStop = false;
             this.groupBoxUserInfo.Text = "Информация пользователя";
+            // 
+            // textBoxRegistrationDate
+            // 
+            this.textBoxRegistrationDate.Location = new System.Drawing.Point(6, 191);
+            this.textBoxRegistrationDate.Name = "textBoxRegistrationDate";
+            this.textBoxRegistrationDate.ReadOnly = true;
+            this.textBoxRegistrationDate.Size = new System.Drawing.Size(219, 20);
+            this.textBoxRegistrationDate.TabIndex = 0;
             // 
             // textBoxSpecialty
             // 
@@ -354,25 +375,6 @@
             this.Сообщение.HeaderText = "Сообщение";
             this.Сообщение.Name = "Сообщение";
             this.Сообщение.Width = 150;
-            // 
-            // checkBoxShowPassword
-            // 
-            this.checkBoxShowPassword.AutoSize = true;
-            this.checkBoxShowPassword.Location = new System.Drawing.Point(6, 100);
-            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
-            this.checkBoxShowPassword.Size = new System.Drawing.Size(114, 17);
-            this.checkBoxShowPassword.TabIndex = 0;
-            this.checkBoxShowPassword.Text = "Показать пароль";
-            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
-            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
-            // 
-            // textBoxRegistrationDate
-            // 
-            this.textBoxRegistrationDate.Location = new System.Drawing.Point(6, 191);
-            this.textBoxRegistrationDate.Name = "textBoxRegistrationDate";
-            this.textBoxRegistrationDate.ReadOnly = true;
-            this.textBoxRegistrationDate.Size = new System.Drawing.Size(219, 20);
-            this.textBoxRegistrationDate.TabIndex = 0;
             // 
             // HomeUserControl
             // 

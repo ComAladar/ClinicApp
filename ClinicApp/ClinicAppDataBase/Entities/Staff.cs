@@ -17,7 +17,7 @@ namespace ClinicAppDataBase.Entities
         private string _surname;
         private string _patronymic;
         private SexType _sex; //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
-        private DateTime _dateOfBirth;
+        private DateTime _dateOfBirth=DateTime.Now;
         private DateTime _dateOfRegistration=DateTime.Now;
         private string _phoneNumber;
         private string _email;
@@ -27,7 +27,7 @@ namespace ClinicAppDataBase.Entities
         private string _qualification;
         private string _position;
         private string _speciality;
-        private DateTime _dateOfEmployment;
+        private DateTime _dateOfEmployment=DateTime.Now;
 
         //СВЯЗЬ STAFF--->APPOINTMENT 1 К МНОГИМ
         public ICollection<Appointment> Appointments { get; set; }
@@ -291,6 +291,8 @@ namespace ClinicAppDataBase.Entities
                 _dateOfEmployment = value;
             }
         }
+
+        public InUseType InUse { get; set; }
 
 
 

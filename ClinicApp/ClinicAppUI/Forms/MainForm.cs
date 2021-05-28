@@ -50,6 +50,8 @@ namespace ClinicAppUI.Forms
 
         private void SelectStaffControl()
         {
+            staffControl.Db = Db;
+            staffControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["staffUserControl"].BringToFront();
         }
 

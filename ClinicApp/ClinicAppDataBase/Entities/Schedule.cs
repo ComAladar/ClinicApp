@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
@@ -54,6 +55,8 @@ namespace ClinicAppDataBase.Entities
                 _dateOfSchedule = value;
             }
         }
+
+        public InUseType InUse { get; set; }
 
 
     }
