@@ -44,14 +44,9 @@ namespace ClinicAppUI.Forms
         public AddScheduleForm()
         {
             InitializeComponent();
-            //Db.Patients.Load();
-            //Db.Staffs.Load();
-            //comboBoxDoctor.DataSource = Db.Staffs.Local.ToBindingList();
-            //comboBoxDoctor.DisplayMember = "Surname" + "Name";
-            //comboBoxDoctor.ValueMember = "Surname" + "Name";
-            //comboBoxPatient.DataSource = Db.Patients.Local.ToBindingList();
-            //comboBoxPatient.DisplayMember = "Surname" + "Name";
-            //comboBoxPatient.ValueMember = "Surname" + "Name";
+            dateTimePickerTime.CustomFormat = "HH:mm";
+            dateTimePickerTime.Format = DateTimePickerFormat.Custom;
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -66,7 +61,20 @@ namespace ClinicAppUI.Forms
             Patient tempPatient = comboBoxPatient.SelectedItem as Patient;
             selectedStaff = tempStaff;
             selectedPatient = tempPatient;
-            selectedDate = dateTimePickerDate.Value.Date + dateTimePickerTime.Value.TimeOfDay;
+            try
+            {
+                selectedDate = dateTimePickerDate.Value.Date + dateTimePickerTime.Value.TimeOfDay;
+                if (selectedDate < DateTime.Now.Date)
+                {
+                    throw new ArgumentException();
+                }
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show("Дата задана неверно.");
+                return;
+            }
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

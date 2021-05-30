@@ -1,0 +1,22 @@
+﻿namespace ClinicAppDataBase.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class IsCompleteToScheduleFromAppointment : DbMigration
+    {
+        public override void Up()
+        {
+            AddColumn("dbo.Schedules", "IsComplete", c => c.Int(nullable: false));
+            DropColumn("dbo.Appointments", "IsComplete");
+            DropColumn("dbo.Schedules", "InUse");
+        }
+        
+        public override void Down()
+        {
+            AddColumn("dbo.Schedules", "InUse", c => c.Int(nullable: false));
+            AddColumn("dbo.Appointments", "IsComplete", c => c.Int(nullable: false));
+            DropColumn("dbo.Schedules", "IsComplete");
+        }
+    }
+}

@@ -88,6 +88,22 @@
     <Compile Include="Migrations\202105300654547_ScheduleDateTimeUnique.designer.cs">
       <DependentUpon>202105300654547_ScheduleDateTimeUnique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105301348510_DateTimeTest.cs" />
+    <Compile Include="Migrations\202105301348510_DateTimeTest.designer.cs">
+      <DependentUpon>202105301348510_DateTimeTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105301357503_DataBaseFixDateTime.cs" />
+    <Compile Include="Migrations\202105301357503_DataBaseFixDateTime.designer.cs">
+      <DependentUpon>202105301357503_DataBaseFixDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105301947283_AppointmentCompletionField.cs" />
+    <Compile Include="Migrations\202105301947283_AppointmentCompletionField.designer.cs">
+      <DependentUpon>202105301947283_AppointmentCompletionField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105301952355_IsCompleteToScheduleFromAppointment.cs" />
+    <Compile Include="Migrations\202105301952355_IsCompleteToScheduleFromAppointment.designer.cs">
+      <DependentUpon>202105301952355_IsCompleteToScheduleFromAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Schedule.cs" />
@@ -129,6 +145,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105300654547_ScheduleDateTimeUnique.resx">
       <DependentUpon>202105300654547_ScheduleDateTimeUnique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105301348510_DateTimeTest.resx">
+      <DependentUpon>202105301348510_DateTimeTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105301357503_DataBaseFixDateTime.resx">
+      <DependentUpon>202105301357503_DataBaseFixDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105301947283_AppointmentCompletionField.resx">
+      <DependentUpon>202105301947283_AppointmentCompletionField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105301952355_IsCompleteToScheduleFromAppointment.resx">
+      <DependentUpon>202105301952355_IsCompleteToScheduleFromAppointment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

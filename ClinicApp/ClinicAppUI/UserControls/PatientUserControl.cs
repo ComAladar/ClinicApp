@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,13 +33,12 @@ namespace ClinicAppUI.UserControls
             {
                 _db = value;
                 UpdatePatients();
-                UpdateAppointments();
             }
             
         }
 
         public List<Patient> PatientsList { get; set; } = new List<Patient>();
-        public List<Appointment> AppointmentsList { get; set; } = new List<Appointment>();
+        public List<Schedule> ScheduleList { get; set; } = new List<Schedule>();
         public EnumerationHandler EnumHandler = new EnumerationHandler();
 
         private void UpdatePatients()
@@ -66,13 +66,18 @@ namespace ClinicAppUI.UserControls
 
         private void GetAppointments()
         {
-            AppointmentsList.Clear();
-            GenericRepository<Appointment> appointmentRepo =new GenericRepository<Appointment>(Db);
-            IEnumerable<Appointment> appointments = appointmentRepo.GetList();
-            foreach (var item in appointments)
+            ScheduleList.Clear();
+            Db.Schedules.Load();
+            Db.Staffs.Load();
+            Db.Patients.Load();
+            var patientId = PatientsList[listBoxPatients.SelectedIndex].Id;
+
+            var schedules = Db.Schedules.Where(a => a.PatientId == patientId).Where(a=>a.IsComplete==(ComplitionType)1);
+            foreach (var item in schedules)
             {
-                AppointmentsList.Add(item);
+                ScheduleList.Add(item);
             }
+
         }
 
         private void PatientsListBoxFillUp()
@@ -90,10 +95,9 @@ namespace ClinicAppUI.UserControls
         private void AppointmentsListBoxFillUp()
         {
             listBoxAppointments.Items.Clear();
-            AppointmentsList.OrderByDescending(item => item.Schedule.DateOfSchedule).ToList();
-            foreach (var item in AppointmentsList)
+            foreach (var item in ScheduleList)
             {
-                listBoxAppointments.Items.Add(item.Schedule.DateOfSchedule);
+                listBoxAppointments.Items.Add(item.DateOfSchedule.Date);
             }
         }
 
@@ -134,6 +138,11 @@ namespace ClinicAppUI.UserControls
             textBoxPhone.Text = tempPatient.PhoneNumber;
             textBoxEmail.Text = tempPatient.Email;
             richTextBoxMiscInfo.Text = tempPatient.MiscInformation;
+            UpdateAppointments();
+            //TODO:логика трех текстбоксов сложнее всей приложухи
+            //textBoxLastAppointment.Text = Db.Schedules.;
+            //textBoxAmountAppointments.Text = ;
+            //textBoxNextAppointment.Text = ;
 
         }
 
@@ -143,6 +152,7 @@ namespace ClinicAppUI.UserControls
             {
                 return;
             }
+
         }
 
         private void buttonAppointmentInfo_Click(object sender, EventArgs e)

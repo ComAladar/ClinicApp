@@ -70,9 +70,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsFormsCalendar">
-      <HintPath>..\ClinicAppBusinessLogic\CalendarData\WindowsFormsCalendar.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\AboutForm.cs">

@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBoxPersonalInfo = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.textBoxPatronymic = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
@@ -39,6 +42,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxContacts = new System.Windows.Forms.GroupBox();
+            this.comboBoxAccess = new System.Windows.Forms.ComboBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -49,6 +53,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBoxRank = new System.Windows.Forms.GroupBox();
+            this.dateTimePickerEmploymentDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxSpecialty = new System.Windows.Forms.TextBox();
             this.textBoxPosition = new System.Windows.Forms.TextBox();
             this.textBoxQualification = new System.Windows.Forms.TextBox();
@@ -58,11 +63,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.comboBoxSex = new System.Windows.Forms.ComboBox();
-            this.comboBoxAccess = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerEmploymentDate = new System.Windows.Forms.DateTimePicker();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxContacts.SuspendLayout();
             this.groupBoxRank.SuspendLayout();
@@ -90,6 +90,29 @@
             this.groupBoxPersonalInfo.TabIndex = 6;
             this.groupBoxPersonalInfo.TabStop = false;
             this.groupBoxPersonalInfo.Text = "Персональные Данные";
+            // 
+            // dateTimePickerRegistrationDate
+            // 
+            this.dateTimePickerRegistrationDate.Enabled = false;
+            this.dateTimePickerRegistrationDate.Location = new System.Drawing.Point(223, 85);
+            this.dateTimePickerRegistrationDate.Name = "dateTimePickerRegistrationDate";
+            this.dateTimePickerRegistrationDate.Size = new System.Drawing.Size(85, 20);
+            this.dateTimePickerRegistrationDate.TabIndex = 22;
+            // 
+            // dateTimePickerBirthDate
+            // 
+            this.dateTimePickerBirthDate.Location = new System.Drawing.Point(9, 85);
+            this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+            this.dateTimePickerBirthDate.Size = new System.Drawing.Size(85, 20);
+            this.dateTimePickerBirthDate.TabIndex = 21;
+            // 
+            // comboBoxSex
+            // 
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Location = new System.Drawing.Point(125, 84);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(85, 21);
+            this.comboBoxSex.TabIndex = 20;
             // 
             // textBoxPatronymic
             // 
@@ -185,6 +208,14 @@
             this.groupBoxContacts.TabStop = false;
             this.groupBoxContacts.Text = "Контакты и доступ";
             // 
+            // comboBoxAccess
+            // 
+            this.comboBoxAccess.FormattingEnabled = true;
+            this.comboBoxAccess.Location = new System.Drawing.Point(223, 35);
+            this.comboBoxAccess.Name = "comboBoxAccess";
+            this.comboBoxAccess.Size = new System.Drawing.Size(85, 21);
+            this.comboBoxAccess.TabIndex = 21;
+            // 
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(125, 85);
@@ -275,6 +306,13 @@
             this.groupBoxRank.TabStop = false;
             this.groupBoxRank.Text = "Специальность и должность";
             // 
+            // dateTimePickerEmploymentDate
+            // 
+            this.dateTimePickerEmploymentDate.Location = new System.Drawing.Point(223, 85);
+            this.dateTimePickerEmploymentDate.Name = "dateTimePickerEmploymentDate";
+            this.dateTimePickerEmploymentDate.Size = new System.Drawing.Size(100, 20);
+            this.dateTimePickerEmploymentDate.TabIndex = 19;
+            // 
             // textBoxSpecialty
             // 
             this.textBoxSpecialty.Location = new System.Drawing.Point(223, 35);
@@ -352,44 +390,6 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // comboBoxSex
-            // 
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Location = new System.Drawing.Point(125, 84);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(85, 21);
-            this.comboBoxSex.TabIndex = 20;
-            // 
-            // comboBoxAccess
-            // 
-            this.comboBoxAccess.FormattingEnabled = true;
-            this.comboBoxAccess.Location = new System.Drawing.Point(223, 35);
-            this.comboBoxAccess.Name = "comboBoxAccess";
-            this.comboBoxAccess.Size = new System.Drawing.Size(85, 21);
-            this.comboBoxAccess.TabIndex = 21;
-            // 
-            // dateTimePickerBirthDate
-            // 
-            this.dateTimePickerBirthDate.Location = new System.Drawing.Point(9, 85);
-            this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
-            this.dateTimePickerBirthDate.Size = new System.Drawing.Size(85, 20);
-            this.dateTimePickerBirthDate.TabIndex = 21;
-            // 
-            // dateTimePickerRegistrationDate
-            // 
-            this.dateTimePickerRegistrationDate.Enabled = false;
-            this.dateTimePickerRegistrationDate.Location = new System.Drawing.Point(223, 85);
-            this.dateTimePickerRegistrationDate.Name = "dateTimePickerRegistrationDate";
-            this.dateTimePickerRegistrationDate.Size = new System.Drawing.Size(85, 20);
-            this.dateTimePickerRegistrationDate.TabIndex = 22;
-            // 
-            // dateTimePickerEmploymentDate
-            // 
-            this.dateTimePickerEmploymentDate.Location = new System.Drawing.Point(223, 85);
-            this.dateTimePickerEmploymentDate.Name = "dateTimePickerEmploymentDate";
-            this.dateTimePickerEmploymentDate.Size = new System.Drawing.Size(100, 20);
-            this.dateTimePickerEmploymentDate.TabIndex = 19;
-            // 
             // AddEditStaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +402,7 @@
             this.Controls.Add(this.groupBoxPersonalInfo);
             this.Name = "AddEditStaffForm";
             this.Text = "AddEditStaffForm";
+            this.Load += new System.EventHandler(this.AddEditStaffForm_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);
             this.groupBoxPersonalInfo.PerformLayout();
             this.groupBoxContacts.ResumeLayout(false);

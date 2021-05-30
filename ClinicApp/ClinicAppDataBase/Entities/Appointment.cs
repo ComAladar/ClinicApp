@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Configuration;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace ClinicAppDataBase.Entities
         //
         //СВЯЗЬ PATIENT--->APPOINTMENT 1 К МНОГИМ
         public int? PatientId { get; set; }
-        public Patient Patients { get; set; }
+        public Patient Patient { get; set; }
         //
         //Связь STAFF--->APPOINTMENT 1 К МНОГИМ
         public int? StaffId { get; set; }
@@ -169,11 +170,6 @@ namespace ClinicAppDataBase.Entities
                 _medicinalTherapy = value;
             }
         }
-
-
-
-
-
 
     }
 }

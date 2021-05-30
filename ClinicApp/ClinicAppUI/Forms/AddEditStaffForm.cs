@@ -26,21 +26,6 @@ namespace ClinicAppUI.Forms
             set
             {
                 _staff = value;
-                textBoxSurname.Text = _staff.Surname;
-                textBoxName.Text = _staff.Name;
-                textBoxPatronymic.Text = _staff.Patronymic;
-                dateTimePickerBirthDate.Text = _staff.DateOfBirth.ToString();
-                comboBoxSex.SelectedIndex = (int)_staff.Sex;
-                dateTimePickerRegistrationDate.Text = _staff.DateOfRegistration.ToString();
-                textBoxPhone.Text = _staff.PhoneNumber;
-                textBoxEmail.Text = _staff.Email;
-                textBoxLogin.Text = _staff.Login;
-                textBoxPassword.Text = _staff.Password;
-                comboBoxAccess.SelectedIndex = (int) _staff.Access;
-                textBoxQualification.Text = _staff.Qualification;
-                textBoxSpecialty.Text = _staff.Speciality;
-                textBoxPosition.Text = _staff.Position;
-                dateTimePickerEmploymentDate.Text = _staff.DateOfEmployment.ToString();
             }
         }
 
@@ -87,6 +72,25 @@ namespace ClinicAppUI.Forms
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void AddEditStaffForm_Load(object sender, EventArgs e)
+        {
+            textBoxSurname.Text = _staff.Surname;
+            textBoxName.Text = _staff.Name;
+            textBoxPatronymic.Text = _staff.Patronymic;
+            dateTimePickerBirthDate.Text = _staff.DateOfBirth.ToString();
+            comboBoxSex.SelectedIndex = (int)_staff.Sex;
+            dateTimePickerRegistrationDate.Text = _staff.DateOfRegistration.ToString();
+            textBoxPhone.Text = _staff.PhoneNumber;
+            textBoxEmail.Text = _staff.Email;
+            textBoxLogin.Text = _staff.Login;
+            textBoxPassword.Text = _staff.Password;
+            comboBoxAccess.SelectedIndex = (int)_staff.Access;
+            textBoxQualification.Text = _staff.Qualification;
+            textBoxSpecialty.Text = _staff.Speciality;
+            textBoxPosition.Text = _staff.Position;
+            dateTimePickerEmploymentDate.Text = _staff.DateOfEmployment.ToString();
         }
     }
 }

@@ -27,20 +27,6 @@ namespace ClinicAppUI.Forms
             set
             {
                 _patient = value;
-                textBoxSurname.Text = _patient.Surname;
-                textBoxName.Text = _patient.Name;
-                textBoxPatronymic.Text = _patient.Patronymic;
-                dateTimePickerBirthDate.Text = _patient.DateOfBirth.ToString();
-                comboBoxSex.SelectedIndex = (int)_patient.Sex;
-                dateTimePickerRegistrationDate.Text = _patient.DateOfRegistration.ToString();
-                textBoxCity.Text = _patient.City;
-                textBoxStreet.Text = _patient.Street;
-                textBoxHouse.Text = _patient.House;
-                textBoxFlat.Text = _patient.Flat;
-                textBoxPorch.Text = _patient.Porch;
-                textBoxPhone.Text = _patient.PhoneNumber;
-                textBoxEmail.Text = _patient.Email;
-                richTextBoxMiscInfo.Text = _patient.MiscInformation;
             }
         }
 
@@ -83,6 +69,24 @@ namespace ClinicAppUI.Forms
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void AddEditPatientForm_Load(object sender, EventArgs e)
+        {
+            textBoxSurname.Text = _patient.Surname;
+            textBoxName.Text = _patient.Name;
+            textBoxPatronymic.Text = _patient.Patronymic;
+            dateTimePickerBirthDate.Text = _patient.DateOfBirth.ToString();
+            comboBoxSex.SelectedIndex = (int)_patient.Sex;
+            dateTimePickerRegistrationDate.Text = _patient.DateOfRegistration.ToString();
+            textBoxCity.Text = _patient.City;
+            textBoxStreet.Text = _patient.Street;
+            textBoxHouse.Text = _patient.House;
+            textBoxFlat.Text = _patient.Flat;
+            textBoxPorch.Text = _patient.Porch;
+            textBoxPhone.Text = _patient.PhoneNumber;
+            textBoxEmail.Text = _patient.Email;
+            richTextBoxMiscInfo.Text = _patient.MiscInformation;
         }
     }
 }

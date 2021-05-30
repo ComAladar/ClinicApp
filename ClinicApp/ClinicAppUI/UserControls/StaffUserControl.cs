@@ -19,7 +19,7 @@ namespace ClinicAppUI.UserControls
     public partial class StaffUserControl : UserControl
     {
         public Staff CurrentUser { get; set; }
-
+        //TODO:СДЕЛАТЬ ОТОБРАЖЕНИЕ ПРИЕМОВ
         private ClinicContext _db;
 
         public ClinicContext Db

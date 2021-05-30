@@ -35,9 +35,9 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxScheduleDate = new System.Windows.Forms.GroupBox();
-            this.labelDate = new System.Windows.Forms.Label();
-            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
+            this.labelDate = new System.Windows.Forms.Label();
             this.groupBoxScheduleDate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +81,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(80, 30);
             this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.Text = "ОК";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -109,23 +109,7 @@
             this.groupBoxScheduleDate.Size = new System.Drawing.Size(310, 136);
             this.groupBoxScheduleDate.TabIndex = 6;
             this.groupBoxScheduleDate.TabStop = false;
-            this.groupBoxScheduleDate.Text = "groupBox1";
-            // 
-            // labelDate
-            // 
-            this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(6, 94);
-            this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(74, 13);
-            this.labelDate.TabIndex = 5;
-            this.labelDate.Text = "Дата приема";
-            // 
-            // dateTimePickerDate
-            // 
-            this.dateTimePickerDate.Location = new System.Drawing.Point(6, 110);
-            this.dateTimePickerDate.Name = "dateTimePickerDate";
-            this.dateTimePickerDate.Size = new System.Drawing.Size(138, 20);
-            this.dateTimePickerDate.TabIndex = 6;
+            this.groupBoxScheduleDate.Text = "Расписание";
             // 
             // dateTimePickerTime
             // 
@@ -135,6 +119,22 @@
             this.dateTimePickerTime.ShowUpDown = true;
             this.dateTimePickerTime.Size = new System.Drawing.Size(95, 20);
             this.dateTimePickerTime.TabIndex = 7;
+            // 
+            // dateTimePickerDate
+            // 
+            this.dateTimePickerDate.Location = new System.Drawing.Point(6, 110);
+            this.dateTimePickerDate.Name = "dateTimePickerDate";
+            this.dateTimePickerDate.Size = new System.Drawing.Size(138, 20);
+            this.dateTimePickerDate.TabIndex = 6;
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.Location = new System.Drawing.Point(6, 94);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(74, 13);
+            this.labelDate.TabIndex = 5;
+            this.labelDate.Text = "Дата приема";
             // 
             // AddScheduleForm
             // 

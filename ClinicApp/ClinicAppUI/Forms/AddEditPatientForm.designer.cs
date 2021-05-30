@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxPersonalInfo = new System.Windows.Forms.GroupBox();
+            this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.dateTimePickerRegistrationDate = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.textBoxPatronymic = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.richTextBoxMiscInfo = new System.Windows.Forms.RichTextBox();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.comboBoxSex = new System.Windows.Forms.ComboBox();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxContacts.SuspendLayout();
             this.groupBoxMisc.SuspendLayout();
@@ -87,6 +87,14 @@
             this.groupBoxPersonalInfo.TabIndex = 5;
             this.groupBoxPersonalInfo.TabStop = false;
             this.groupBoxPersonalInfo.Text = "Персональные Данные";
+            // 
+            // comboBoxSex
+            // 
+            this.comboBoxSex.FormattingEnabled = true;
+            this.comboBoxSex.Location = new System.Drawing.Point(125, 84);
+            this.comboBoxSex.Name = "comboBoxSex";
+            this.comboBoxSex.Size = new System.Drawing.Size(85, 21);
+            this.comboBoxSex.TabIndex = 19;
             // 
             // dateTimePickerRegistrationDate
             // 
@@ -351,14 +359,6 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // comboBoxSex
-            // 
-            this.comboBoxSex.FormattingEnabled = true;
-            this.comboBoxSex.Location = new System.Drawing.Point(125, 84);
-            this.comboBoxSex.Name = "comboBoxSex";
-            this.comboBoxSex.Size = new System.Drawing.Size(85, 21);
-            this.comboBoxSex.TabIndex = 19;
-            // 
             // AddEditPatientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,6 +371,7 @@
             this.Controls.Add(this.groupBoxPersonalInfo);
             this.Name = "AddEditPatientForm";
             this.Text = "AddEditPatientForm";
+            this.Load += new System.EventHandler(this.AddEditPatientForm_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);
             this.groupBoxPersonalInfo.PerformLayout();
             this.groupBoxContacts.ResumeLayout(false);

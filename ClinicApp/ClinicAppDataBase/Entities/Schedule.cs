@@ -47,16 +47,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (value<DateTime.Now.Date)
-                {
-                    throw new ArgumentException(
-                        "Дата приема введена неверно.");
-                }
                 _dateOfSchedule = value;
             }
         }
 
-        public InUseType InUse { get; set; }
+        public ComplitionType IsComplete { get; set; }
 
 
     }

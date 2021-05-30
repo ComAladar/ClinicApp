@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBoxMonths = new System.Windows.Forms.GroupBox();
-            this.monthViewMain = new WindowsFormsCalendar.MonthView();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.groupBoxSchedule = new System.Windows.Forms.GroupBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.dataGridViewSchedule = new System.Windows.Forms.DataGridView();
-            this.DoctorColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PatientColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBoxMonths.SuspendLayout();
             this.groupBoxSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSchedule)).BeginInit();
@@ -43,53 +41,36 @@
             // 
             // groupBoxMonths
             // 
-            this.groupBoxMonths.Controls.Add(this.monthViewMain);
+            this.groupBoxMonths.Controls.Add(this.monthCalendar1);
             this.groupBoxMonths.Location = new System.Drawing.Point(3, 3);
             this.groupBoxMonths.Name = "groupBoxMonths";
-            this.groupBoxMonths.Size = new System.Drawing.Size(202, 318);
+            this.groupBoxMonths.Size = new System.Drawing.Size(185, 410);
             this.groupBoxMonths.TabIndex = 1;
             this.groupBoxMonths.TabStop = false;
             this.groupBoxMonths.Text = "Календарь";
             // 
-            // monthViewMain
+            // monthCalendar1
             // 
-            this.monthViewMain.ArrowsColor = System.Drawing.SystemColors.Window;
-            this.monthViewMain.ArrowsSelectedColor = System.Drawing.Color.Gold;
-            this.monthViewMain.DayBackgroundColor = System.Drawing.Color.Empty;
-            this.monthViewMain.DayGrayedText = System.Drawing.SystemColors.GrayText;
-            this.monthViewMain.DaySelectedBackgroundColor = System.Drawing.SystemColors.Highlight;
-            this.monthViewMain.DaySelectedColor = System.Drawing.SystemColors.WindowText;
-            this.monthViewMain.DaySelectedTextColor = System.Drawing.SystemColors.HighlightText;
-            this.monthViewMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.monthViewMain.FirstDayOfWeek = System.DayOfWeek.Monday;
-            this.monthViewMain.ItemPadding = new System.Windows.Forms.Padding(2);
-            this.monthViewMain.Location = new System.Drawing.Point(3, 16);
-            this.monthViewMain.MonthTitleColor = System.Drawing.SystemColors.ActiveCaption;
-            this.monthViewMain.MonthTitleColorInactive = System.Drawing.SystemColors.InactiveCaption;
-            this.monthViewMain.MonthTitleTextColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.monthViewMain.MonthTitleTextColorInactive = System.Drawing.SystemColors.InactiveCaptionText;
-            this.monthViewMain.Name = "monthViewMain";
-            this.monthViewMain.SelectionMode = WindowsFormsCalendar.MonthViewSelection.Day;
-            this.monthViewMain.Size = new System.Drawing.Size(196, 299);
-            this.monthViewMain.TabIndex = 1;
-            this.monthViewMain.Text = "monthView1";
-            this.monthViewMain.TodayBorderColor = System.Drawing.Color.Maroon;
-            this.monthViewMain.SelectionChanged += new System.EventHandler(this.monthViewMain_SelectionChanged);
+            this.monthCalendar1.Location = new System.Drawing.Point(9, 25);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 2;
+            this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
             // groupBoxSchedule
             // 
+            this.groupBoxSchedule.Controls.Add(this.buttonDelete);
             this.groupBoxSchedule.Controls.Add(this.buttonAdd);
             this.groupBoxSchedule.Controls.Add(this.dataGridViewSchedule);
-            this.groupBoxSchedule.Location = new System.Drawing.Point(208, 3);
+            this.groupBoxSchedule.Location = new System.Drawing.Point(194, 3);
             this.groupBoxSchedule.Name = "groupBoxSchedule";
-            this.groupBoxSchedule.Size = new System.Drawing.Size(599, 318);
+            this.groupBoxSchedule.Size = new System.Drawing.Size(613, 410);
             this.groupBoxSchedule.TabIndex = 2;
             this.groupBoxSchedule.TabStop = false;
             this.groupBoxSchedule.Text = "Расписание";
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(513, 282);
+            this.buttonAdd.Location = new System.Drawing.Point(441, 374);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(80, 30);
             this.buttonAdd.TabIndex = 1;
@@ -102,33 +83,21 @@
             this.dataGridViewSchedule.AllowUserToAddRows = false;
             this.dataGridViewSchedule.AllowUserToDeleteRows = false;
             this.dataGridViewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DoctorColumn,
-            this.PatientColumn,
-            this.DateColumn});
             this.dataGridViewSchedule.Location = new System.Drawing.Point(6, 19);
             this.dataGridViewSchedule.Name = "dataGridViewSchedule";
             this.dataGridViewSchedule.ReadOnly = true;
-            this.dataGridViewSchedule.Size = new System.Drawing.Size(587, 257);
+            this.dataGridViewSchedule.Size = new System.Drawing.Size(601, 349);
             this.dataGridViewSchedule.TabIndex = 0;
             // 
-            // DoctorColumn
+            // buttonDelete
             // 
-            this.DoctorColumn.HeaderText = "Доктор";
-            this.DoctorColumn.Name = "DoctorColumn";
-            this.DoctorColumn.ReadOnly = true;
-            // 
-            // PatientColumn
-            // 
-            this.PatientColumn.HeaderText = "Пациент";
-            this.PatientColumn.Name = "PatientColumn";
-            this.PatientColumn.ReadOnly = true;
-            // 
-            // DateColumn
-            // 
-            this.DateColumn.HeaderText = "Дата Прием";
-            this.DateColumn.Name = "DateColumn";
-            this.DateColumn.ReadOnly = true;
+            this.buttonDelete.Location = new System.Drawing.Point(527, 374);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(80, 30);
+            this.buttonDelete.TabIndex = 2;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // ScheduleUserControl
             // 
@@ -148,12 +117,10 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBoxMonths;
-        private WindowsFormsCalendar.MonthView monthViewMain;
         private System.Windows.Forms.GroupBox groupBoxSchedule;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.DataGridView dataGridViewSchedule;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DoctorColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateColumn;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

@@ -39,13 +39,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsFormsCalendar">
-      <HintPath>CalendarData\WindowsFormsCalendar.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations\AccessType.cs" />
     <Compile Include="Enumerations\AppointmentType.cs" />
+    <Compile Include="Enumerations\ComplitionType.cs" />
     <Compile Include="Enumerations\EnumerationHandler.cs" />
     <Compile Include="Enumerations\InUseType.cs" />
     <Compile Include="ExcelExporter.cs" />
@@ -53,8 +51,6 @@
     <Compile Include="Enumerations\SexType.cs" />
     <Compile Include="WordFillUp.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CalendarData\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
