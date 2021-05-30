@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 using ClinicAppDataBase.Repositories;
+using ClinicAppUI.Forms;
 
 namespace ClinicAppUI.UserControls
 {
@@ -35,6 +37,19 @@ namespace ClinicAppUI.UserControls
             textBoxRegistrationDate.Text = CurrentUser.DateOfRegistration.ToString();
         }
 
+        private void MessageBoardActivation()
+        {
+            Db.MessageBoards.Load();
+            dataGridViewMessages.DataSource = Db.MessageBoards.Local.ToBindingList();
+            dataGridViewMessages.Columns.Remove("Staff");
+            dataGridViewMessages.Columns.Remove("StaffId");
+            dataGridViewMessages.Columns.Remove("Id");
+            dataGridViewMessages.Columns[1].Width = 500;
+            dataGridViewMessages.Columns[0].HeaderText = "Тема";
+            dataGridViewMessages.Columns[1].HeaderText = "Сообщение";
+            dataGridViewMessages.Columns[2].HeaderText = "Дата";
+        }
+
         public HomeUserControl()
         {
             InitializeComponent();
@@ -53,6 +68,7 @@ namespace ClinicAppUI.UserControls
 
             LoginSuccess();
             if (ButtonLoginClick != null) ButtonLoginClick.Invoke(this, e);
+            MessageBoardActivation();
         }
 
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -64,9 +80,29 @@ namespace ClinicAppUI.UserControls
             else textBoxPassword.UseSystemPasswordChar = true;
         }
 
-        //public HomeUserControl(ClinicContext mainDb)
-        //{
-        //    Db = mainDb;
-        //}
+        private void buttonAddMessage_Click(object sender, EventArgs e)
+        {
+            AddMessageForm messageForm = new AddMessageForm();
+            messageForm.ShowDialog();
+            if (messageForm.DialogResult == DialogResult.OK)
+            {
+                try
+                {
+                    MessageBoard messageBoard = new MessageBoard();
+                    messageBoard.Name = messageForm.MessageName;
+                    messageBoard.Message = messageForm.MessageText;
+                    messageBoard.DateOfMessage = DateTime.Now;
+                    messageBoard.Staff = CurrentUser;
+                    Db.MessageBoards.Add(messageBoard);
+                    Db.SaveChanges();
+                }
+                catch(Exception exception)
+                {
+                    MessageBox.Show("Ошибка при создании сообщения! Заполните поля правильно.");
+                }
+
+            }
+        }
+
     }
 }

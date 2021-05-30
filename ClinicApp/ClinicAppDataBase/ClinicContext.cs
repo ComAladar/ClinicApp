@@ -22,5 +22,17 @@ namespace ClinicAppDataBase
         {
             Database.SetInitializer<ClinicContext>(new ClinicContextInitializer());
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Schedule>().HasIndex(s => new { s.DateOfSchedule }).IsUnique(true);
+
+        }
+
+        //protected void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Schedule>().HasIndex(s => new {s.DateOfSchedule}).IsUnique(true);
+        //}
     }
 }

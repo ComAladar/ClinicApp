@@ -70,6 +70,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsFormsCalendar">
+      <HintPath>..\ClinicAppBusinessLogic\CalendarData\WindowsFormsCalendar.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\AboutForm.cs">
@@ -89,6 +92,18 @@
     </Compile>
     <Compile Include="Forms\AddEditStaffForm.designer.cs">
       <DependentUpon>AddEditStaffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddMessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddMessageForm.Designer.cs">
+      <DependentUpon>AddMessageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddScheduleForm.Designer.cs">
+      <DependentUpon>AddScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddViewAppointmentForm.cs">
       <SubType>Form</SubType>
@@ -136,6 +151,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEditStaffForm.resx">
       <DependentUpon>AddEditStaffForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddMessageForm.resx">
+      <DependentUpon>AddMessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddScheduleForm.resx">
+      <DependentUpon>AddScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddViewAppointmentForm.resx">
       <DependentUpon>AddViewAppointmentForm.cs</DependentUpon>

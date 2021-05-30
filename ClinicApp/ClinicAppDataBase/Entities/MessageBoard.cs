@@ -31,19 +31,6 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
-        [Column(TypeName = "datetime2")]
-        public DateTime DateOfMessage
-        {
-            get
-            {
-                return _dateOfMessage;
-            }
-            set
-            {
-                _dateOfMessage = value;
-            }
-        }
-
         public string Name
         {
             get
@@ -75,6 +62,19 @@ namespace ClinicAppDataBase.Entities
                         "Поле заполнено неверно.");
                 }
                 _message = value;
+            }
+        }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime DateOfMessage
+        {
+            get
+            {
+                return _dateOfMessage;
+            }
+            set
+            {
+                _dateOfMessage = value;
             }
         }
 

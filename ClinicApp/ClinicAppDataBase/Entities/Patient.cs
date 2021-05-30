@@ -265,5 +265,6 @@ namespace ClinicAppDataBase.Entities
         }
 
         public InUseType InUse { get; set; }
+
     }
 }

@@ -55,17 +55,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBoxMessages = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Название = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Дата = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Автор = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Сообщение = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonAddMessage = new System.Windows.Forms.Button();
+            this.dataGridViewMessages = new System.Windows.Forms.DataGridView();
             this.groupBoxLogin.SuspendLayout();
             this.groupBoxUserInfo.SuspendLayout();
             this.groupBoxSchedule.SuspendLayout();
             this.groupBoxMessages.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMessages)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxLogin
@@ -323,8 +319,8 @@
             // 
             // groupBoxMessages
             // 
-            this.groupBoxMessages.Controls.Add(this.button4);
-            this.groupBoxMessages.Controls.Add(this.dataGridView1);
+            this.groupBoxMessages.Controls.Add(this.buttonAddMessage);
+            this.groupBoxMessages.Controls.Add(this.dataGridViewMessages);
             this.groupBoxMessages.Enabled = false;
             this.groupBoxMessages.Location = new System.Drawing.Point(246, 3);
             this.groupBoxMessages.Name = "groupBoxMessages";
@@ -333,48 +329,25 @@
             this.groupBoxMessages.TabStop = false;
             this.groupBoxMessages.Text = "Обьявления";
             // 
-            // button4
+            // buttonAddMessage
             // 
-            this.button4.Location = new System.Drawing.Point(511, 101);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(44, 23);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "Добав";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonAddMessage.Location = new System.Drawing.Point(511, 101);
+            this.buttonAddMessage.Name = "buttonAddMessage";
+            this.buttonAddMessage.Size = new System.Drawing.Size(44, 23);
+            this.buttonAddMessage.TabIndex = 0;
+            this.buttonAddMessage.Text = "Добав";
+            this.buttonAddMessage.UseVisualStyleBackColor = true;
+            this.buttonAddMessage.Click += new System.EventHandler(this.buttonAddMessage_Click);
             // 
-            // dataGridView1
+            // dataGridViewMessages
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Название,
-            this.Дата,
-            this.Автор,
-            this.Сообщение});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(499, 105);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // Название
-            // 
-            this.Название.HeaderText = "Название";
-            this.Название.Name = "Название";
-            // 
-            // Дата
-            // 
-            this.Дата.HeaderText = "Дата";
-            this.Дата.Name = "Дата";
-            // 
-            // Автор
-            // 
-            this.Автор.HeaderText = "Автор";
-            this.Автор.Name = "Автор";
-            // 
-            // Сообщение
-            // 
-            this.Сообщение.HeaderText = "Сообщение";
-            this.Сообщение.Name = "Сообщение";
-            this.Сообщение.Width = 150;
+            this.dataGridViewMessages.AllowUserToAddRows = false;
+            this.dataGridViewMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMessages.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewMessages.Name = "dataGridViewMessages";
+            this.dataGridViewMessages.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewMessages.Size = new System.Drawing.Size(499, 105);
+            this.dataGridViewMessages.TabIndex = 0;
             // 
             // HomeUserControl
             // 
@@ -394,7 +367,7 @@
             this.groupBoxSchedule.ResumeLayout(false);
             this.groupBoxSchedule.PerformLayout();
             this.groupBoxMessages.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMessages)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -425,12 +398,8 @@
         private System.Windows.Forms.TextBox textBoxQualification;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBoxMessages;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Название;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Дата;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Автор;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Сообщение;
+        private System.Windows.Forms.DataGridView dataGridViewMessages;
+        private System.Windows.Forms.Button buttonAddMessage;
         private System.Windows.Forms.CheckBox checkBoxShowPassword;
         private System.Windows.Forms.TextBox textBoxRegistrationDate;
     }

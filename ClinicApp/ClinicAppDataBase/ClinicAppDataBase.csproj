@@ -80,6 +80,14 @@
     <Compile Include="Migrations\202105281003033_InUseAddMigration.designer.cs">
       <DependentUpon>202105281003033_InUseAddMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105281505313_ChangesToMessageBoard.cs" />
+    <Compile Include="Migrations\202105281505313_ChangesToMessageBoard.designer.cs">
+      <DependentUpon>202105281505313_ChangesToMessageBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105300654547_ScheduleDateTimeUnique.cs" />
+    <Compile Include="Migrations\202105300654547_ScheduleDateTimeUnique.designer.cs">
+      <DependentUpon>202105300654547_ScheduleDateTimeUnique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Schedule.cs" />
@@ -115,6 +123,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105281003033_InUseAddMigration.resx">
       <DependentUpon>202105281003033_InUseAddMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105281505313_ChangesToMessageBoard.resx">
+      <DependentUpon>202105281505313_ChangesToMessageBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105300654547_ScheduleDateTimeUnique.resx">
+      <DependentUpon>202105300654547_ScheduleDateTimeUnique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

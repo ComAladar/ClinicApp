@@ -45,6 +45,8 @@ namespace ClinicAppUI.Forms
 
         private void SelectScheduleControl()
         {
+            scheduleControl.Db = Db;
+            scheduleControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["scheduleUserControl"].BringToFront();
         }
 
