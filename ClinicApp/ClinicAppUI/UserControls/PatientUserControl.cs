@@ -19,6 +19,8 @@ namespace ClinicAppUI.UserControls
 {
     public partial class PatientUserControl : UserControl
     {
+        //TODO:СДЕЛАТЬ ОГРАНИЧЕНИЯ ПО ACCESS ЮХЕРА
+        //TODO:СДЕЛАТЬ ЧТО КОНТРОЛЫ КЛЮЧАЮТСЯ И ВЫКЛЮЧАЮТСЯ В ЗАВИСИМОСТИ ОТ ПРАВ ЮЗЕРА
         public Staff CurrentUser { get; set; }
 
         private ClinicContext _db;
@@ -97,7 +99,10 @@ namespace ClinicAppUI.UserControls
             listBoxAppointments.Items.Clear();
             foreach (var item in ScheduleList)
             {
-                listBoxAppointments.Items.Add(item.DateOfSchedule.Date);
+                listBoxAppointments.Items.Add(item.DateOfSchedule.Date.ToLongDateString() + " " 
+                    + item.DateOfSchedule.TimeOfDay.Hours + ":" 
+                    + item.DateOfSchedule.TimeOfDay.Minutes + " => " 
+                    + item.Staff.Surname + " " + item.Staff.Name );
             }
         }
 
@@ -138,6 +143,7 @@ namespace ClinicAppUI.UserControls
             textBoxPhone.Text = tempPatient.PhoneNumber;
             textBoxEmail.Text = tempPatient.Email;
             richTextBoxMiscInfo.Text = tempPatient.MiscInformation;
+
             UpdateAppointments();
             //TODO:логика трех текстбоксов сложнее всей приложухи
             //textBoxLastAppointment.Text = Db.Schedules.;
@@ -157,7 +163,22 @@ namespace ClinicAppUI.UserControls
 
         private void buttonAppointmentInfo_Click(object sender, EventArgs e)
         {
-
+            if (listBoxAppointments.SelectedIndex == -1)
+            {
+                return;
+            }
+            AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
+            GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
+            appointmentForm.Appointment = appointmentRepo.GetById(ScheduleList[listBoxAppointments.SelectedIndex].Id);
+            GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
+            appointmentForm.appointmentSchedule = scheduleRepo.GetById(ScheduleList[listBoxAppointments.SelectedIndex].Id);
+            foreach (Control control in appointmentForm.Controls)
+            {
+                control.Enabled = false;
+            }
+            appointmentForm.Controls["buttonCancel"].Enabled = true;
+            appointmentForm.Controls["buttonSeeTemplate"].Enabled = true;
+            appointmentForm.Show();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)

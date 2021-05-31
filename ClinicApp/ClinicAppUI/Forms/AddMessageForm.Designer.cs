@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBoxMessage = new System.Windows.Forms.GroupBox();
-            this.textBoxName = new System.Windows.Forms.TextBox();
-            this.labelName = new System.Windows.Forms.Label();
-            this.labelText = new System.Windows.Forms.Label();
-            this.richTextBoxMessage = new System.Windows.Forms.RichTextBox();
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.richTextBoxMessage = new System.Windows.Forms.RichTextBox();
+            this.labelText = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.groupBoxMessage.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,38 +53,15 @@
             this.groupBoxMessage.TabStop = false;
             this.groupBoxMessage.Text = "Сообщение";
             // 
-            // textBoxName
+            // buttonCancel
             // 
-            this.textBoxName.Location = new System.Drawing.Point(6, 35);
-            this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(298, 20);
-            this.textBoxName.TabIndex = 0;
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(6, 19);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(57, 13);
-            this.labelName.TabIndex = 2;
-            this.labelName.Text = "Название";
-            // 
-            // labelText
-            // 
-            this.labelText.AutoSize = true;
-            this.labelText.Location = new System.Drawing.Point(6, 69);
-            this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(65, 13);
-            this.labelText.TabIndex = 3;
-            this.labelText.Text = "Сообщение";
-            // 
-            // richTextBoxMessage
-            // 
-            this.richTextBoxMessage.Location = new System.Drawing.Point(6, 85);
-            this.richTextBoxMessage.Name = "richTextBoxMessage";
-            this.richTextBoxMessage.Size = new System.Drawing.Size(298, 61);
-            this.richTextBoxMessage.TabIndex = 4;
-            this.richTextBoxMessage.Text = "";
+            this.buttonCancel.Location = new System.Drawing.Point(224, 201);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(80, 30);
+            this.buttonCancel.TabIndex = 6;
+            this.buttonCancel.Text = "Отменить";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonAdd
             // 
@@ -96,15 +73,38 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // buttonCancel
+            // richTextBoxMessage
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(224, 201);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(80, 30);
-            this.buttonCancel.TabIndex = 6;
-            this.buttonCancel.Text = "Отменить";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.richTextBoxMessage.Location = new System.Drawing.Point(6, 85);
+            this.richTextBoxMessage.Name = "richTextBoxMessage";
+            this.richTextBoxMessage.Size = new System.Drawing.Size(298, 61);
+            this.richTextBoxMessage.TabIndex = 4;
+            this.richTextBoxMessage.Text = "";
+            // 
+            // labelText
+            // 
+            this.labelText.AutoSize = true;
+            this.labelText.Location = new System.Drawing.Point(6, 69);
+            this.labelText.Name = "labelText";
+            this.labelText.Size = new System.Drawing.Size(65, 13);
+            this.labelText.TabIndex = 3;
+            this.labelText.Text = "Сообщение";
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Location = new System.Drawing.Point(6, 19);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(57, 13);
+            this.labelName.TabIndex = 2;
+            this.labelName.Text = "Название";
+            // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(6, 35);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(298, 20);
+            this.textBoxName.TabIndex = 0;
             // 
             // AddMessageForm
             // 
@@ -113,7 +113,7 @@
             this.ClientSize = new System.Drawing.Size(334, 261);
             this.Controls.Add(this.groupBoxMessage);
             this.Name = "AddMessageForm";
-            this.Text = "AddMessageForm";
+            this.Text = "Новое сообщение";
             this.groupBoxMessage.ResumeLayout(false);
             this.groupBoxMessage.PerformLayout();
             this.ResumeLayout(false);

@@ -364,7 +364,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddViewAppointmentForm";
-            this.Text = "AddViewAppointmentForm";
+            this.Text = "Данные приема";
             this.Load += new System.EventHandler(this.AddViewAppointmentForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

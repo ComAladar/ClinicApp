@@ -33,10 +33,38 @@ namespace ClinicAppUI.Forms
             textBoxPatient.Text = appointmentSchedule.Patient.Surname + " " + appointmentSchedule.Patient.Name;
             textBoxId.Text = appointmentSchedule.Id.ToString();
             textBoxDate.Text = appointmentSchedule.DateOfSchedule.ToString();
+            try
+            {
+                richTextBoxComplains.Text = Appointment.Complains;
+                richTextBoxAnamnesis.Text = Appointment.Anamnesis;
+                richTextBoxCondition.Text = Appointment.Condition;
+                richTextBoxDiagnosis.Text = Appointment.Diagnosis;
+                richTextBoxRecommendations.Text = Appointment.Recommendations;
+                richTextBoxMedicinalTherapy.Text = Appointment.MedicinalTherapy;
+                comboBoxAppointmentType.Text = Appointment.AppointmentType.ToString();
+                textBoxICD.Text = Appointment.ICDCode;
+
+            }
+            catch (Exception exception)
+            {
+
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            //Appointment.Id = appointmentSchedule.Id;
+            //Appointment.PatientId = appointmentSchedule.PatientId;
+            //Appointment.StaffId = appointmentSchedule.StaffId;
+            //Appointment.Complains = richTextBoxComplains.Text;
+            //Appointment.Anamnesis = richTextBoxAnamnesis.Text;
+            //Appointment.Condition = richTextBoxCondition.Text;
+            //Appointment.Diagnosis = richTextBoxDiagnosis.Text;
+            //Appointment.ICDCode = textBoxICD.Text;
+            //Appointment.Recommendations = richTextBoxRecommendations.Text;
+            //Appointment.MedicinalTherapy = richTextBoxMedicinalTherapy.Text;
+            //Appointment.AppointmentType = (AppointmentType)comboBoxAppointmentType.SelectedIndex;
+            ////Appointment.Schedule.IsComplete = (ComplitionType)1;
             try
             {
                 Appointment.Id = appointmentSchedule.Id;
@@ -50,7 +78,7 @@ namespace ClinicAppUI.Forms
                 Appointment.Recommendations = richTextBoxRecommendations.Text;
                 Appointment.MedicinalTherapy = richTextBoxMedicinalTherapy.Text;
                 Appointment.AppointmentType = (AppointmentType)comboBoxAppointmentType.SelectedIndex;
-                Appointment.Schedule.IsComplete = (ComplitionType)1;
+                //Appointment.Schedule.IsComplete = (ComplitionType)1;
             }
             catch (Exception exception)
             {

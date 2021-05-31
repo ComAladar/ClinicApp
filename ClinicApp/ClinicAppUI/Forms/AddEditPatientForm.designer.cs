@@ -370,7 +370,7 @@
             this.Controls.Add(this.groupBoxContacts);
             this.Controls.Add(this.groupBoxPersonalInfo);
             this.Name = "AddEditPatientForm";
-            this.Text = "AddEditPatientForm";
+            this.Text = "Данные пациента";
             this.Load += new System.EventHandler(this.AddEditPatientForm_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);
             this.groupBoxPersonalInfo.PerformLayout();

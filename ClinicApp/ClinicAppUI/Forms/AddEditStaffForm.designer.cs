@@ -401,7 +401,7 @@
             this.Controls.Add(this.groupBoxContacts);
             this.Controls.Add(this.groupBoxPersonalInfo);
             this.Name = "AddEditStaffForm";
-            this.Text = "AddEditStaffForm";
+            this.Text = "Данные персонала";
             this.Load += new System.EventHandler(this.AddEditStaffForm_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);
             this.groupBoxPersonalInfo.PerformLayout();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 using ClinicAppDataBase.Repositories;
@@ -139,23 +140,53 @@ namespace ClinicAppUI.UserControls
 
         private void buttonAddAppointment_Click(object sender, EventArgs e)
         {
+            if (listBoxAppointments.SelectedIndex == -1)
+            {
+                return;
+            }
             Db.Staffs.Load();
             Db.Patients.Load();
             Db.Schedules.Load();
             var appointmentTime = ScheduleList[listBoxAppointments.SelectedIndex].DateOfSchedule;
-            var appointmentPatientId = ScheduleList[listBoxAppointments.SelectedIndex].PatientId; ;
+            var appointmentPatientId = ScheduleList[listBoxAppointments.SelectedIndex].PatientId;
             AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
             appointmentForm.appointmentSchedule = Db.Schedules.FirstOrDefault(a =>
                 DbFunctions.TruncateTime(a.DateOfSchedule) == DbFunctions.TruncateTime(appointmentTime)
-                && a.StaffId == CurrentUser.Id && a.PatientId == appointmentPatientId);
+                && a.StaffId == CurrentUser.Id && a.PatientId == appointmentPatientId 
+                && a.IsComplete==0 
+                && a.Appointment.Id != a.Id 
+                && a.DateOfSchedule == appointmentTime);
             appointmentForm.ShowDialog();
             if (appointmentForm.DialogResult == DialogResult.OK)
             {
                 var tempAppointment = appointmentForm.Appointment;
+                var tempSchedule=Db.Schedules.FirstOrDefault(a => a.Id == tempAppointment.Id);
+                tempSchedule.IsComplete = (ComplitionType)1;
+                GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
+                scheduleRepo.Modify(tempSchedule);
                 GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
                 appointmentRepo.Add(tempAppointment);
                 AppointmentsActivation();
             }
+        }
+
+        private void buttonPatientData_Click(object sender, EventArgs e)
+        {
+            if (listBoxAppointments.SelectedIndex == -1)
+            {
+                return;
+            }
+            AddEditPatientForm patientForm = new AddEditPatientForm();
+            Db.Patients.Load();
+            var tempSchedule= ScheduleList[listBoxAppointments.SelectedIndex];
+            patientForm.Patient = Db.Patients.FirstOrDefault(p => p.Id == tempSchedule.PatientId);
+            foreach (Control control in patientForm.Controls)
+            {
+                control.Enabled = false;
+            }
+
+            patientForm.Controls["buttonCancel"].Enabled = true;
+            patientForm.Show();
         }
     }
 }

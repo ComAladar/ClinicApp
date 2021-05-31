@@ -32,6 +32,9 @@
             this.buttonEdit = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.groupBoxPersonalInfo = new System.Windows.Forms.GroupBox();
+            this.textBoxRegistrationDate = new System.Windows.Forms.TextBox();
+            this.textBoxBirthDate = new System.Windows.Forms.TextBox();
+            this.textBoxSex = new System.Windows.Forms.TextBox();
             this.textBoxPatronymic = new System.Windows.Forms.TextBox();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxSurname = new System.Windows.Forms.TextBox();
@@ -41,15 +44,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
-            this.textBoxAmountAppointments = new System.Windows.Forms.TextBox();
-            this.textBoxNextAppointment = new System.Windows.Forms.TextBox();
-            this.textBoxLastAppointment = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.buttonAppointmentInfo = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.listBoxAppointments = new System.Windows.Forms.ListBox();
             this.groupBoxContacts = new System.Windows.Forms.GroupBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
@@ -70,13 +64,13 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.textBoxSex = new System.Windows.Forms.TextBox();
-            this.textBoxBirthDate = new System.Windows.Forms.TextBox();
-            this.textBoxRegistrationDate = new System.Windows.Forms.TextBox();
+            this.listBoxAppointments = new System.Windows.Forms.ListBox();
+            this.buttonAppointmentInfo = new System.Windows.Forms.Button();
+            this.groupBoxAppointments = new System.Windows.Forms.GroupBox();
             this.groupBoxPersonalInfo.SuspendLayout();
-            this.groupBoxAppointments.SuspendLayout();
             this.groupBoxContacts.SuspendLayout();
             this.groupBoxMisc.SuspendLayout();
+            this.groupBoxAppointments.SuspendLayout();
             this.SuspendLayout();
             // 
             // listBoxPatients
@@ -130,6 +124,30 @@
             this.groupBoxPersonalInfo.TabIndex = 4;
             this.groupBoxPersonalInfo.TabStop = false;
             this.groupBoxPersonalInfo.Text = "Персональные Данные";
+            // 
+            // textBoxRegistrationDate
+            // 
+            this.textBoxRegistrationDate.Location = new System.Drawing.Point(223, 85);
+            this.textBoxRegistrationDate.Name = "textBoxRegistrationDate";
+            this.textBoxRegistrationDate.ReadOnly = true;
+            this.textBoxRegistrationDate.Size = new System.Drawing.Size(84, 20);
+            this.textBoxRegistrationDate.TabIndex = 18;
+            // 
+            // textBoxBirthDate
+            // 
+            this.textBoxBirthDate.Location = new System.Drawing.Point(9, 85);
+            this.textBoxBirthDate.Name = "textBoxBirthDate";
+            this.textBoxBirthDate.ReadOnly = true;
+            this.textBoxBirthDate.Size = new System.Drawing.Size(84, 20);
+            this.textBoxBirthDate.TabIndex = 17;
+            // 
+            // textBoxSex
+            // 
+            this.textBoxSex.Location = new System.Drawing.Point(125, 85);
+            this.textBoxSex.Name = "textBoxSex";
+            this.textBoxSex.ReadOnly = true;
+            this.textBoxSex.Size = new System.Drawing.Size(84, 20);
+            this.textBoxSex.TabIndex = 17;
             // 
             // textBoxPatronymic
             // 
@@ -208,93 +226,6 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Фамилия";
-            // 
-            // groupBoxAppointments
-            // 
-            this.groupBoxAppointments.Controls.Add(this.textBoxAmountAppointments);
-            this.groupBoxAppointments.Controls.Add(this.textBoxNextAppointment);
-            this.groupBoxAppointments.Controls.Add(this.textBoxLastAppointment);
-            this.groupBoxAppointments.Controls.Add(this.label18);
-            this.groupBoxAppointments.Controls.Add(this.buttonAppointmentInfo);
-            this.groupBoxAppointments.Controls.Add(this.label8);
-            this.groupBoxAppointments.Controls.Add(this.label5);
-            this.groupBoxAppointments.Controls.Add(this.listBoxAppointments);
-            this.groupBoxAppointments.Location = new System.Drawing.Point(480, 3);
-            this.groupBoxAppointments.Name = "groupBoxAppointments";
-            this.groupBoxAppointments.Size = new System.Drawing.Size(325, 279);
-            this.groupBoxAppointments.TabIndex = 5;
-            this.groupBoxAppointments.TabStop = false;
-            this.groupBoxAppointments.Text = "Приемы";
-            // 
-            // textBoxAmountAppointments
-            // 
-            this.textBoxAmountAppointments.Location = new System.Drawing.Point(152, 135);
-            this.textBoxAmountAppointments.Name = "textBoxAmountAppointments";
-            this.textBoxAmountAppointments.ReadOnly = true;
-            this.textBoxAmountAppointments.Size = new System.Drawing.Size(84, 20);
-            this.textBoxAmountAppointments.TabIndex = 11;
-            // 
-            // textBoxNextAppointment
-            // 
-            this.textBoxNextAppointment.Location = new System.Drawing.Point(152, 85);
-            this.textBoxNextAppointment.Name = "textBoxNextAppointment";
-            this.textBoxNextAppointment.ReadOnly = true;
-            this.textBoxNextAppointment.Size = new System.Drawing.Size(84, 20);
-            this.textBoxNextAppointment.TabIndex = 10;
-            // 
-            // textBoxLastAppointment
-            // 
-            this.textBoxLastAppointment.Location = new System.Drawing.Point(152, 36);
-            this.textBoxLastAppointment.Name = "textBoxLastAppointment";
-            this.textBoxLastAppointment.ReadOnly = true;
-            this.textBoxLastAppointment.Size = new System.Drawing.Size(84, 20);
-            this.textBoxLastAppointment.TabIndex = 9;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(152, 69);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(98, 13);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "Следующий визит";
-            // 
-            // buttonAppointmentInfo
-            // 
-            this.buttonAppointmentInfo.Location = new System.Drawing.Point(152, 247);
-            this.buttonAppointmentInfo.Name = "buttonAppointmentInfo";
-            this.buttonAppointmentInfo.Size = new System.Drawing.Size(95, 23);
-            this.buttonAppointmentInfo.TabIndex = 5;
-            this.buttonAppointmentInfo.Text = "Посмотреть выбранный визит";
-            this.buttonAppointmentInfo.UseVisualStyleBackColor = true;
-            this.buttonAppointmentInfo.Click += new System.EventHandler(this.buttonAppointmentInfo_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(149, 19);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(133, 13);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Дата последнего визита";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(152, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Количество визитов";
-            // 
-            // listBoxAppointments
-            // 
-            this.listBoxAppointments.FormattingEnabled = true;
-            this.listBoxAppointments.Location = new System.Drawing.Point(6, 19);
-            this.listBoxAppointments.Name = "listBoxAppointments";
-            this.listBoxAppointments.Size = new System.Drawing.Size(140, 251);
-            this.listBoxAppointments.TabIndex = 0;
-            this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
             // 
             // groupBoxContacts
             // 
@@ -484,29 +415,35 @@
             this.textBoxSearch.TabIndex = 20;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
-            // textBoxSex
+            // listBoxAppointments
             // 
-            this.textBoxSex.Location = new System.Drawing.Point(125, 85);
-            this.textBoxSex.Name = "textBoxSex";
-            this.textBoxSex.ReadOnly = true;
-            this.textBoxSex.Size = new System.Drawing.Size(84, 20);
-            this.textBoxSex.TabIndex = 17;
+            this.listBoxAppointments.FormattingEnabled = true;
+            this.listBoxAppointments.Location = new System.Drawing.Point(6, 19);
+            this.listBoxAppointments.Name = "listBoxAppointments";
+            this.listBoxAppointments.Size = new System.Drawing.Size(313, 225);
+            this.listBoxAppointments.TabIndex = 0;
+            this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
             // 
-            // textBoxBirthDate
+            // buttonAppointmentInfo
             // 
-            this.textBoxBirthDate.Location = new System.Drawing.Point(9, 85);
-            this.textBoxBirthDate.Name = "textBoxBirthDate";
-            this.textBoxBirthDate.ReadOnly = true;
-            this.textBoxBirthDate.Size = new System.Drawing.Size(84, 20);
-            this.textBoxBirthDate.TabIndex = 17;
+            this.buttonAppointmentInfo.Location = new System.Drawing.Point(224, 245);
+            this.buttonAppointmentInfo.Name = "buttonAppointmentInfo";
+            this.buttonAppointmentInfo.Size = new System.Drawing.Size(95, 23);
+            this.buttonAppointmentInfo.TabIndex = 5;
+            this.buttonAppointmentInfo.Text = "Посмотреть выбранный визит";
+            this.buttonAppointmentInfo.UseVisualStyleBackColor = true;
+            this.buttonAppointmentInfo.Click += new System.EventHandler(this.buttonAppointmentInfo_Click);
             // 
-            // textBoxRegistrationDate
+            // groupBoxAppointments
             // 
-            this.textBoxRegistrationDate.Location = new System.Drawing.Point(223, 85);
-            this.textBoxRegistrationDate.Name = "textBoxRegistrationDate";
-            this.textBoxRegistrationDate.ReadOnly = true;
-            this.textBoxRegistrationDate.Size = new System.Drawing.Size(84, 20);
-            this.textBoxRegistrationDate.TabIndex = 18;
+            this.groupBoxAppointments.Controls.Add(this.buttonAppointmentInfo);
+            this.groupBoxAppointments.Controls.Add(this.listBoxAppointments);
+            this.groupBoxAppointments.Location = new System.Drawing.Point(480, 3);
+            this.groupBoxAppointments.Name = "groupBoxAppointments";
+            this.groupBoxAppointments.Size = new System.Drawing.Size(325, 279);
+            this.groupBoxAppointments.TabIndex = 5;
+            this.groupBoxAppointments.TabStop = false;
+            this.groupBoxAppointments.Text = "Приемы";
             // 
             // PatientUserControl
             // 
@@ -526,11 +463,10 @@
             this.Size = new System.Drawing.Size(810, 416);
             this.groupBoxPersonalInfo.ResumeLayout(false);
             this.groupBoxPersonalInfo.PerformLayout();
-            this.groupBoxAppointments.ResumeLayout(false);
-            this.groupBoxAppointments.PerformLayout();
             this.groupBoxContacts.ResumeLayout(false);
             this.groupBoxContacts.PerformLayout();
             this.groupBoxMisc.ResumeLayout(false);
+            this.groupBoxAppointments.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,7 +477,6 @@
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.GroupBox groupBoxPersonalInfo;
-        private System.Windows.Forms.GroupBox groupBoxAppointments;
         private System.Windows.Forms.GroupBox groupBoxContacts;
         private System.Windows.Forms.GroupBox groupBoxMisc;
         private System.Windows.Forms.Button buttonAdd;
@@ -550,11 +485,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonAppointmentInfo;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox listBoxAppointments;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label17;
@@ -562,7 +493,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.RichTextBox richTextBoxMiscInfo;
         private System.Windows.Forms.TextBox textBoxPatronymic;
         private System.Windows.Forms.TextBox textBoxName;
@@ -574,13 +504,13 @@
         private System.Windows.Forms.TextBox textBoxHouse;
         private System.Windows.Forms.TextBox textBoxStreet;
         private System.Windows.Forms.TextBox textBoxCity;
-        private System.Windows.Forms.TextBox textBoxAmountAppointments;
-        private System.Windows.Forms.TextBox textBoxNextAppointment;
-        private System.Windows.Forms.TextBox textBoxLastAppointment;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.TextBox textBoxRegistrationDate;
         private System.Windows.Forms.TextBox textBoxBirthDate;
         private System.Windows.Forms.TextBox textBoxSex;
+        private System.Windows.Forms.ListBox listBoxAppointments;
+        private System.Windows.Forms.Button buttonAppointmentInfo;
+        private System.Windows.Forms.GroupBox groupBoxAppointments;
     }
 }

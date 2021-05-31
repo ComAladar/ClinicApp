@@ -145,7 +145,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
             this.Name = "AddScheduleForm";
-            this.Text = "AddSchedule";
+            this.Text = "Новая запись";
             this.groupBoxScheduleDate.ResumeLayout(false);
             this.groupBoxScheduleDate.PerformLayout();
             this.ResumeLayout(false);

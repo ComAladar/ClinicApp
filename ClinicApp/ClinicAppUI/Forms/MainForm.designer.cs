@@ -204,7 +204,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripMain);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.Text = "ClinicApp";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.menuStripMain.ResumeLayout(false);

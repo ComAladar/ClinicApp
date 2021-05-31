@@ -132,10 +132,10 @@
             this.linkLabelIcons.AutoSize = true;
             this.linkLabelIcons.Location = new System.Drawing.Point(135, 186);
             this.linkLabelIcons.Name = "linkLabelIcons";
-            this.linkLabelIcons.Size = new System.Drawing.Size(55, 13);
+            this.linkLabelIcons.Size = new System.Drawing.Size(50, 13);
             this.linkLabelIcons.TabIndex = 14;
             this.linkLabelIcons.TabStop = true;
-            this.linkLabelIcons.Text = "linkLabel3";
+            this.linkLabelIcons.Text = "icons8.ru";
             this.linkLabelIcons.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelIcons_LinkClicked);
             // 
             // AboutForm

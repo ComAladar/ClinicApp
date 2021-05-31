@@ -48,9 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxTemplates = new System.Windows.Forms.GroupBox();
             this.groupBoxSchedule = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.listBoxNextAppointments = new System.Windows.Forms.ListBox();
+            this.buttonPatientData = new System.Windows.Forms.Button();
             this.buttonAddAppointment = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.listBoxAppointments = new System.Windows.Forms.ListBox();
@@ -106,7 +104,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 2;
-            this.textBoxPassword.Text = "admin";
+            this.textBoxPassword.Text = "bagrpassmy";
             // 
             // labelPassword
             // 
@@ -123,7 +121,7 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(100, 20);
             this.textBoxLogin.TabIndex = 4;
-            this.textBoxLogin.Text = "admin";
+            this.textBoxLogin.Text = "bargovacc";
             // 
             // labelLogin
             // 
@@ -251,9 +249,7 @@
             // 
             // groupBoxSchedule
             // 
-            this.groupBoxSchedule.Controls.Add(this.button3);
-            this.groupBoxSchedule.Controls.Add(this.label7);
-            this.groupBoxSchedule.Controls.Add(this.listBoxNextAppointments);
+            this.groupBoxSchedule.Controls.Add(this.buttonPatientData);
             this.groupBoxSchedule.Controls.Add(this.buttonAddAppointment);
             this.groupBoxSchedule.Controls.Add(this.label6);
             this.groupBoxSchedule.Controls.Add(this.listBoxAppointments);
@@ -265,35 +261,19 @@
             this.groupBoxSchedule.TabStop = false;
             this.groupBoxSchedule.Text = "Расписание";
             // 
-            // button3
+            // buttonPatientData
             // 
-            this.button3.Location = new System.Drawing.Point(132, 245);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(119, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Данные пациента";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(129, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Последующие приемы";
-            // 
-            // listBoxNextAppointments
-            // 
-            this.listBoxNextAppointments.FormattingEnabled = true;
-            this.listBoxNextAppointments.Location = new System.Drawing.Point(132, 35);
-            this.listBoxNextAppointments.Name = "listBoxNextAppointments";
-            this.listBoxNextAppointments.Size = new System.Drawing.Size(120, 199);
-            this.listBoxNextAppointments.TabIndex = 3;
+            this.buttonPatientData.Location = new System.Drawing.Point(79, 240);
+            this.buttonPatientData.Name = "buttonPatientData";
+            this.buttonPatientData.Size = new System.Drawing.Size(119, 23);
+            this.buttonPatientData.TabIndex = 5;
+            this.buttonPatientData.Text = "Данные пациента";
+            this.buttonPatientData.UseVisualStyleBackColor = true;
+            this.buttonPatientData.Click += new System.EventHandler(this.buttonPatientData_Click);
             // 
             // buttonAddAppointment
             // 
-            this.buttonAddAppointment.Location = new System.Drawing.Point(6, 245);
+            this.buttonAddAppointment.Location = new System.Drawing.Point(204, 240);
             this.buttonAddAppointment.Name = "buttonAddAppointment";
             this.buttonAddAppointment.Size = new System.Drawing.Size(120, 23);
             this.buttonAddAppointment.TabIndex = 2;
@@ -315,7 +295,7 @@
             this.listBoxAppointments.FormattingEnabled = true;
             this.listBoxAppointments.Location = new System.Drawing.Point(6, 35);
             this.listBoxAppointments.Name = "listBoxAppointments";
-            this.listBoxAppointments.Size = new System.Drawing.Size(120, 199);
+            this.listBoxAppointments.Size = new System.Drawing.Size(318, 199);
             this.listBoxAppointments.TabIndex = 0;
             this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
             // 
@@ -394,12 +374,10 @@
         private System.Windows.Forms.Button buttonAddAppointment;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listBoxAppointments;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ListBox listBoxNextAppointments;
         private System.Windows.Forms.TextBox textBoxSpecialty;
         private System.Windows.Forms.TextBox textBoxPosition;
         private System.Windows.Forms.TextBox textBoxQualification;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonPatientData;
         private System.Windows.Forms.GroupBox groupBoxMessages;
         private System.Windows.Forms.DataGridView dataGridViewMessages;
         private System.Windows.Forms.Button buttonAddMessage;

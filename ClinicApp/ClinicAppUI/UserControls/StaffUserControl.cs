@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
@@ -32,12 +34,11 @@ namespace ClinicAppUI.UserControls
             {
                 _db = value;
                 UpdateStaff();
-                UpdateAppointments();
             }
         }
 
         public List<Staff> StaffList { get; set; } = new List<Staff>();
-        public List<Appointment> AppointmentsList { get; set; } = new List<Appointment>();
+        public List<Schedule> ScheduleList { get; set; } = new List<Schedule>();
         public EnumerationHandler EnumHandler = new EnumerationHandler();
 
         private void UpdateStaff()
@@ -65,12 +66,16 @@ namespace ClinicAppUI.UserControls
 
         private void GetAppointments()
         {
-            AppointmentsList.Clear();
-            GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
-            IEnumerable<Appointment> appointments = appointmentRepo.GetList();
-            foreach (var item in appointments)
+            ScheduleList.Clear();
+            Db.Schedules.Load();
+            Db.Staffs.Load();
+            Db.Patients.Load();
+            var staffId = StaffList[listBoxStaff.SelectedIndex].Id;
+
+            var schedules = Db.Schedules.Where(a => a.StaffId == staffId).Where(a => a.IsComplete == (ComplitionType)1);
+            foreach (var item in schedules)
             {
-                AppointmentsList.Add(item);
+                ScheduleList.Add(item);
             }
         }
 
@@ -89,10 +94,12 @@ namespace ClinicAppUI.UserControls
         private void AppointmentsListBoxFillUp()
         {
             listBoxAppointments.Items.Clear();
-            AppointmentsList.OrderByDescending(item => item.Schedule.DateOfSchedule).ToList();
-            foreach (var item in AppointmentsList)
+            foreach (var item in ScheduleList)
             {
-                listBoxAppointments.Items.Add(item.Schedule.DateOfSchedule);
+                listBoxAppointments.Items.Add(item.DateOfSchedule.Date.ToLongDateString() + " "
+                    + item.DateOfSchedule.TimeOfDay.Hours + ":"
+                    + item.DateOfSchedule.TimeOfDay.Minutes + " => "
+                    + item.Patient.Surname + " " + item.Patient.Name);
             }
         }
 
@@ -132,6 +139,10 @@ namespace ClinicAppUI.UserControls
             textBoxSpecialty.Text = tempStaff.Speciality;
             textBoxPosition.Text = tempStaff.Position;
             textBoxEmploymentDate.Text = tempStaff.DateOfEmployment.ToString();
+
+            UpdateAppointments();
+            //textBoxTodayAppointments.Text = ;
+            //textBoxAllAppointments.Text = ;
         }
 
         private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,7 +155,22 @@ namespace ClinicAppUI.UserControls
 
         private void buttonAppointmentInfo_Click(object sender, EventArgs e)
         {
-
+            if (listBoxAppointments.SelectedIndex == -1)
+            {
+                return;
+            }
+            AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
+            GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
+            appointmentForm.Appointment = appointmentRepo.GetById(ScheduleList[listBoxAppointments.SelectedIndex].Id);
+            GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
+            appointmentForm.appointmentSchedule = scheduleRepo.GetById(ScheduleList[listBoxAppointments.SelectedIndex].Id);
+            foreach (Control control in appointmentForm.Controls)
+            {
+                control.Enabled = false;
+            }
+            appointmentForm.Controls["buttonCancel"].Enabled = true;
+            appointmentForm.Controls["buttonSeeTemplate"].Enabled = true;
+            appointmentForm.Show();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
