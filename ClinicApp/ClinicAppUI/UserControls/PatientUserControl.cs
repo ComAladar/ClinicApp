@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -72,9 +73,12 @@ namespace ClinicAppUI.UserControls
             Db.Schedules.Load();
             Db.Staffs.Load();
             Db.Patients.Load();
-            var patientId = PatientsList[listBoxPatients.SelectedIndex].Id;
+            var tempItem = listBoxPatients.SelectedItem;
+            var testString = tempItem.ToString();
+            testString = Regex.Match(testString, @"\d+").Value;
+            var patientId = testString;
 
-            var schedules = Db.Schedules.Where(a => a.PatientId == patientId).Where(a=>a.IsComplete==(ComplitionType)1);
+            var schedules = Db.Schedules.Where(a => a.PatientId.ToString() == patientId).Where(a=>a.IsComplete==(ComplitionType)1);
             foreach (var item in schedules)
             {
                 ScheduleList.Add(item);
@@ -89,7 +93,7 @@ namespace ClinicAppUI.UserControls
 
             foreach (var item in PatientsList)
             {
-                var fullName=item.Surname + " " + item.Name;
+                var fullName = item.Id + ") " + item.Surname + " " + item.Name;
                 listBoxPatients.Items.Add(fullName);
             }
         }
@@ -116,7 +120,7 @@ namespace ClinicAppUI.UserControls
             listBoxPatients.Items.Clear();
             foreach(var item in PatientsList )
             {
-                var fullName = item.Surname + " " + item.Name;
+                var fullName = item.Id + ") " + item.Surname + " " + item.Name;
                 if (item.Surname.StartsWith(textBoxSearch.Text,
                     StringComparison.CurrentCultureIgnoreCase)) listBoxPatients.Items.Add(fullName);
             }
@@ -128,7 +132,10 @@ namespace ClinicAppUI.UserControls
             {
                 return;
             }
-            var tempPatient = PatientsList[listBoxPatients.SelectedIndex];
+            var tempItem = listBoxPatients.SelectedItem;
+            var testString = tempItem.ToString();
+            testString = Regex.Match(testString, @"\d+").Value;
+            var tempPatient = PatientsList.Find(x => x.Id.ToString() == testString); ;
             textBoxSurname.Text = tempPatient.Surname;
             textBoxName.Text = tempPatient.Name;
             textBoxPatronymic.Text = tempPatient.Patronymic;
@@ -203,7 +210,10 @@ namespace ClinicAppUI.UserControls
             }
 
             AddEditPatientForm patientForm = new AddEditPatientForm();
-            patientForm.Patient = PatientsList[listBoxPatients.SelectedIndex];
+            var tempItem = listBoxPatients.SelectedItem;
+            var testString = tempItem.ToString();
+            testString = Regex.Match(testString, @"\d+").Value;
+            patientForm.Patient = PatientsList.Find(x => x.Id.ToString() == testString);
             if (patientForm.Patient.InUse == 0)
             {
                 //TODO: ЗАШОООООООООООООООООООО ПЕРЕКЛЕПАТЬ
@@ -246,8 +256,10 @@ namespace ClinicAppUI.UserControls
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (deleteResult == DialogResult.OK)
             {
-                var index = listBoxPatients.SelectedIndex;
-                var selectedPatient = PatientsList[index];
+                var tempItem = listBoxPatients.SelectedItem;
+                var testString = tempItem.ToString();
+                testString = Regex.Match(testString, @"\d+").Value;
+                var selectedPatient = PatientsList.Find(x => x.Id.ToString() == testString);
                 GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
                 patientRepo.DeleteById(selectedPatient.Id);
                 UpdatePatients();

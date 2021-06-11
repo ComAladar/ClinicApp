@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -70,9 +71,12 @@ namespace ClinicAppUI.UserControls
             Db.Schedules.Load();
             Db.Staffs.Load();
             Db.Patients.Load();
-            var staffId = StaffList[listBoxStaff.SelectedIndex].Id;
+            var tempItem = listBoxStaff.SelectedItem;
+            var testString = tempItem.ToString();
+            testString = Regex.Match(testString, @"\d+").Value;
+            var staffId = testString;
 
-            var schedules = Db.Schedules.Where(a => a.StaffId == staffId).Where(a => a.IsComplete == (ComplitionType)1);
+            var schedules = Db.Schedules.Where(a => a.StaffId.ToString() == staffId).Where(a => a.IsComplete == (ComplitionType)1);
             foreach (var item in schedules)
             {
                 ScheduleList.Add(item);
@@ -113,7 +117,7 @@ namespace ClinicAppUI.UserControls
             listBoxStaff.Items.Clear();
             foreach (var item in StaffList)
             {
-                var fullName = item.Surname + " " + item.Name;
+                var fullName = item.Id + ") " + item.Surname + " " + item.Name;
                 if (item.Surname.StartsWith(textBoxSearch.Text,
                     StringComparison.CurrentCultureIgnoreCase))
                 {
@@ -129,7 +133,12 @@ namespace ClinicAppUI.UserControls
                 return;
             }
 
-            var tempStaff = StaffList[listBoxStaff.SelectedIndex];
+            var tempItem = listBoxStaff.SelectedItem;
+            var testString = tempItem.ToString();
+            testString = Regex.Match(testString, @"\d+").Value;
+            var tempStaff=StaffList.Find(x => x.Id.ToString() == testString);
+
+            //var tempStaff = StaffList[listBoxStaff.SelectedIndex];
             textBoxSurname.Text = tempStaff.Surname;
             textBoxName.Text = tempStaff.Name;
             textBoxPatronymic.Text = tempStaff.Patronymic;
@@ -199,7 +208,10 @@ namespace ClinicAppUI.UserControls
             }
 
             AddEditStaffForm staffForm = new AddEditStaffForm();
-            staffForm.Staff = StaffList[listBoxStaff.SelectedIndex];
+            var tempItem = listBoxStaff.SelectedItem;
+            var testString = tempItem.ToString();
+            testString = Regex.Match(testString, @"\d+").Value;
+            staffForm.Staff = StaffList.Find(x => x.Id.ToString() == testString);
             if (staffForm.Staff.InUse == 0)
             {
                 //TODO: ЗАШОООООООООООООООООООО ПЕРЕКЛЕПАТЬ
@@ -242,8 +254,10 @@ namespace ClinicAppUI.UserControls
                 "Удаление", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (deleteResult == DialogResult.OK)
             {
-                var index = listBoxStaff.SelectedIndex;
-                var selectedStaff = StaffList[index];
+                var tempItem = listBoxStaff.SelectedItem;
+                var testString = tempItem.ToString();
+                testString = Regex.Match(testString, @"\d+").Value;
+                var selectedStaff = StaffList.Find(x => x.Id.ToString() == testString);
                 GenericRepository<Staff> staffRepo = new GenericRepository<Staff>(Db);
                 staffRepo.DeleteById(selectedStaff.Id);
                 UpdateStaff();
