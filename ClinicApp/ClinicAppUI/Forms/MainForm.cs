@@ -15,6 +15,7 @@ using ClinicAppUI.UserControls;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 using ClinicAppDataBase.Repositories;
+using ClinicAppTemplatesLogic;
 
 namespace ClinicAppUI.Forms
 {
@@ -122,5 +123,7 @@ namespace ClinicAppUI.Forms
             buttonSchedule.Enabled = true;
             buttonStaff.Enabled = true;
         }
+
+
     }
 }

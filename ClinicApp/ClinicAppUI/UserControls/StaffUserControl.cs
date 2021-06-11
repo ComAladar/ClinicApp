@@ -86,7 +86,7 @@ namespace ClinicAppUI.UserControls
 
             foreach (var item in StaffList)
             {
-                var fullName = item.Surname + " " + item.Name;
+                var fullName = item.Id+") " + item.Surname + " " + item.Name;
                 listBoxStaff.Items.Add(fullName);
             }
         }
@@ -115,7 +115,10 @@ namespace ClinicAppUI.UserControls
             {
                 var fullName = item.Surname + " " + item.Name;
                 if (item.Surname.StartsWith(textBoxSearch.Text,
-                    StringComparison.CurrentCultureIgnoreCase)) listBoxStaff.Items.Add(fullName);
+                    StringComparison.CurrentCultureIgnoreCase))
+                {
+                    listBoxStaff.Items.Add(fullName);
+                }
             }
         }
 
@@ -125,6 +128,7 @@ namespace ClinicAppUI.UserControls
             {
                 return;
             }
+
             var tempStaff = StaffList[listBoxStaff.SelectedIndex];
             textBoxSurname.Text = tempStaff.Surname;
             textBoxName.Text = tempStaff.Name;

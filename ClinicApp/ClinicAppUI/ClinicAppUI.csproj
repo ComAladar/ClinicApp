@@ -205,6 +205,10 @@
       <Project>{c5d0120d-31d3-4a68-afad-0a3fefe891c7}</Project>
       <Name>ClinicAppDataBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClinicAppTemplatesLogic\ClinicAppTemplatesLogic.csproj">
+      <Project>{1da4954e-5448-4d6d-8cc8-66ec46385d57}</Project>
+      <Name>ClinicAppTemplatesLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

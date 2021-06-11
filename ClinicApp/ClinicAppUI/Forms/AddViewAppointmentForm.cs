@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
+using ClinicAppTemplatesLogic;
 
 
 namespace ClinicAppUI.Forms
@@ -33,6 +34,7 @@ namespace ClinicAppUI.Forms
             textBoxPatient.Text = appointmentSchedule.Patient.Surname + " " + appointmentSchedule.Patient.Name;
             textBoxId.Text = appointmentSchedule.Id.ToString();
             textBoxDate.Text = appointmentSchedule.DateOfSchedule.ToString();
+            Appointment.Patient = appointmentSchedule.Patient;
             try
             {
                 richTextBoxComplains.Text = Appointment.Complains;
@@ -93,6 +95,12 @@ namespace ClinicAppUI.Forms
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void buttonSeeTemplate_Click(object sender, EventArgs e)
+        {
+            TemplateBuilder tempBuilder = new TemplateBuilder();
+            tempBuilder.OpenAppointmentTemplate(Appointment);
         }
     }
 }

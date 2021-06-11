@@ -345,6 +345,7 @@
             this.buttonSeeTemplate.TabIndex = 11;
             this.buttonSeeTemplate.Text = "Шаблон";
             this.buttonSeeTemplate.UseVisualStyleBackColor = true;
+            this.buttonSeeTemplate.Click += new System.EventHandler(this.buttonSeeTemplate_Click);
             // 
             // AddViewAppointmentForm
             // 

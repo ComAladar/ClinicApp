@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
             this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
             this.buttonLogin = new System.Windows.Forms.Button();
@@ -55,6 +56,7 @@
             this.groupBoxMessages = new System.Windows.Forms.GroupBox();
             this.buttonAddMessage = new System.Windows.Forms.Button();
             this.dataGridViewMessages = new System.Windows.Forms.DataGridView();
+            this.timerAppointment = new System.Windows.Forms.Timer(this.components);
             this.groupBoxLogin.SuspendLayout();
             this.groupBoxUserInfo.SuspendLayout();
             this.groupBoxSchedule.SuspendLayout();
@@ -383,5 +385,6 @@
         private System.Windows.Forms.Button buttonAddMessage;
         private System.Windows.Forms.CheckBox checkBoxShowPassword;
         private System.Windows.Forms.TextBox textBoxRegistrationDate;
+        private System.Windows.Forms.Timer timerAppointment;
     }
 }

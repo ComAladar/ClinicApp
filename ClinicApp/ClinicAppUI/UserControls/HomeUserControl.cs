@@ -78,6 +78,16 @@ namespace ClinicAppUI.UserControls
         {
             InitializeComponent();
             textBoxPassword.UseSystemPasswordChar = true;
+
+            timerAppointment.Interval = (10 * 1000);//10sec
+            timerAppointment.Tick += new EventHandler(timerAppointment_Tick);
+            timerAppointment.Start();
+
+        }
+
+        private void timerAppointment_Tick(object sender, EventArgs e)
+        {
+            AppointmentsActivation();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
