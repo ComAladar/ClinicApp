@@ -33,14 +33,14 @@ namespace ClinicAppDataBase.Entities
         //
 
         //СВЯЗЬ PATIENT--->SCHEDULE 1 К МНОГИМ
-        public ICollection<Schedule> Schedules { get; set; }
+        //public ICollection<Schedule> Schedules { get; set; }
         //
 
         //ИНИЦИАЛИЗАЦИЯ СВЯЗЕЙ?
         public Patient()
         {
             Appointments = new List<Appointment>();
-            Schedules = new List<Schedule>();
+            //Schedules = new List<Schedule>();
         }
         //
         private static int _length = 30;

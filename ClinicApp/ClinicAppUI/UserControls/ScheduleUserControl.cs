@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using ClinicAppBusinessLogic;
+using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 using ClinicAppDataBase.Repositories;
@@ -39,17 +40,17 @@ namespace ClinicAppUI.UserControls
 
         private void UpdateSchedule()
         {
-            Db.Schedules.Load();
+            Db.Appointments.Load();
             Db.Staffs.Load();
             Db.Patients.Load();
             var selectedDate = monthCalendar1.SelectionEnd.Date;
-            var table = from s in Db.Schedules
+            var table = from s in Db.Appointments
                 where DbFunctions.TruncateTime(s.DateOfSchedule) == DbFunctions.TruncateTime(monthCalendar1.SelectionEnd)
                 join d in Db.Staffs on s.StaffId equals d.Id
                 join p in Db.Patients on s.PatientId equals p.Id
                 select new
                 {
-                    Id=s.Id,
+                    Id=s.AppointmentId,
                     DoctorInfo = d.Surname +" " + d.Name,
                     PatientInfo = p.Surname + " " + p.Name,
                     ScheduleDate = s.DateOfSchedule
@@ -100,11 +101,13 @@ namespace ClinicAppUI.UserControls
             scheduleForm.ShowDialog();
             if (scheduleForm.DialogResult == DialogResult.OK)
             {
-                Schedule currentSchedule = new Schedule();
-                currentSchedule.Patient = scheduleForm.selectedPatient;
-                currentSchedule.Staff = scheduleForm.selectedStaff;
-                currentSchedule.DateOfSchedule = scheduleForm.selectedDate;
-                Db.Schedules.Add(currentSchedule);
+                Appointment currentAppointment = new Appointment();
+                currentAppointment.Patient = scheduleForm.selectedPatient;
+                currentAppointment.Staff = scheduleForm.selectedStaff;
+                currentAppointment.DateOfSchedule = scheduleForm.selectedDate;
+                currentAppointment.AppointmentType = scheduleForm.SelectedAppointmentType;
+                currentAppointment.IsComplete = 0;
+                Db.Appointments.Add(currentAppointment);
                 Db.SaveChanges();
                 UpdateSchedule();
             }
@@ -129,8 +132,14 @@ namespace ClinicAppUI.UserControls
                     bool converted = Int32.TryParse(dataGridViewSchedule[0, index].Value.ToString(), out id);
                     if (converted == false)
                         return;
-                    GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
-                    scheduleRepo.DeleteById(id);
+                    GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
+                    var selectedAppointment = appointmentRepo.GetById(id);
+                    if (selectedAppointment.IsComplete == (ComplitionType) 1 || selectedAppointment.Receipt != null)
+                    {
+                        MessageBox.Show("Прием уже завершен или был создан чек. Удаление невозможно.");
+                        return;
+                    }
+                    appointmentRepo.DeleteById(id);
                     UpdateSchedule();
                 }
 

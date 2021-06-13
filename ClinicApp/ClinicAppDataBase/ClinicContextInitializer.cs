@@ -17,8 +17,8 @@ namespace ClinicAppDataBase
             Staff adminStaff = new Staff{Access =(AccessType) 0,
                 Name = "Администратор",Login = "admin",Password = "admin",
                 Surname = "Администратор",Patronymic = "Администратор",Appointments = null,
-                DateOfBirth = DateTime.Now,DateOfEmployment = DateTime.Now,
-                DateOfRegistration = DateTime.Now,Email ="testmail@mail.com",PhoneNumber = "9131111111"};
+                DateOfBirth = DateTime.Now.Date,DateOfEmployment = DateTime.Now.Date,
+                DateOfRegistration = DateTime.Now.Date,Email ="testmail@mail.com",PhoneNumber = "9131111111"};
             db.Staffs.Add(adminStaff);
             db.SaveChanges();
         }

@@ -96,6 +96,12 @@
     <Compile Include="Forms\AddMessageForm.Designer.cs">
       <DependentUpon>AddMessageForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddReceiptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddReceiptForm.Designer.cs">
+      <DependentUpon>AddReceiptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,30 @@
     </Compile>
     <Compile Include="Forms\AddViewAppointmentForm.designer.cs">
       <DependentUpon>AddViewAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchPatientForm.Designer.cs">
+      <DependentUpon>SearchPatientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchStaffForm.Designer.cs">
+      <DependentUpon>SearchStaffForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AnalyticsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AnalyticsUserControl.Designer.cs">
+      <DependentUpon>AnalyticsUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CashboxUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CashboxUserControl.Designer.cs">
+      <DependentUpon>CashboxUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\HomeUserControl.cs">
       <SubType>UserControl</SubType>
@@ -152,11 +182,20 @@
     <EmbeddedResource Include="Forms\AddMessageForm.resx">
       <DependentUpon>AddMessageForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddReceiptForm.resx">
+      <DependentUpon>AddReceiptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddScheduleForm.resx">
       <DependentUpon>AddScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddViewAppointmentForm.resx">
       <DependentUpon>AddViewAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AnalyticsUserControl.resx">
+      <DependentUpon>AnalyticsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CashboxUserControl.resx">
+      <DependentUpon>CashboxUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\HomeUserControl.resx">
       <DependentUpon>HomeUserControl.cs</DependentUpon>

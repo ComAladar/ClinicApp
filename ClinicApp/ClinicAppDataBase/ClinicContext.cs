@@ -14,19 +14,20 @@ namespace ClinicAppDataBase
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<Schedule> Schedules { get; set; }
         public DbSet<MessageBoard> MessageBoards { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Receipt> Receipts { get; set; }
 
         static ClinicContext()
         {
             Database.SetInitializer<ClinicContext>(new ClinicContextInitializer());
         }
 
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Schedule>().HasIndex(s => new { s.DateOfSchedule }).IsUnique(true);
+           // modelBuilder.Entity<Appointment>().HasIndex(a => new { a.Id }).IsUnique(true);
 
         }
 

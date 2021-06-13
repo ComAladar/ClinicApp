@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicAppBusinessLogic", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicAppTemplatesLogic", "ClinicAppTemplatesLogic\ClinicAppTemplatesLogic.csproj", "{1DA4954E-5448-4D6D-8CC8-66EC46385D57}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicAppUnitTests", "ClinicAppUnitTests\ClinicAppUnitTests.csproj", "{6F049FBE-3A70-4829-AF5D-C79E664A69A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1DA4954E-5448-4D6D-8CC8-66EC46385D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DA4954E-5448-4D6D-8CC8-66EC46385D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DA4954E-5448-4D6D-8CC8-66EC46385D57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

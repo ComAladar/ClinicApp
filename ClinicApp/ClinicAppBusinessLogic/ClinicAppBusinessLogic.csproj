@@ -60,6 +60,7 @@
     <Compile Include="Enumerations\ComplitionType.cs" />
     <Compile Include="Enumerations\EnumerationHandler.cs" />
     <Compile Include="Enumerations\InUseType.cs" />
+    <Compile Include="Enumerations\ReceiptStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enumerations\SexType.cs" />
   </ItemGroup>

@@ -203,6 +203,7 @@
             // 
             // comboBoxAppointmentType
             // 
+            this.comboBoxAppointmentType.Enabled = false;
             this.comboBoxAppointmentType.FormattingEnabled = true;
             this.comboBoxAppointmentType.Location = new System.Drawing.Point(6, 79);
             this.comboBoxAppointmentType.Name = "comboBoxAppointmentType";

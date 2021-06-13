@@ -41,7 +41,7 @@ namespace ClinicAppUI.UserControls
         }
 
         public List<Patient> PatientsList { get; set; } = new List<Patient>();
-        public List<Schedule> ScheduleList { get; set; } = new List<Schedule>();
+        public List<Appointment> AppointmentsList { get; set; } = new List<Appointment>();
         public EnumerationHandler EnumHandler = new EnumerationHandler();
 
         private void UpdatePatients()
@@ -69,8 +69,8 @@ namespace ClinicAppUI.UserControls
 
         private void GetAppointments()
         {
-            ScheduleList.Clear();
-            Db.Schedules.Load();
+            AppointmentsList.Clear();
+            Db.Appointments.Load();
             Db.Staffs.Load();
             Db.Patients.Load();
             var tempItem = listBoxPatients.SelectedItem;
@@ -78,10 +78,10 @@ namespace ClinicAppUI.UserControls
             testString = Regex.Match(testString, @"\d+").Value;
             var patientId = testString;
 
-            var schedules = Db.Schedules.Where(a => a.PatientId.ToString() == patientId).Where(a=>a.IsComplete==(ComplitionType)1);
-            foreach (var item in schedules)
+            var appointments = Db.Appointments.Where(a => a.PatientId.ToString() == patientId).Where(a=>a.IsComplete==(ComplitionType)1);
+            foreach (var item in appointments)
             {
-                ScheduleList.Add(item);
+                AppointmentsList.Add(item);
             }
 
         }
@@ -101,7 +101,7 @@ namespace ClinicAppUI.UserControls
         private void AppointmentsListBoxFillUp()
         {
             listBoxAppointments.Items.Clear();
-            foreach (var item in ScheduleList)
+            foreach (var item in AppointmentsList)
             {
                 listBoxAppointments.Items.Add(item.DateOfSchedule.Date.ToLongDateString() + " " 
                     + item.DateOfSchedule.TimeOfDay.Hours + ":" 
@@ -176,9 +176,9 @@ namespace ClinicAppUI.UserControls
             }
             AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
             GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
-            appointmentForm.Appointment = appointmentRepo.GetById(ScheduleList[listBoxAppointments.SelectedIndex].Id);
-            GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
-            appointmentForm.appointmentSchedule = scheduleRepo.GetById(ScheduleList[listBoxAppointments.SelectedIndex].Id);
+            appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].AppointmentId);
+            //GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
+            //appointmentForm.appointmentSchedule = scheduleRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             foreach (Control control in appointmentForm.Controls)
             {
                 control.Enabled = false;

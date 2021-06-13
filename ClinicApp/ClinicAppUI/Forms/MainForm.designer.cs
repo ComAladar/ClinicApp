@@ -38,6 +38,8 @@
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonCashBox = new System.Windows.Forms.Button();
+            this.buttonAnalytics = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +47,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.buttonAnalytics);
+            this.panel1.Controls.Add(this.buttonCashBox);
             this.panel1.Controls.Add(this.buttonRefresh);
             this.panel1.Controls.Add(this.buttonSchedule);
             this.panel1.Controls.Add(this.buttonStaff);
@@ -57,7 +61,7 @@
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(356, 3);
+            this.buttonRefresh.Location = new System.Drawing.Point(528, 3);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(80, 30);
             this.buttonRefresh.TabIndex = 2;
@@ -140,6 +144,28 @@
             this.InfoToolStripMenuItem.Text = "О Приложении";
             this.InfoToolStripMenuItem.Click += new System.EventHandler(this.InfoToolStripMenuItem_Click);
             // 
+            // buttonCashBox
+            // 
+            this.buttonCashBox.Enabled = false;
+            this.buttonCashBox.Location = new System.Drawing.Point(356, 3);
+            this.buttonCashBox.Name = "buttonCashBox";
+            this.buttonCashBox.Size = new System.Drawing.Size(80, 30);
+            this.buttonCashBox.TabIndex = 3;
+            this.buttonCashBox.Text = "Бухгалтерия";
+            this.buttonCashBox.UseVisualStyleBackColor = true;
+            this.buttonCashBox.Click += new System.EventHandler(this.buttonCashBox_Click);
+            // 
+            // buttonAnalytics
+            // 
+            this.buttonAnalytics.Enabled = false;
+            this.buttonAnalytics.Location = new System.Drawing.Point(442, 3);
+            this.buttonAnalytics.Name = "buttonAnalytics";
+            this.buttonAnalytics.Size = new System.Drawing.Size(80, 30);
+            this.buttonAnalytics.TabIndex = 0;
+            this.buttonAnalytics.Text = "Аналитика";
+            this.buttonAnalytics.UseVisualStyleBackColor = true;
+            this.buttonAnalytics.Click += new System.EventHandler(this.buttonAnalytics_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +197,8 @@
         private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InfoToolStripMenuItem;
         private System.Windows.Forms.Button buttonRefresh;
+        private System.Windows.Forms.Button buttonAnalytics;
+        private System.Windows.Forms.Button buttonCashBox;
     }
 }
 

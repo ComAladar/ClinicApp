@@ -15,7 +15,8 @@ namespace ClinicAppDataBase.Entities
     public class Appointment
     {
         private int _id;
-        //private string _appointmentType;
+        //TODO: ДОБАВИТЬ НАИМЕНОВАНИЕ ПРИЕМА(ДЛЯ ИЗБЕЖАНИЯ ИЗМЕНЕНИЯ НАЗВАНИЯ ПРИЕМА ПРИ СМЕНЕ ДАННЫХ ВРАЧА)
+        private string _appointmentName;
         private AppointmentType _appointmentType;
         private string _complaints;
         private string _anamnesis;
@@ -24,10 +25,12 @@ namespace ClinicAppDataBase.Entities
         private string _icdCode;
         private string _recommendations;
         private string _medicinalTherapy;
+        private DateTime _dateOfSchedule;
+
 
         //Проверить и разузнать насчет типа int?  СВЯЗЬ 1 К 1 SCHEDULE--->APPOINTMENT
         //public int? ScheduleId { get; set; }
-        public Schedule Schedule { get; set; }
+        //public Schedule Schedule { get; set; }
         //
         //СВЯЗЬ PATIENT--->APPOINTMENT 1 К МНОГИМ
         public int? PatientId { get; set; }
@@ -37,8 +40,13 @@ namespace ClinicAppDataBase.Entities
         public int? StaffId { get; set; }
         public Staff Staff { get; set; }
         //
-        [ForeignKey("Schedule")]
-        public int Id
+        //СВЯЗЬ Appointment ----> Receipt 1 к 1
+        public  Receipt Receipt { get; set; }
+        //
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
+        public int AppointmentId
         {
             get
             {
@@ -47,6 +55,18 @@ namespace ClinicAppDataBase.Entities
             set
             {
                 _id = value;
+            }
+        }
+
+        public string AppointmentName
+        {
+            get
+            {
+                return _appointmentName;
+            }
+            set
+            {
+                _appointmentName = value;
             }
         }
 
@@ -70,11 +90,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException(
-                        "Поле заполнено неверно.");
-                }
+                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException(
+                //        "Поле заполнено неверно.");
+                //}
                 _complaints = value;
             }
         }
@@ -87,11 +107,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException(
-                        "Поле заполнено неверно.");
-                }
+                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException(
+                //        "Поле заполнено неверно.");
+                //}
                 _anamnesis = value;
             }
         }
@@ -104,11 +124,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException(
-                        "Поле заполнено неверно.");
-                }
+                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException(
+                //        "Поле заполнено неверно.");
+                //}
                 _condition = value;
             }
         }
@@ -121,11 +141,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException(
-                        "Поле заполнено неверно.");
-                }
+                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException(
+                //        "Поле заполнено неверно.");
+                //}
                 _diagnosis = value;
             }
         }
@@ -138,11 +158,11 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                {
-                    throw new ArgumentException(
-                        "Поле заполнено неверно.");
-                }
+                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
+                //{
+                //    throw new ArgumentException(
+                //        "Поле заполнено неверно.");
+                //}
                 _icdCode = value;
             }
         }
@@ -170,6 +190,21 @@ namespace ClinicAppDataBase.Entities
                 _medicinalTherapy = value;
             }
         }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime DateOfSchedule
+        {
+            get
+            {
+                return _dateOfSchedule;
+            }
+            set
+            {
+                _dateOfSchedule = value;
+            }
+        }
+
+        public ComplitionType IsComplete { get; set; }
 
     }
 }

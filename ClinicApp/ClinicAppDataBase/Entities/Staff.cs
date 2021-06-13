@@ -34,19 +34,24 @@ namespace ClinicAppDataBase.Entities
         //
 
         //СВЯЗЬ STAFF--->SCHEDULE 1 К МНОГИМ
-        public ICollection<Schedule> Schedules { get; set; }
+        //public ICollection<Schedule> Schedules { get; set; }
         //
 
         //СВЯЗЬ STAFF--->MESSAGEBOARD 1 К МНОГИМ
         public ICollection<MessageBoard> MessageBoards { get; set; }
         //
 
+        //Связь Staff ----> Receipt 1 к МНОГИМ
+        public ICollection<Receipt> Receipts { get; set; }
+        //
+
         //ИНИЦИАЛИЗАЦИЯ СВЯЗЕЙ?
         public Staff()
         {
             Appointments = new List<Appointment>();
-            Schedules = new List<Schedule>();
+            //Schedules = new List<Schedule>();
             MessageBoards = new List<MessageBoard>();
+            Receipts = new List<Receipt>();
         }
 
         private static int _length=30;

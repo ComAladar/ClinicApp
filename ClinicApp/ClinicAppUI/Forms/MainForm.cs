@@ -26,6 +26,8 @@ namespace ClinicAppUI.Forms
         private PatientUserControl patientControl;
         private ScheduleUserControl scheduleControl;
         private StaffUserControl staffControl;
+        private AnalyticsUserControl analyticsControl;
+        private CashboxUserControl cashboxControl;
 
         public Staff CurrentUser { get; set; }
 
@@ -58,6 +60,19 @@ namespace ClinicAppUI.Forms
             panelMainUC.Controls["staffUserControl"].BringToFront();
         }
 
+        private void SelectCashBoxControl()
+        {
+            cashboxControl.Db = Db;
+            cashboxControl.CurrentUser = CurrentUser;
+            panelMainUC.Controls["cashboxUserControl"].BringToFront();
+        }
+
+        private void SelectAnalyticsControl()
+        {
+            analyticsControl.Db = Db;
+            analyticsControl.CurrentUser = CurrentUser;
+            panelMainUC.Controls["analyticsUserControl"].BringToFront();
+        }
 
         public MainForm()
         {
@@ -83,6 +98,14 @@ namespace ClinicAppUI.Forms
             staffControl = new StaffUserControl();
             staffControl.Dock = DockStyle.Fill;
             panelMainUC.Controls.Add(staffControl);
+
+            analyticsControl = new AnalyticsUserControl();
+            analyticsControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(analyticsControl);
+
+            cashboxControl = new CashboxUserControl();
+            cashboxControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(cashboxControl);
 
             SelectHomeControl();
             homeControl.ButtonLoginClick += new EventHandler(HomeControl_ButtonLogicClick);
@@ -116,12 +139,24 @@ namespace ClinicAppUI.Forms
             SelectScheduleControl();
         }
 
+        private void buttonAnalytics_Click(object sender, EventArgs e)
+        {
+            SelectAnalyticsControl();
+        }
+
+        private void buttonCashBox_Click(object sender, EventArgs e)
+        {
+            SelectCashBoxControl();
+        }
+
         protected void HomeControl_ButtonLogicClick(object sender, EventArgs e)
         {
             CurrentUser = homeControl.CurrentUser;
             buttonPatient.Enabled = true;
             buttonSchedule.Enabled = true;
             buttonStaff.Enabled = true;
+            buttonAnalytics.Enabled = true;
+            buttonCashBox.Enabled = true;
         }
 
 

@@ -52,10 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClinicContextInitializer.cs" />
-    <Compile Include="Entities\Appointment.cs" />
     <Compile Include="ClinicContext.cs" />
+    <Compile Include="Entities\Appointment.cs" />
     <Compile Include="Entities\MessageBoard.cs" />
     <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Entities\Receipt.cs" />
     <Compile Include="Migrations\202105260709362_InitialMigration.cs" />
     <Compile Include="Migrations\202105260709362_InitialMigration.Designer.cs">
       <DependentUpon>202105260709362_InitialMigration.cs</DependentUpon>
@@ -104,9 +105,64 @@
     <Compile Include="Migrations\202105301952355_IsCompleteToScheduleFromAppointment.designer.cs">
       <DependentUpon>202105301952355_IsCompleteToScheduleFromAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106121830219_ScheduleRemoval.cs" />
+    <Compile Include="Migrations\202106121830219_ScheduleRemoval.designer.cs">
+      <DependentUpon>202106121830219_ScheduleRemoval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121903377_AppointmentIDFix.cs" />
+    <Compile Include="Migrations\202106121903377_AppointmentIDFix.designer.cs">
+      <DependentUpon>202106121903377_AppointmentIDFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121919013_TestAppointmentIDFix.cs" />
+    <Compile Include="Migrations\202106121919013_TestAppointmentIDFix.designer.cs">
+      <DependentUpon>202106121919013_TestAppointmentIDFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121921297_AppointmentIDReverse.cs" />
+    <Compile Include="Migrations\202106121921297_AppointmentIDReverse.designer.cs">
+      <DependentUpon>202106121921297_AppointmentIDReverse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121924342_OnModelCreatingContextChange.cs" />
+    <Compile Include="Migrations\202106121924342_OnModelCreatingContextChange.designer.cs">
+      <DependentUpon>202106121924342_OnModelCreatingContextChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121934262_AddNewTableReceipts.cs" />
+    <Compile Include="Migrations\202106121934262_AddNewTableReceipts.designer.cs">
+      <DependentUpon>202106121934262_AddNewTableReceipts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121939313_AppointmentFix2.cs" />
+    <Compile Include="Migrations\202106121939313_AppointmentFix2.designer.cs">
+      <DependentUpon>202106121939313_AppointmentFix2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121947447_AppointmentFix3.cs" />
+    <Compile Include="Migrations\202106121947447_AppointmentFix3.designer.cs">
+      <DependentUpon>202106121947447_AppointmentFix3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106121949233_AppointmentFix4.cs" />
+    <Compile Include="Migrations\202106121949233_AppointmentFix4.designer.cs">
+      <DependentUpon>202106121949233_AppointmentFix4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106122001346_AppointmentFix5.cs" />
+    <Compile Include="Migrations\202106122001346_AppointmentFix5.designer.cs">
+      <DependentUpon>202106122001346_AppointmentFix5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106122007091_FixAppo1.cs" />
+    <Compile Include="Migrations\202106122007091_FixAppo1.designer.cs">
+      <DependentUpon>202106122007091_FixAppo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106122014122_IDFIX.cs" />
+    <Compile Include="Migrations\202106122014122_IDFIX.designer.cs">
+      <DependentUpon>202106122014122_IDFIX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106131657553_AddReceiptLogic.cs" />
+    <Compile Include="Migrations\202106131657553_AddReceiptLogic.designer.cs">
+      <DependentUpon>202106131657553_AddReceiptLogic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106131836250_AppointmentNameAdd.cs" />
+    <Compile Include="Migrations\202106131836250_AppointmentNameAdd.designer.cs">
+      <DependentUpon>202106131836250_AppointmentNameAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entities\Schedule.cs" />
     <Compile Include="Entities\Staff.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
@@ -157,6 +213,48 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105301952355_IsCompleteToScheduleFromAppointment.resx">
       <DependentUpon>202105301952355_IsCompleteToScheduleFromAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121830219_ScheduleRemoval.resx">
+      <DependentUpon>202106121830219_ScheduleRemoval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121903377_AppointmentIDFix.resx">
+      <DependentUpon>202106121903377_AppointmentIDFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121919013_TestAppointmentIDFix.resx">
+      <DependentUpon>202106121919013_TestAppointmentIDFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121921297_AppointmentIDReverse.resx">
+      <DependentUpon>202106121921297_AppointmentIDReverse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121924342_OnModelCreatingContextChange.resx">
+      <DependentUpon>202106121924342_OnModelCreatingContextChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121934262_AddNewTableReceipts.resx">
+      <DependentUpon>202106121934262_AddNewTableReceipts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121939313_AppointmentFix2.resx">
+      <DependentUpon>202106121939313_AppointmentFix2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121947447_AppointmentFix3.resx">
+      <DependentUpon>202106121947447_AppointmentFix3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106121949233_AppointmentFix4.resx">
+      <DependentUpon>202106121949233_AppointmentFix4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122001346_AppointmentFix5.resx">
+      <DependentUpon>202106122001346_AppointmentFix5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122007091_FixAppo1.resx">
+      <DependentUpon>202106122007091_FixAppo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106122014122_IDFIX.resx">
+      <DependentUpon>202106122014122_IDFIX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106131657553_AddReceiptLogic.resx">
+      <DependentUpon>202106131657553_AddReceiptLogic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106131836250_AppointmentNameAdd.resx">
+      <DependentUpon>202106131836250_AppointmentNameAdd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

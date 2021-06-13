@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 
@@ -18,6 +19,7 @@ namespace ClinicAppUI.Forms
         public Staff selectedStaff { get; set; }
         public DateTime selectedDate { get; set; }
         public Patient selectedPatient { get; set; }
+        public AppointmentType SelectedAppointmentType { get; set; }
 
         private ClinicContext _db;
         public ClinicContext Db
@@ -46,7 +48,7 @@ namespace ClinicAppUI.Forms
             InitializeComponent();
             dateTimePickerTime.CustomFormat = "HH:mm";
             dateTimePickerTime.Format = DateTimePickerFormat.Custom;
-
+            comboBoxAppointmentType.DataSource = Enum.GetNames(typeof(AppointmentType));
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace ClinicAppUI.Forms
             Patient tempPatient = comboBoxPatient.SelectedItem as Patient;
             selectedStaff = tempStaff;
             selectedPatient = tempPatient;
+            SelectedAppointmentType = (AppointmentType)comboBoxAppointmentType.SelectedIndex;
             try
             {
                 selectedDate = dateTimePickerDate.Value.Date + dateTimePickerTime.Value.TimeOfDay;
