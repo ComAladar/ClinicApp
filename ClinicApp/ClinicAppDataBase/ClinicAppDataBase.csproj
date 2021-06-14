@@ -161,6 +161,38 @@
     <Compile Include="Migrations\202106131836250_AppointmentNameAdd.designer.cs">
       <DependentUpon>202106131836250_AppointmentNameAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106141722528_ReceiptIDTest.cs" />
+    <Compile Include="Migrations\202106141722528_ReceiptIDTest.designer.cs">
+      <DependentUpon>202106141722528_ReceiptIDTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141726089_ReceiptIDChangeName.cs" />
+    <Compile Include="Migrations\202106141726089_ReceiptIDChangeName.designer.cs">
+      <DependentUpon>202106141726089_ReceiptIDChangeName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141736260_1TO1MAINFIX.cs" />
+    <Compile Include="Migrations\202106141736260_1TO1MAINFIX.designer.cs">
+      <DependentUpon>202106141736260_1TO1MAINFIX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141745474_STABLE1TO1WITHBUGS.cs" />
+    <Compile Include="Migrations\202106141745474_STABLE1TO1WITHBUGS.designer.cs">
+      <DependentUpon>202106141745474_STABLE1TO1WITHBUGS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141752340_TEST.cs" />
+    <Compile Include="Migrations\202106141752340_TEST.designer.cs">
+      <DependentUpon>202106141752340_TEST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141805078_TEST5.cs" />
+    <Compile Include="Migrations\202106141805078_TEST5.designer.cs">
+      <DependentUpon>202106141805078_TEST5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141813013_TEST6.cs" />
+    <Compile Include="Migrations\202106141813013_TEST6.designer.cs">
+      <DependentUpon>202106141813013_TEST6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106141814039_TEST7.cs" />
+    <Compile Include="Migrations\202106141814039_TEST7.designer.cs">
+      <DependentUpon>202106141814039_TEST7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Staff.cs" />
@@ -255,6 +287,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106131836250_AppointmentNameAdd.resx">
       <DependentUpon>202106131836250_AppointmentNameAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141722528_ReceiptIDTest.resx">
+      <DependentUpon>202106141722528_ReceiptIDTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141726089_ReceiptIDChangeName.resx">
+      <DependentUpon>202106141726089_ReceiptIDChangeName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141736260_1TO1MAINFIX.resx">
+      <DependentUpon>202106141736260_1TO1MAINFIX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141745474_STABLE1TO1WITHBUGS.resx">
+      <DependentUpon>202106141745474_STABLE1TO1WITHBUGS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141752340_TEST.resx">
+      <DependentUpon>202106141752340_TEST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141805078_TEST5.resx">
+      <DependentUpon>202106141805078_TEST5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141813013_TEST6.resx">
+      <DependentUpon>202106141813013_TEST6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141814039_TEST7.resx">
+      <DependentUpon>202106141814039_TEST7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

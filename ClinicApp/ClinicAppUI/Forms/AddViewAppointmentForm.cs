@@ -32,7 +32,7 @@ namespace ClinicAppUI.Forms
         {
             textBoxStaff.Text = Appointment.Staff.Surname + " " + Appointment.Staff.Name;
             textBoxPatient.Text = Appointment.Patient.Surname + " " + Appointment.Patient.Name;
-            textBoxId.Text = Appointment.AppointmentId.ToString();
+            textBoxId.Text = Appointment.Id.ToString();
             textBoxDate.Text = Appointment.DateOfSchedule.ToString();
             comboBoxAppointmentType.Text = Appointment.AppointmentType.ToString();
             Appointment.Patient = Appointment.Patient;

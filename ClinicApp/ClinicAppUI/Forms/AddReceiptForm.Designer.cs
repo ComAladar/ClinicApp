@@ -31,17 +31,18 @@
             this.labelAppointment = new System.Windows.Forms.Label();
             this.labelStaff = new System.Windows.Forms.Label();
             this.groupBoxAppointment = new System.Windows.Forms.GroupBox();
-            this.groupBoxReceipt = new System.Windows.Forms.GroupBox();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
             this.labelAppointmentType = new System.Windows.Forms.Label();
-            this.checkBoxAdditionalCosts = new System.Windows.Forms.CheckBox();
-            this.textBoxAdditionalCost = new System.Windows.Forms.TextBox();
-            this.labelAdditionalName = new System.Windows.Forms.Label();
-            this.labelReceiptCost = new System.Windows.Forms.Label();
-            this.textBoxMainCost = new System.Windows.Forms.TextBox();
-            this.labelFinalCost = new System.Windows.Forms.Label();
+            this.groupBoxReceipt = new System.Windows.Forms.GroupBox();
             this.textBoxFinalCost = new System.Windows.Forms.TextBox();
+            this.labelFinalCost = new System.Windows.Forms.Label();
+            this.textBoxMainCost = new System.Windows.Forms.TextBox();
+            this.labelReceiptCost = new System.Windows.Forms.Label();
+            this.labelAdditionalName = new System.Windows.Forms.Label();
+            this.textBoxAdditionalCost = new System.Windows.Forms.TextBox();
+            this.checkBoxAdditionalCosts = new System.Windows.Forms.CheckBox();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.listBoxAppointments = new System.Windows.Forms.ListBox();
             this.groupBoxAppointment.SuspendLayout();
             this.groupBoxReceipt.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +59,7 @@
             // labelStaff
             // 
             this.labelStaff.AutoSize = true;
-            this.labelStaff.Location = new System.Drawing.Point(6, 77);
+            this.labelStaff.Location = new System.Drawing.Point(6, 99);
             this.labelStaff.Name = "labelStaff";
             this.labelStaff.Size = new System.Drawing.Size(67, 13);
             this.labelStaff.TabIndex = 1;
@@ -66,6 +67,7 @@
             // 
             // groupBoxAppointment
             // 
+            this.groupBoxAppointment.Controls.Add(this.listBoxAppointments);
             this.groupBoxAppointment.Controls.Add(this.labelAppointmentType);
             this.groupBoxAppointment.Controls.Add(this.labelAppointment);
             this.groupBoxAppointment.Controls.Add(this.labelStaff);
@@ -75,6 +77,15 @@
             this.groupBoxAppointment.TabIndex = 2;
             this.groupBoxAppointment.TabStop = false;
             this.groupBoxAppointment.Text = "Прием";
+            // 
+            // labelAppointmentType
+            // 
+            this.labelAppointmentType.AutoSize = true;
+            this.labelAppointmentType.Location = new System.Drawing.Point(4, 179);
+            this.labelAppointmentType.Name = "labelAppointmentType";
+            this.labelAppointmentType.Size = new System.Drawing.Size(69, 13);
+            this.labelAppointmentType.TabIndex = 2;
+            this.labelAppointmentType.Text = "Тип Приема";
             // 
             // groupBoxReceipt
             // 
@@ -92,32 +103,57 @@
             this.groupBoxReceipt.TabStop = false;
             this.groupBoxReceipt.Text = "Чек";
             // 
-            // buttonOK
+            // textBoxFinalCost
             // 
-            this.buttonOK.Location = new System.Drawing.Point(490, 276);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 4;
-            this.buttonOK.Text = "Добавить";
-            this.buttonOK.UseVisualStyleBackColor = true;
+            this.textBoxFinalCost.Location = new System.Drawing.Point(177, 226);
+            this.textBoxFinalCost.Name = "textBoxFinalCost";
+            this.textBoxFinalCost.Size = new System.Drawing.Size(121, 20);
+            this.textBoxFinalCost.TabIndex = 6;
             // 
-            // buttonCancel
+            // labelFinalCost
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(571, 276);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(89, 23);
-            this.buttonCancel.TabIndex = 5;
-            this.buttonCancel.Text = "Отмена";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.labelFinalCost.AutoSize = true;
+            this.labelFinalCost.Location = new System.Drawing.Point(174, 210);
+            this.labelFinalCost.Name = "labelFinalCost";
+            this.labelFinalCost.Size = new System.Drawing.Size(112, 13);
+            this.labelFinalCost.TabIndex = 5;
+            this.labelFinalCost.Text = "Итоговая стоимость";
             // 
-            // labelAppointmentType
+            // textBoxMainCost
             // 
-            this.labelAppointmentType.AutoSize = true;
-            this.labelAppointmentType.Location = new System.Drawing.Point(6, 147);
-            this.labelAppointmentType.Name = "labelAppointmentType";
-            this.labelAppointmentType.Size = new System.Drawing.Size(69, 13);
-            this.labelAppointmentType.TabIndex = 2;
-            this.labelAppointmentType.Text = "Тип Приема";
+            this.textBoxMainCost.Location = new System.Drawing.Point(9, 32);
+            this.textBoxMainCost.Name = "textBoxMainCost";
+            this.textBoxMainCost.Size = new System.Drawing.Size(158, 20);
+            this.textBoxMainCost.TabIndex = 4;
+            this.textBoxMainCost.Text = "0,0";
+            this.textBoxMainCost.Leave += new System.EventHandler(this.textBoxMainCost_Leave);
+            // 
+            // labelReceiptCost
+            // 
+            this.labelReceiptCost.AutoSize = true;
+            this.labelReceiptCost.Location = new System.Drawing.Point(6, 16);
+            this.labelReceiptCost.Name = "labelReceiptCost";
+            this.labelReceiptCost.Size = new System.Drawing.Size(155, 13);
+            this.labelReceiptCost.TabIndex = 3;
+            this.labelReceiptCost.Text = "Основная стоимость приема";
+            // 
+            // labelAdditionalName
+            // 
+            this.labelAdditionalName.AutoSize = true;
+            this.labelAdditionalName.Location = new System.Drawing.Point(6, 80);
+            this.labelAdditionalName.Name = "labelAdditionalName";
+            this.labelAdditionalName.Size = new System.Drawing.Size(98, 13);
+            this.labelAdditionalName.TabIndex = 2;
+            this.labelAdditionalName.Text = "Стоимость услуги";
+            // 
+            // textBoxAdditionalCost
+            // 
+            this.textBoxAdditionalCost.Location = new System.Drawing.Point(9, 96);
+            this.textBoxAdditionalCost.Name = "textBoxAdditionalCost";
+            this.textBoxAdditionalCost.Size = new System.Drawing.Size(203, 20);
+            this.textBoxAdditionalCost.TabIndex = 1;
+            this.textBoxAdditionalCost.Text = "0,0";
+            this.textBoxAdditionalCost.Leave += new System.EventHandler(this.textBoxAdditionalCost_Leave);
             // 
             // checkBoxAdditionalCosts
             // 
@@ -129,53 +165,33 @@
             this.checkBoxAdditionalCosts.Text = "Дополнительные услуги";
             this.checkBoxAdditionalCosts.UseVisualStyleBackColor = true;
             // 
-            // textBoxAdditionalCost
+            // buttonAdd
             // 
-            this.textBoxAdditionalCost.Location = new System.Drawing.Point(0, 96);
-            this.textBoxAdditionalCost.Name = "textBoxAdditionalCost";
-            this.textBoxAdditionalCost.Size = new System.Drawing.Size(203, 20);
-            this.textBoxAdditionalCost.TabIndex = 1;
+            this.buttonAdd.Location = new System.Drawing.Point(490, 276);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.TabIndex = 4;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
-            // labelAdditionalName
+            // buttonCancel
             // 
-            this.labelAdditionalName.AutoSize = true;
-            this.labelAdditionalName.Location = new System.Drawing.Point(6, 80);
-            this.labelAdditionalName.Name = "labelAdditionalName";
-            this.labelAdditionalName.Size = new System.Drawing.Size(98, 13);
-            this.labelAdditionalName.TabIndex = 2;
-            this.labelAdditionalName.Text = "Стоимость услуги";
+            this.buttonCancel.Location = new System.Drawing.Point(571, 276);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(89, 23);
+            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.Text = "Отмена";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // labelReceiptCost
+            // listBoxAppointments
             // 
-            this.labelReceiptCost.AutoSize = true;
-            this.labelReceiptCost.Location = new System.Drawing.Point(6, 16);
-            this.labelReceiptCost.Name = "labelReceiptCost";
-            this.labelReceiptCost.Size = new System.Drawing.Size(155, 13);
-            this.labelReceiptCost.TabIndex = 3;
-            this.labelReceiptCost.Text = "Основная стоимость приема";
-            // 
-            // textBoxMainCost
-            // 
-            this.textBoxMainCost.Location = new System.Drawing.Point(9, 32);
-            this.textBoxMainCost.Name = "textBoxMainCost";
-            this.textBoxMainCost.Size = new System.Drawing.Size(158, 20);
-            this.textBoxMainCost.TabIndex = 4;
-            // 
-            // labelFinalCost
-            // 
-            this.labelFinalCost.AutoSize = true;
-            this.labelFinalCost.Location = new System.Drawing.Point(174, 210);
-            this.labelFinalCost.Name = "labelFinalCost";
-            this.labelFinalCost.Size = new System.Drawing.Size(112, 13);
-            this.labelFinalCost.TabIndex = 5;
-            this.labelFinalCost.Text = "Итоговая стоимость";
-            // 
-            // textBoxFinalCost
-            // 
-            this.textBoxFinalCost.Location = new System.Drawing.Point(177, 226);
-            this.textBoxFinalCost.Name = "textBoxFinalCost";
-            this.textBoxFinalCost.Size = new System.Drawing.Size(121, 20);
-            this.textBoxFinalCost.TabIndex = 6;
+            this.listBoxAppointments.FormattingEnabled = true;
+            this.listBoxAppointments.Location = new System.Drawing.Point(141, 16);
+            this.listBoxAppointments.Name = "listBoxAppointments";
+            this.listBoxAppointments.Size = new System.Drawing.Size(120, 95);
+            this.listBoxAppointments.TabIndex = 3;
             // 
             // AddReceiptForm
             // 
@@ -183,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 305);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.buttonOK);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.groupBoxReceipt);
             this.Controls.Add(this.groupBoxAppointment);
             this.Name = "AddReceiptForm";
@@ -202,7 +218,7 @@
         private System.Windows.Forms.Label labelStaff;
         private System.Windows.Forms.GroupBox groupBoxAppointment;
         private System.Windows.Forms.GroupBox groupBoxReceipt;
-        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelAppointmentType;
         private System.Windows.Forms.Label labelAdditionalName;
@@ -212,5 +228,6 @@
         private System.Windows.Forms.TextBox textBoxMainCost;
         private System.Windows.Forms.Label labelReceiptCost;
         private System.Windows.Forms.TextBox textBoxFinalCost;
+        private System.Windows.Forms.ListBox listBoxAppointments;
     }
 }

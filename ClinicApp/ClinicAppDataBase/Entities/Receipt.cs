@@ -29,7 +29,9 @@ namespace ClinicAppDataBase.Entities
         public Staff Staff { get; set; }
         
         //
+        [Key]
         [ForeignKey("Appointment")]
+        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id
         {
             get

@@ -174,7 +174,7 @@ namespace ClinicAppUI.UserControls
             }
             AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
             GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
-            appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].AppointmentId);
+            appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             //GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
             //appointmentForm.appointmentSchedule = scheduleRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             foreach (Control control in appointmentForm.Controls)

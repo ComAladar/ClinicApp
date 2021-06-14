@@ -50,7 +50,7 @@ namespace ClinicAppUI.UserControls
                 join p in Db.Patients on s.PatientId equals p.Id
                 select new
                 {
-                    Id=s.AppointmentId,
+                    Id=s.Id,
                     DoctorInfo = d.Surname +" " + d.Name,
                     PatientInfo = p.Surname + " " + p.Name,
                     ScheduleDate = s.DateOfSchedule
@@ -95,6 +95,7 @@ namespace ClinicAppUI.UserControls
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            //TODO:ЕСЛИ НОВЫЙ ПРИЕМ В ТЕЧЕНИИ 3 МЕСЯЦЕВ У ТОГО ЖЕ ВРАЧА- ТО ПОСОВЕТОВАТЬ ПОВТОРНЫЙ
             AddScheduleForm scheduleForm = new AddScheduleForm();
             scheduleForm.Db = Db;
             scheduleForm.selectedDate = DateTime.Now;

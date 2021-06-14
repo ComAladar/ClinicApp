@@ -135,7 +135,7 @@ namespace ClinicAppUI.UserControls
             var tempItem = listBoxPatients.SelectedItem;
             var testString = tempItem.ToString();
             testString = Regex.Match(testString, @"\d+").Value;
-            var tempPatient = PatientsList.Find(x => x.Id.ToString() == testString); ;
+            var tempPatient = PatientsList.Find(x => x.Id.ToString() == testString);
             textBoxSurname.Text = tempPatient.Surname;
             textBoxName.Text = tempPatient.Name;
             textBoxPatronymic.Text = tempPatient.Patronymic;
@@ -176,7 +176,7 @@ namespace ClinicAppUI.UserControls
             }
             AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
             GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
-            appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].AppointmentId);
+            appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             //GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
             //appointmentForm.appointmentSchedule = scheduleRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             foreach (Control control in appointmentForm.Controls)

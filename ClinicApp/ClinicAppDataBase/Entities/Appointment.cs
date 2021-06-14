@@ -46,7 +46,7 @@ namespace ClinicAppDataBase.Entities
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
-        public int AppointmentId
+        public int Id
         {
             get
             {
