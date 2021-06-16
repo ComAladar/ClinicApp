@@ -369,7 +369,9 @@
             this.Controls.Add(this.groupBoxMisc);
             this.Controls.Add(this.groupBoxContacts);
             this.Controls.Add(this.groupBoxPersonalInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddEditPatientForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные пациента";
             this.Load += new System.EventHandler(this.AddEditPatientForm_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);

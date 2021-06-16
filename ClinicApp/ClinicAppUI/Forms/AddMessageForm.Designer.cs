@@ -112,7 +112,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(334, 261);
             this.Controls.Add(this.groupBoxMessage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddMessageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Новое сообщение";
             this.groupBoxMessage.ResumeLayout(false);
             this.groupBoxMessage.PerformLayout();

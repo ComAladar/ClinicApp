@@ -103,10 +103,9 @@ namespace ClinicAppUI.UserControls
             listBoxAppointments.Items.Clear();
             foreach (var item in AppointmentsList)
             {
-                listBoxAppointments.Items.Add(item.DateOfSchedule.Date.ToLongDateString() + " " 
-                    + item.DateOfSchedule.TimeOfDay.Hours + ":" 
-                    + item.DateOfSchedule.TimeOfDay.Minutes + " => " 
-                    + item.Staff.Surname + " " + item.Staff.Name );
+                listBoxAppointments.Items.Add(
+                    "Дата: " + item.DateOfSchedule.Date.ToLongDateString()
+                    + ". Врач: " + item.Staff.Surname + " " + item.Staff.Name + ". Тип: " + EnumHandler.GetDescription(item.AppointmentType));
             }
         }
 
@@ -139,9 +138,9 @@ namespace ClinicAppUI.UserControls
             textBoxSurname.Text = tempPatient.Surname;
             textBoxName.Text = tempPatient.Name;
             textBoxPatronymic.Text = tempPatient.Patronymic;
-            textBoxBirthDate.Text = tempPatient.DateOfBirth.ToString();
+            textBoxBirthDate.Text = tempPatient.DateOfBirth.ToShortDateString();
             textBoxSex.Text = EnumHandler.GetDescription(tempPatient.Sex);
-            textBoxRegistrationDate.Text = tempPatient.DateOfRegistration.ToString();
+            textBoxRegistrationDate.Text = tempPatient.DateOfRegistration.ToShortDateString();
             textBoxCity.Text = tempPatient.City;
             textBoxStreet.Text = tempPatient.Street;
             textBoxHouse.Text = tempPatient.House;

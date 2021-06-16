@@ -34,6 +34,7 @@ namespace ClinicAppUI.UserControls
 
         public List<Patient> PatientsList { get; set; } = new List<Patient>();
         public List<Receipt> ReceiptsList { get; set; } = new List<Receipt>();
+        public EnumerationHandler EnumHandler = new EnumerationHandler();
 
         private void UpdatePatients()
         {
@@ -101,7 +102,7 @@ namespace ClinicAppUI.UserControls
                         dataGridViewReceipts.Rows.Add(item.Id.ToString(),
                             item.ReceiptNumber.ToString(),
                             item.Price.ToString(),
-                            item.Status.ToString(),
+                            EnumHandler.GetDescription(item.Status),
                             item.Appointment.DateOfSchedule.ToShortDateString());
                     }
                 }

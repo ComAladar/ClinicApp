@@ -35,11 +35,11 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxScheduleDate = new System.Windows.Forms.GroupBox();
+            this.comboBoxAppointmentType = new System.Windows.Forms.ComboBox();
+            this.labelAppointmentType = new System.Windows.Forms.Label();
             this.dateTimePickerTime = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
             this.labelDate = new System.Windows.Forms.Label();
-            this.labelAppointmentType = new System.Windows.Forms.Label();
-            this.comboBoxAppointmentType = new System.Windows.Forms.ComboBox();
             this.groupBoxScheduleDate.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +115,23 @@
             this.groupBoxScheduleDate.TabStop = false;
             this.groupBoxScheduleDate.Text = "Расписание";
             // 
+            // comboBoxAppointmentType
+            // 
+            this.comboBoxAppointmentType.FormattingEnabled = true;
+            this.comboBoxAppointmentType.Location = new System.Drawing.Point(6, 112);
+            this.comboBoxAppointmentType.Name = "comboBoxAppointmentType";
+            this.comboBoxAppointmentType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxAppointmentType.TabIndex = 9;
+            // 
+            // labelAppointmentType
+            // 
+            this.labelAppointmentType.AutoSize = true;
+            this.labelAppointmentType.Location = new System.Drawing.Point(6, 96);
+            this.labelAppointmentType.Name = "labelAppointmentType";
+            this.labelAppointmentType.Size = new System.Drawing.Size(69, 13);
+            this.labelAppointmentType.TabIndex = 8;
+            this.labelAppointmentType.Text = "Тип Приема";
+            // 
             // dateTimePickerTime
             // 
             this.dateTimePickerTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
@@ -140,23 +157,6 @@
             this.labelDate.TabIndex = 5;
             this.labelDate.Text = "Дата приема";
             // 
-            // labelAppointmentType
-            // 
-            this.labelAppointmentType.AutoSize = true;
-            this.labelAppointmentType.Location = new System.Drawing.Point(6, 96);
-            this.labelAppointmentType.Name = "labelAppointmentType";
-            this.labelAppointmentType.Size = new System.Drawing.Size(69, 13);
-            this.labelAppointmentType.TabIndex = 8;
-            this.labelAppointmentType.Text = "Тип Приема";
-            // 
-            // comboBoxAppointmentType
-            // 
-            this.comboBoxAppointmentType.FormattingEnabled = true;
-            this.comboBoxAppointmentType.Location = new System.Drawing.Point(6, 112);
-            this.comboBoxAppointmentType.Name = "comboBoxAppointmentType";
-            this.comboBoxAppointmentType.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxAppointmentType.TabIndex = 9;
-            // 
             // AddScheduleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,7 +165,9 @@
             this.Controls.Add(this.groupBoxScheduleDate);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddScheduleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Новая запись";
             this.groupBoxScheduleDate.ResumeLayout(false);
             this.groupBoxScheduleDate.PerformLayout();

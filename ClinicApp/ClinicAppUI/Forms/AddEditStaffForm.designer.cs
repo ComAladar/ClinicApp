@@ -400,7 +400,9 @@
             this.Controls.Add(this.groupBoxRank);
             this.Controls.Add(this.groupBoxContacts);
             this.Controls.Add(this.groupBoxPersonalInfo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddEditStaffForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные персонала";
             this.Load += new System.EventHandler(this.AddEditStaffForm_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);

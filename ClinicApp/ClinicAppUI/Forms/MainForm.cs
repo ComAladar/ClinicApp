@@ -74,10 +74,24 @@ namespace ClinicAppUI.Forms
             panelMainUC.Controls["analyticsUserControl"].BringToFront();
         }
 
+        private void NavigationPanelInitialize(Button button)
+        {
+            panelNavigation.Height = button.Height;
+            panelNavigation.Top = button.Top;
+            panelNavigation.Left = button.Left;
+            button.BackColor = Color.FromArgb(46, 51, 73);
+        }
+
+        private void NavigationPanelChangeButton(Button button)
+        {
+            button.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
         public MainForm()
         {
             InitializeComponent();
             Db = new ClinicContext();
+            NavigationPanelInitialize(buttonHome);
         }
 
 
@@ -113,39 +127,37 @@ namespace ClinicAppUI.Forms
 
         private void buttonHome_Click(object sender, EventArgs e)
         {
+            NavigationPanelInitialize(buttonHome);
             SelectHomeControl();
-        }
-
-
-
-        private void InfoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutForm aboutForm = new AboutForm();
-            aboutForm.Show();
         }
 
         private void buttonPatient_Click(object sender, EventArgs e)
         {
+            NavigationPanelInitialize(buttonPatient);
             SelectPatientControl();
         }
 
         private void buttonStaff_Click(object sender, EventArgs e)
         {
+            NavigationPanelInitialize(buttonStaff);
             SelectStaffControl();
         }
 
         private void buttonSchedule_Click(object sender, EventArgs e)
         {
+            NavigationPanelInitialize(buttonSchedule);
             SelectScheduleControl();
         }
 
         private void buttonAnalytics_Click(object sender, EventArgs e)
         {
+            NavigationPanelInitialize(buttonAnalytics);
             SelectAnalyticsControl();
         }
 
         private void buttonCashBox_Click(object sender, EventArgs e)
         {
+            NavigationPanelInitialize(buttonCashBox);
             SelectCashBoxControl();
         }
 
@@ -157,8 +169,46 @@ namespace ClinicAppUI.Forms
             buttonStaff.Enabled = true;
             buttonAnalytics.Enabled = true;
             buttonCashBox.Enabled = true;
+            labelStaffFullname.Text = CurrentUser.Surname + " " + CurrentUser.Name;
+            labelQualification.Text = CurrentUser.Qualification;
+            labelPosition.Text = CurrentUser.Position;
+            labelSpecialty.Text = CurrentUser.Speciality;
         }
 
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
+        }
 
+        private void buttonHome_Leave(object sender, EventArgs e)
+        {
+            NavigationPanelChangeButton(buttonHome);
+        }
+
+        private void buttonPatient_Leave(object sender, EventArgs e)
+        {
+            NavigationPanelChangeButton(buttonPatient);
+        }
+
+        private void buttonStaff_Leave(object sender, EventArgs e)
+        {
+            NavigationPanelChangeButton(buttonStaff);
+        }
+
+        private void buttonSchedule_Leave(object sender, EventArgs e)
+        {
+            NavigationPanelChangeButton(buttonSchedule);
+        }
+
+        private void buttonCashBox_Leave(object sender, EventArgs e)
+        {
+            NavigationPanelChangeButton(buttonCashBox);
+        }
+
+        private void buttonAnalytics_Leave(object sender, EventArgs e)
+        {
+            NavigationPanelChangeButton(buttonAnalytics);
+        }
     }
 }

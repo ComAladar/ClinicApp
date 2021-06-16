@@ -100,10 +100,8 @@ namespace ClinicAppUI.UserControls
             listBoxAppointments.Items.Clear();
             foreach (var item in AppointmentsList)
             {
-                listBoxAppointments.Items.Add(item.DateOfSchedule.Date.ToLongDateString() + " "
-                    + item.DateOfSchedule.TimeOfDay.Hours + ":"
-                    + item.DateOfSchedule.TimeOfDay.Minutes + " => "
-                    + item.Patient.Surname + " " + item.Patient.Name);
+                listBoxAppointments.Items.Add("Дата: " + item.DateOfSchedule.Date.ToLongDateString() + ". Пациент: "
+                    + item.Patient.Surname + " " + item.Patient.Name + ". Тип: " + EnumHandler.GetDescription(item.AppointmentType));
             }
         }
 
@@ -142,16 +140,16 @@ namespace ClinicAppUI.UserControls
             textBoxSurname.Text = tempStaff.Surname;
             textBoxName.Text = tempStaff.Name;
             textBoxPatronymic.Text = tempStaff.Patronymic;
-            textBoxBirthDate.Text = tempStaff.DateOfBirth.ToString();
+            textBoxBirthDate.Text = tempStaff.DateOfBirth.ToShortDateString();
             textBoxSex.Text = EnumHandler.GetDescription(tempStaff.Sex);
-            textBoxRegistrationDate.Text = tempStaff.DateOfRegistration.ToString();
+            textBoxRegistrationDate.Text = tempStaff.DateOfRegistration.ToShortDateString();
             textBoxPhone.Text = tempStaff.PhoneNumber;
             textBoxEmail.Text = tempStaff.Email;
             textBoxAccess.Text = EnumHandler.GetDescription(tempStaff.Access);
             textBoxQualification.Text = tempStaff.Qualification;
             textBoxSpecialty.Text = tempStaff.Speciality;
             textBoxPosition.Text = tempStaff.Position;
-            textBoxEmploymentDate.Text = tempStaff.DateOfEmployment.ToString();
+            textBoxEmploymentDate.Text = tempStaff.DateOfEmployment.ToShortDateString();
 
             UpdateAppointments();
             //textBoxTodayAppointments.Text = ;

@@ -11,9 +11,9 @@ namespace ClinicAppBusinessLogic.Enumerations
     {
         [Description("Не определенно")]
         Unknown,
-        [Description("Мужчина")]
+        [Description("Мужской")]
         Male,
-        [Description("Женщина")]
+        [Description("Женский")]
         Female
     }
 }

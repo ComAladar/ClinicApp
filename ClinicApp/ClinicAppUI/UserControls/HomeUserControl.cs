@@ -26,17 +26,15 @@ namespace ClinicAppUI.UserControls
         private void LoginSuccess()
         {
             checkBoxShowPassword.Checked = false;
-            groupBoxLogin.Visible = false;
-            groupBoxMessages.Enabled = true;
-            groupBoxSchedule.Enabled = true;
-            groupBoxTemplates.Enabled = true;
-            groupBoxUserInfo.Enabled = true;
-
-            textBoxFullName.Text = CurrentUser.Surname + " " + CurrentUser.Name + " " + CurrentUser.Patronymic;
-            textBoxPosition.Text = CurrentUser.Position;
-            textBoxQualification.Text = CurrentUser.Qualification;
-            textBoxSpecialty.Text = CurrentUser.Speciality;
-            textBoxRegistrationDate.Text = CurrentUser.DateOfRegistration.ToString();
+            panelLogin.Enabled = false;
+            //panelLogin.Visible = false;
+            //groupBoxLogin.Visible = false;
+            panelMessages.Enabled = true;
+            //groupBoxMessages.Enabled = true;
+            panelSchedule.Enabled = true;
+            //groupBoxSchedule.Enabled = true;
+            panelTemplates.Enabled = true;
+            //groupBoxTemplates.Enabled = true;
 
             AppointmentsActivation();
         }
@@ -48,7 +46,7 @@ namespace ClinicAppUI.UserControls
             dataGridViewMessages.Columns.Remove("Staff");
             dataGridViewMessages.Columns.Remove("StaffId");
             dataGridViewMessages.Columns.Remove("Id");
-            dataGridViewMessages.Columns[1].Width = 200;
+            dataGridViewMessages.Columns[1].Width = 475;
             dataGridViewMessages.Columns[0].HeaderText = "Тема";
             dataGridViewMessages.Columns[1].HeaderText = "Сообщение";
             dataGridViewMessages.Columns[2].HeaderText = "Дата";
@@ -60,6 +58,7 @@ namespace ClinicAppUI.UserControls
             Db.Appointments.Load();
             Db.Staffs.Load();
             Db.Patients.Load();
+            Db.Receipts.Load();
 
             var appointments = Db.Appointments.Where(a => a.StaffId == CurrentUser.Id).Where(a=>DbFunctions.TruncateTime(a.DateOfSchedule)==DbFunctions.TruncateTime(DateTime.Today)).Where(a=>a.IsComplete==0);
             foreach (var item in appointments)
@@ -68,9 +67,21 @@ namespace ClinicAppUI.UserControls
             }
 
             listBoxAppointments.Items.Clear();
+            EnumerationHandler enumHandler = new EnumerationHandler();
+            var receipts = Db.Receipts.Where(a => a.Appointment.StaffId == CurrentUser.Id);
             foreach (var item in AppointmentsList)
             {
-                listBoxAppointments.Items.Add(item.Patient.Surname + " " +item.Patient.Name + " => " + item.DateOfSchedule.TimeOfDay.Hours + ":" + item.DateOfSchedule.TimeOfDay.Minutes);
+                var translatedAppointmentType=enumHandler.GetDescription(item.AppointmentType);
+                var translatedReceiptStatus = "Чек не найден.";
+                if (item.Receipt != null)
+                {
+                    translatedReceiptStatus = enumHandler.GetDescription(appointments.FirstOrDefault(a => a.Id == item.Id).Receipt.Status);
+                }
+                listBoxAppointments.Items.Add(
+                    "ФИО Пациента: " + item.Patient.Surname + " " +item.Patient.Name + " " + item.Patient.Surname + 
+                    ". Время приема: " + item.DateOfSchedule.TimeOfDay.Hours + ":" + item.DateOfSchedule.TimeOfDay.Minutes + 
+                    ". Тип приема: " + translatedAppointmentType + 
+                    ". Состояния оплаты: " + translatedReceiptStatus);
             }
         }
 

@@ -160,6 +160,7 @@
             this.MinimumSize = new System.Drawing.Size(350, 300);
             this.Name = "AboutForm";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "О Приложении";
             this.ResumeLayout(false);
             this.PerformLayout();

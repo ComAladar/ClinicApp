@@ -27,6 +27,7 @@ namespace ClinicAppUI.UserControls
     {
         public Staff CurrentUser { get; set; }
         private ClinicContext _db;
+        public EnumerationHandler EnumHandler = new EnumerationHandler();
 
         public class DataSourceView
         {
@@ -68,9 +69,9 @@ namespace ClinicAppUI.UserControls
             dataGridViewSchedule.ClearSelection();
             dataGridViewSchedule.DataSource = viewList;
             dataGridViewSchedule.Columns[0].Width = 40;
-            dataGridViewSchedule.Columns[1].Width = 200;
-            dataGridViewSchedule.Columns[2].Width = 200;
-            dataGridViewSchedule.Columns[3].Width = 150;
+            dataGridViewSchedule.Columns[1].Width = 240;
+            dataGridViewSchedule.Columns[2].Width = 240;
+            dataGridViewSchedule.Columns[3].Width = 190;
         }
 
         public List<DataSourceView> viewList;
@@ -107,6 +108,8 @@ namespace ClinicAppUI.UserControls
                 currentAppointment.Staff = scheduleForm.selectedStaff;
                 currentAppointment.DateOfSchedule = scheduleForm.selectedDate;
                 currentAppointment.AppointmentType = scheduleForm.SelectedAppointmentType;
+                currentAppointment.AppointmentName = "Прием (осмотр, консультация) врача-" +
+                                                     currentAppointment.Staff.Speciality + " " + EnumHandler.GetDescription(currentAppointment.AppointmentType);
                 //TODO: СДЕЛАТЬ АДЕКВАТНОЕ УВЕДОМЛЕНИЕ О ДРУГОМ ТИПЕ ПРИЕМА
                 Db.Appointments.Load();
                 GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
@@ -128,6 +131,7 @@ namespace ClinicAppUI.UserControls
                         DialogResult changeTypeResult = MessageBox.Show("Был найден завершенный прием у пациента у заданного доктора. Выставить тип приема- повторный?",
                             "Изменение типа приема", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
                         if(changeTypeResult==DialogResult.OK) currentAppointment.AppointmentType = (AppointmentType) 1;
+                        break;
                     }
                 }
 
