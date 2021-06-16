@@ -31,6 +31,7 @@
             this.labelAppointment = new System.Windows.Forms.Label();
             this.labelStaff = new System.Windows.Forms.Label();
             this.groupBoxAppointment = new System.Windows.Forms.GroupBox();
+            this.listBoxAppointments = new System.Windows.Forms.ListBox();
             this.labelAppointmentType = new System.Windows.Forms.Label();
             this.groupBoxReceipt = new System.Windows.Forms.GroupBox();
             this.textBoxFinalCost = new System.Windows.Forms.TextBox();
@@ -42,7 +43,8 @@
             this.checkBoxAdditionalCosts = new System.Windows.Forms.CheckBox();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.listBoxAppointments = new System.Windows.Forms.ListBox();
+            this.labelStaffText = new System.Windows.Forms.Label();
+            this.labelAppointmentTypeText = new System.Windows.Forms.Label();
             this.groupBoxAppointment.SuspendLayout();
             this.groupBoxReceipt.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +61,7 @@
             // labelStaff
             // 
             this.labelStaff.AutoSize = true;
-            this.labelStaff.Location = new System.Drawing.Point(6, 99);
+            this.labelStaff.Location = new System.Drawing.Point(6, 130);
             this.labelStaff.Name = "labelStaff";
             this.labelStaff.Size = new System.Drawing.Size(67, 13);
             this.labelStaff.TabIndex = 1;
@@ -67,6 +69,8 @@
             // 
             // groupBoxAppointment
             // 
+            this.groupBoxAppointment.Controls.Add(this.labelAppointmentTypeText);
+            this.groupBoxAppointment.Controls.Add(this.labelStaffText);
             this.groupBoxAppointment.Controls.Add(this.listBoxAppointments);
             this.groupBoxAppointment.Controls.Add(this.labelAppointmentType);
             this.groupBoxAppointment.Controls.Add(this.labelAppointment);
@@ -78,10 +82,19 @@
             this.groupBoxAppointment.TabStop = false;
             this.groupBoxAppointment.Text = "Прием";
             // 
+            // listBoxAppointments
+            // 
+            this.listBoxAppointments.FormattingEnabled = true;
+            this.listBoxAppointments.Location = new System.Drawing.Point(6, 32);
+            this.listBoxAppointments.Name = "listBoxAppointments";
+            this.listBoxAppointments.Size = new System.Drawing.Size(326, 95);
+            this.listBoxAppointments.TabIndex = 3;
+            this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
+            // 
             // labelAppointmentType
             // 
             this.labelAppointmentType.AutoSize = true;
-            this.labelAppointmentType.Location = new System.Drawing.Point(4, 179);
+            this.labelAppointmentType.Location = new System.Drawing.Point(6, 179);
             this.labelAppointmentType.Name = "labelAppointmentType";
             this.labelAppointmentType.Size = new System.Drawing.Size(69, 13);
             this.labelAppointmentType.TabIndex = 2;
@@ -148,6 +161,7 @@
             // 
             // textBoxAdditionalCost
             // 
+            this.textBoxAdditionalCost.Enabled = false;
             this.textBoxAdditionalCost.Location = new System.Drawing.Point(9, 96);
             this.textBoxAdditionalCost.Name = "textBoxAdditionalCost";
             this.textBoxAdditionalCost.Size = new System.Drawing.Size(203, 20);
@@ -164,6 +178,7 @@
             this.checkBoxAdditionalCosts.TabIndex = 0;
             this.checkBoxAdditionalCosts.Text = "Дополнительные услуги";
             this.checkBoxAdditionalCosts.UseVisualStyleBackColor = true;
+            this.checkBoxAdditionalCosts.CheckedChanged += new System.EventHandler(this.checkBoxAdditionalCosts_CheckedChanged);
             // 
             // buttonAdd
             // 
@@ -185,13 +200,23 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // listBoxAppointments
+            // labelStaffText
             // 
-            this.listBoxAppointments.FormattingEnabled = true;
-            this.listBoxAppointments.Location = new System.Drawing.Point(141, 16);
-            this.listBoxAppointments.Name = "listBoxAppointments";
-            this.listBoxAppointments.Size = new System.Drawing.Size(120, 95);
-            this.listBoxAppointments.TabIndex = 3;
+            this.labelStaffText.AutoSize = true;
+            this.labelStaffText.Location = new System.Drawing.Point(17, 154);
+            this.labelStaffText.Name = "labelStaffText";
+            this.labelStaffText.Size = new System.Drawing.Size(19, 13);
+            this.labelStaffText.TabIndex = 4;
+            this.labelStaffText.Text = "....";
+            // 
+            // labelAppointmentTypeText
+            // 
+            this.labelAppointmentTypeText.AutoSize = true;
+            this.labelAppointmentTypeText.Location = new System.Drawing.Point(6, 210);
+            this.labelAppointmentTypeText.Name = "labelAppointmentTypeText";
+            this.labelAppointmentTypeText.Size = new System.Drawing.Size(19, 13);
+            this.labelAppointmentTypeText.TabIndex = 5;
+            this.labelAppointmentTypeText.Text = "....";
             // 
             // AddReceiptForm
             // 
@@ -229,5 +254,7 @@
         private System.Windows.Forms.Label labelReceiptCost;
         private System.Windows.Forms.TextBox textBoxFinalCost;
         private System.Windows.Forms.ListBox listBoxAppointments;
+        private System.Windows.Forms.Label labelAppointmentTypeText;
+        private System.Windows.Forms.Label labelStaffText;
     }
 }

@@ -171,6 +171,11 @@ namespace ClinicAppUI.UserControls
                 && a.IsComplete==0 
                 //&& a.Appointment.Id != a.Id 
                 && a.DateOfSchedule == appointmentTime);
+            if (appointmentForm.Appointment.Receipt == null || appointmentForm.Appointment.Receipt.Status == 0)
+            {
+                MessageBox.Show("Невозможно начать приема пока чек не был создан и оплачен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             appointmentForm.ShowDialog();
             if (appointmentForm.DialogResult == DialogResult.OK)
             {

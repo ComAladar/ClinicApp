@@ -29,7 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBoxPatient = new System.Windows.Forms.GroupBox();
+            this.labelEmailText = new System.Windows.Forms.Label();
+            this.labelPhoneNumberText = new System.Windows.Forms.Label();
+            this.labelDateOfBirthText = new System.Windows.Forms.Label();
+            this.labelSexText = new System.Windows.Forms.Label();
             this.labelEmail = new System.Windows.Forms.Label();
+            this.labelInitialsText = new System.Windows.Forms.Label();
             this.labelSex = new System.Windows.Forms.Label();
             this.labelPhoneNumber = new System.Windows.Forms.Label();
             this.labelDateOfBirth = new System.Windows.Forms.Label();
@@ -38,27 +43,26 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.listBoxPatients = new System.Windows.Forms.ListBox();
             this.groupBoxReceipt = new System.Windows.Forms.GroupBox();
+            this.buttonUpdateStatus = new System.Windows.Forms.Button();
             this.buttonDeleteReceipt = new System.Windows.Forms.Button();
             this.buttonAddReceipt = new System.Windows.Forms.Button();
             this.dataGridViewReceipts = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColummID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxStatus = new System.Windows.Forms.GroupBox();
+            this.labelNotPaidTimesText = new System.Windows.Forms.Label();
+            this.labelNotPaidAmountText = new System.Windows.Forms.Label();
+            this.labelPaidTimesText = new System.Windows.Forms.Label();
+            this.labelPaidAmountText = new System.Windows.Forms.Label();
             this.labelNotPaidTimes = new System.Windows.Forms.Label();
             this.labelNotPaidAmount = new System.Windows.Forms.Label();
             this.labelPaidTimes = new System.Windows.Forms.Label();
             this.labelPaidAmount = new System.Windows.Forms.Label();
             this.labelNotPaid = new System.Windows.Forms.Label();
             this.labelPaid = new System.Windows.Forms.Label();
-            this.labelInitialsText = new System.Windows.Forms.Label();
-            this.labelDateOfBirthText = new System.Windows.Forms.Label();
-            this.labelSexText = new System.Windows.Forms.Label();
-            this.labelPhoneNumberText = new System.Windows.Forms.Label();
-            this.labelEmailText = new System.Windows.Forms.Label();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColummID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBoxPatient.SuspendLayout();
             this.groupBoxReceipt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReceipts)).BeginInit();
@@ -87,6 +91,42 @@
             this.groupBoxPatient.TabStop = false;
             this.groupBoxPatient.Text = "Пациент";
             // 
+            // labelEmailText
+            // 
+            this.labelEmailText.AutoSize = true;
+            this.labelEmailText.Location = new System.Drawing.Point(6, 360);
+            this.labelEmailText.Name = "labelEmailText";
+            this.labelEmailText.Size = new System.Drawing.Size(19, 13);
+            this.labelEmailText.TabIndex = 8;
+            this.labelEmailText.Text = "....";
+            // 
+            // labelPhoneNumberText
+            // 
+            this.labelPhoneNumberText.AutoSize = true;
+            this.labelPhoneNumberText.Location = new System.Drawing.Point(6, 324);
+            this.labelPhoneNumberText.Name = "labelPhoneNumberText";
+            this.labelPhoneNumberText.Size = new System.Drawing.Size(19, 13);
+            this.labelPhoneNumberText.TabIndex = 7;
+            this.labelPhoneNumberText.Text = "....";
+            // 
+            // labelDateOfBirthText
+            // 
+            this.labelDateOfBirthText.AutoSize = true;
+            this.labelDateOfBirthText.Location = new System.Drawing.Point(6, 256);
+            this.labelDateOfBirthText.Name = "labelDateOfBirthText";
+            this.labelDateOfBirthText.Size = new System.Drawing.Size(19, 13);
+            this.labelDateOfBirthText.TabIndex = 7;
+            this.labelDateOfBirthText.Text = "....";
+            // 
+            // labelSexText
+            // 
+            this.labelSexText.AutoSize = true;
+            this.labelSexText.Location = new System.Drawing.Point(3, 288);
+            this.labelSexText.Name = "labelSexText";
+            this.labelSexText.Size = new System.Drawing.Size(19, 13);
+            this.labelSexText.TabIndex = 6;
+            this.labelSexText.Text = "....";
+            // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
@@ -95,6 +135,15 @@
             this.labelEmail.Size = new System.Drawing.Size(56, 13);
             this.labelEmail.TabIndex = 2;
             this.labelEmail.Text = "Эл. Почта";
+            // 
+            // labelInitialsText
+            // 
+            this.labelInitialsText.AutoSize = true;
+            this.labelInitialsText.Location = new System.Drawing.Point(6, 215);
+            this.labelInitialsText.Name = "labelInitialsText";
+            this.labelInitialsText.Size = new System.Drawing.Size(19, 13);
+            this.labelInitialsText.TabIndex = 6;
+            this.labelInitialsText.Text = "....";
             // 
             // labelSex
             // 
@@ -147,6 +196,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(133, 20);
             this.textBoxSearch.TabIndex = 22;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // listBoxPatients
             // 
@@ -159,6 +209,7 @@
             // 
             // groupBoxReceipt
             // 
+            this.groupBoxReceipt.Controls.Add(this.buttonUpdateStatus);
             this.groupBoxReceipt.Controls.Add(this.buttonDeleteReceipt);
             this.groupBoxReceipt.Controls.Add(this.buttonAddReceipt);
             this.groupBoxReceipt.Controls.Add(this.dataGridViewReceipts);
@@ -168,6 +219,16 @@
             this.groupBoxReceipt.TabIndex = 1;
             this.groupBoxReceipt.TabStop = false;
             this.groupBoxReceipt.Text = "Счета";
+            // 
+            // buttonUpdateStatus
+            // 
+            this.buttonUpdateStatus.Location = new System.Drawing.Point(339, 230);
+            this.buttonUpdateStatus.Name = "buttonUpdateStatus";
+            this.buttonUpdateStatus.Size = new System.Drawing.Size(130, 31);
+            this.buttonUpdateStatus.TabIndex = 6;
+            this.buttonUpdateStatus.Text = "Обновить статус";
+            this.buttonUpdateStatus.UseVisualStyleBackColor = true;
+            this.buttonUpdateStatus.Click += new System.EventHandler(this.buttonUpdateStatus_Click);
             // 
             // buttonDeleteReceipt
             // 
@@ -181,7 +242,7 @@
             // 
             // buttonAddReceipt
             // 
-            this.buttonAddReceipt.Location = new System.Drawing.Point(341, 230);
+            this.buttonAddReceipt.Location = new System.Drawing.Point(203, 230);
             this.buttonAddReceipt.Name = "buttonAddReceipt";
             this.buttonAddReceipt.Size = new System.Drawing.Size(130, 31);
             this.buttonAddReceipt.TabIndex = 1;
@@ -197,15 +258,43 @@
             this.ColummID,
             this.ColumnPrice,
             this.ColumnStatus,
-            this.ColumnDate,
-            this.ColumnStaff});
+            this.ColumnDate});
             this.dataGridViewReceipts.Location = new System.Drawing.Point(6, 16);
             this.dataGridViewReceipts.Name = "dataGridViewReceipts";
             this.dataGridViewReceipts.Size = new System.Drawing.Size(601, 208);
             this.dataGridViewReceipts.TabIndex = 0;
             // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "#";
+            this.ColumnID.Name = "ColumnID";
+            // 
+            // ColummID
+            // 
+            this.ColummID.HeaderText = "Номер Чека";
+            this.ColummID.Name = "ColummID";
+            // 
+            // ColumnPrice
+            // 
+            this.ColumnPrice.HeaderText = "Сумма";
+            this.ColumnPrice.Name = "ColumnPrice";
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.HeaderText = "Статус";
+            this.ColumnStatus.Name = "ColumnStatus";
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "Дата";
+            this.ColumnDate.Name = "ColumnDate";
+            // 
             // groupBoxStatus
             // 
+            this.groupBoxStatus.Controls.Add(this.labelNotPaidTimesText);
+            this.groupBoxStatus.Controls.Add(this.labelNotPaidAmountText);
+            this.groupBoxStatus.Controls.Add(this.labelPaidTimesText);
+            this.groupBoxStatus.Controls.Add(this.labelPaidAmountText);
             this.groupBoxStatus.Controls.Add(this.labelNotPaidTimes);
             this.groupBoxStatus.Controls.Add(this.labelNotPaidAmount);
             this.groupBoxStatus.Controls.Add(this.labelPaidTimes);
@@ -218,6 +307,42 @@
             this.groupBoxStatus.TabIndex = 2;
             this.groupBoxStatus.TabStop = false;
             this.groupBoxStatus.Text = "Статистика";
+            // 
+            // labelNotPaidTimesText
+            // 
+            this.labelNotPaidTimesText.AutoSize = true;
+            this.labelNotPaidTimesText.Location = new System.Drawing.Point(454, 61);
+            this.labelNotPaidTimesText.Name = "labelNotPaidTimesText";
+            this.labelNotPaidTimesText.Size = new System.Drawing.Size(19, 13);
+            this.labelNotPaidTimesText.TabIndex = 9;
+            this.labelNotPaidTimesText.Text = "....";
+            // 
+            // labelNotPaidAmountText
+            // 
+            this.labelNotPaidAmountText.AutoSize = true;
+            this.labelNotPaidAmountText.Location = new System.Drawing.Point(454, 36);
+            this.labelNotPaidAmountText.Name = "labelNotPaidAmountText";
+            this.labelNotPaidAmountText.Size = new System.Drawing.Size(19, 13);
+            this.labelNotPaidAmountText.TabIndex = 8;
+            this.labelNotPaidAmountText.Text = "....";
+            // 
+            // labelPaidTimesText
+            // 
+            this.labelPaidTimesText.AutoSize = true;
+            this.labelPaidTimesText.Location = new System.Drawing.Point(164, 61);
+            this.labelPaidTimesText.Name = "labelPaidTimesText";
+            this.labelPaidTimesText.Size = new System.Drawing.Size(19, 13);
+            this.labelPaidTimesText.TabIndex = 7;
+            this.labelPaidTimesText.Text = "....";
+            // 
+            // labelPaidAmountText
+            // 
+            this.labelPaidAmountText.AutoSize = true;
+            this.labelPaidAmountText.Location = new System.Drawing.Point(131, 36);
+            this.labelPaidAmountText.Name = "labelPaidAmountText";
+            this.labelPaidAmountText.Size = new System.Drawing.Size(19, 13);
+            this.labelPaidAmountText.TabIndex = 6;
+            this.labelPaidAmountText.Text = "....";
             // 
             // labelNotPaidTimes
             // 
@@ -242,9 +367,9 @@
             this.labelPaidTimes.AutoSize = true;
             this.labelPaidTimes.Location = new System.Drawing.Point(6, 61);
             this.labelPaidTimes.Name = "labelPaidTimes";
-            this.labelPaidTimes.Size = new System.Drawing.Size(89, 13);
+            this.labelPaidTimes.Size = new System.Drawing.Size(152, 13);
             this.labelPaidTimes.TabIndex = 3;
-            this.labelPaidTimes.Text = "Всего платежей";
+            this.labelPaidTimes.Text = "Всего оплаченных платежей";
             // 
             // labelPaidAmount
             // 
@@ -272,81 +397,6 @@
             this.labelPaid.Size = new System.Drawing.Size(87, 13);
             this.labelPaid.TabIndex = 0;
             this.labelPaid.Text = "Всего оплачено";
-            // 
-            // labelInitialsText
-            // 
-            this.labelInitialsText.AutoSize = true;
-            this.labelInitialsText.Location = new System.Drawing.Point(6, 215);
-            this.labelInitialsText.Name = "labelInitialsText";
-            this.labelInitialsText.Size = new System.Drawing.Size(19, 13);
-            this.labelInitialsText.TabIndex = 6;
-            this.labelInitialsText.Text = "....";
-            // 
-            // labelDateOfBirthText
-            // 
-            this.labelDateOfBirthText.AutoSize = true;
-            this.labelDateOfBirthText.Location = new System.Drawing.Point(6, 256);
-            this.labelDateOfBirthText.Name = "labelDateOfBirthText";
-            this.labelDateOfBirthText.Size = new System.Drawing.Size(19, 13);
-            this.labelDateOfBirthText.TabIndex = 7;
-            this.labelDateOfBirthText.Text = "....";
-            // 
-            // labelSexText
-            // 
-            this.labelSexText.AutoSize = true;
-            this.labelSexText.Location = new System.Drawing.Point(3, 288);
-            this.labelSexText.Name = "labelSexText";
-            this.labelSexText.Size = new System.Drawing.Size(19, 13);
-            this.labelSexText.TabIndex = 6;
-            this.labelSexText.Text = "....";
-            // 
-            // labelPhoneNumberText
-            // 
-            this.labelPhoneNumberText.AutoSize = true;
-            this.labelPhoneNumberText.Location = new System.Drawing.Point(6, 324);
-            this.labelPhoneNumberText.Name = "labelPhoneNumberText";
-            this.labelPhoneNumberText.Size = new System.Drawing.Size(19, 13);
-            this.labelPhoneNumberText.TabIndex = 7;
-            this.labelPhoneNumberText.Text = "....";
-            // 
-            // labelEmailText
-            // 
-            this.labelEmailText.AutoSize = true;
-            this.labelEmailText.Location = new System.Drawing.Point(6, 360);
-            this.labelEmailText.Name = "labelEmailText";
-            this.labelEmailText.Size = new System.Drawing.Size(19, 13);
-            this.labelEmailText.TabIndex = 8;
-            this.labelEmailText.Text = "....";
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "#";
-            this.ColumnID.Name = "ColumnID";
-            // 
-            // ColummID
-            // 
-            this.ColummID.HeaderText = "Номер Чека";
-            this.ColummID.Name = "ColummID";
-            // 
-            // ColumnPrice
-            // 
-            this.ColumnPrice.HeaderText = "Сумма";
-            this.ColumnPrice.Name = "ColumnPrice";
-            // 
-            // ColumnStatus
-            // 
-            this.ColumnStatus.HeaderText = "Статус";
-            this.ColumnStatus.Name = "ColumnStatus";
-            // 
-            // ColumnDate
-            // 
-            this.ColumnDate.HeaderText = "Дата";
-            this.ColumnDate.Name = "ColumnDate";
-            // 
-            // ColumnStaff
-            // 
-            this.ColumnStaff.HeaderText = "Составил чек";
-            this.ColumnStaff.Name = "ColumnStaff";
             // 
             // CashboxUserControl
             // 
@@ -394,11 +444,15 @@
         private System.Windows.Forms.Label labelEmailText;
         private System.Windows.Forms.Label labelPhoneNumberText;
         private System.Windows.Forms.Label labelSexText;
+        private System.Windows.Forms.Button buttonUpdateStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColummID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStaff;
+        private System.Windows.Forms.Label labelNotPaidTimesText;
+        private System.Windows.Forms.Label labelNotPaidAmountText;
+        private System.Windows.Forms.Label labelPaidTimesText;
+        private System.Windows.Forms.Label labelPaidAmountText;
     }
 }

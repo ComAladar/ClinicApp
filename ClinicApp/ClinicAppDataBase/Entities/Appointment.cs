@@ -40,11 +40,17 @@ namespace ClinicAppDataBase.Entities
         public int? StaffId { get; set; }
         public Staff Staff { get; set; }
         //
-        //СВЯЗЬ Appointment ----> Receipt 1 к 1
-        public  Receipt Receipt { get; set; }
+        //СВЯЗЬ Appointment ----> Receipt 1 к 1 МНОГИМ
+        //public ICollection<Receipt> Receipts { get; set; }
+        public virtual Receipt Receipt { get; set; }
         //
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public Appointment()
+        //{
+        //    Receipts = new List<Receipt>();
+        //}
+
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int Id
         {

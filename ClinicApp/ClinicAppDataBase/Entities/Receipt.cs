@@ -21,7 +21,8 @@ namespace ClinicAppDataBase.Entities
 
         //СВЯЗЬ С APPOINTMENT И STAFF
         //СВЯЗЬ Appointment ----> Receipt 1 к 1
-        public Appointment Appointment { get; set; }
+        //public  int? AppointmentId { get; set; }
+        public virtual Appointment Appointment { get; set; }
         //
 
         //Связь Staff ----> Receipt 1 к многим
@@ -31,7 +32,7 @@ namespace ClinicAppDataBase.Entities
         //
         [Key]
         [ForeignKey("Appointment")]
-        //[DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id
         {
             get

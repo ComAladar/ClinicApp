@@ -98,7 +98,7 @@ namespace ClinicAppUI.UserControls
             //TODO:ЕСЛИ НОВЫЙ ПРИЕМ В ТЕЧЕНИИ 3 МЕСЯЦЕВ У ТОГО ЖЕ ВРАЧА- ТО ПОСОВЕТОВАТЬ ПОВТОРНЫЙ
             AddScheduleForm scheduleForm = new AddScheduleForm();
             scheduleForm.Db = Db;
-            scheduleForm.selectedDate = DateTime.Now;
+            scheduleForm.selectedDate = monthCalendar1.SelectionEnd;
             scheduleForm.ShowDialog();
             if (scheduleForm.DialogResult == DialogResult.OK)
             {
@@ -107,6 +107,30 @@ namespace ClinicAppUI.UserControls
                 currentAppointment.Staff = scheduleForm.selectedStaff;
                 currentAppointment.DateOfSchedule = scheduleForm.selectedDate;
                 currentAppointment.AppointmentType = scheduleForm.SelectedAppointmentType;
+                //TODO: СДЕЛАТЬ АДЕКВАТНОЕ УВЕДОМЛЕНИЕ О ДРУГОМ ТИПЕ ПРИЕМА
+                Db.Appointments.Load();
+                GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
+                List<Appointment> tempAppointmentsList = new List<Appointment>();
+                var appointments = appointmentRepo.GetList();
+                foreach (var item in appointments)
+                {
+                    if(item.PatientId==currentAppointment.Patient.Id) tempAppointmentsList.Add(item);
+                }
+
+                foreach (var item in tempAppointmentsList)
+                {
+                    if (item.DateOfSchedule.Date <= currentAppointment.DateOfSchedule.Date
+                        &&(DateTime.Now - item.DateOfSchedule).TotalDays <= 90 
+                        && item.StaffId== currentAppointment.Staff.Id 
+                        && item.IsComplete==(ComplitionType)1
+                        && currentAppointment.AppointmentType == 0)
+                    {
+                        DialogResult changeTypeResult = MessageBox.Show("Был найден завершенный прием у пациента у заданного доктора. Выставить тип приема- повторный?",
+                            "Изменение типа приема", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+                        if(changeTypeResult==DialogResult.OK) currentAppointment.AppointmentType = (AppointmentType) 1;
+                    }
+                }
+
                 currentAppointment.IsComplete = 0;
                 Db.Appointments.Add(currentAppointment);
                 Db.SaveChanges();

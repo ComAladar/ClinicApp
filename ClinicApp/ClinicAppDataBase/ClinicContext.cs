@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,16 @@ namespace ClinicAppDataBase
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           //modelBuilder.Entity<Receipt>().HasRequired(a => a.Appointment).WithRequiredDependent(a => a.Receipt);
-           //modelBuilder.Entity<Receipt>().HasRequired(a => a.Appointment).WithRequiredPrincipal();
-           //modelBuilder.Entity<Appointment>().HasRequired(a => a.Receipt).WithRequiredPrincipal();
-           //modelBuilder.Entity<Appointment>().HasRequired(a=>a.Receipt).WithRequiredDependent();
-           // modelBuilder.Entity<Appointment>().HasIndex(a => new { a.Id }).IsUnique(true);
+           // modelBuilder.Entity<Appointment>().HasOptional(a => a.Receipt).WithRequired(r => r.Appointment);
+            //modelBuilder.Entity<Receipt>().Property(r => r.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+
+
+
+            //modelBuilder.Entity<Receipt>().HasRequired(a => a.Appointment).WithRequiredDependent(a => a.Receipt);
+            //modelBuilder.Entity<Receipt>().HasRequired(a => a.Appointment).WithRequiredPrincipal();
+            //modelBuilder.Entity<Appointment>().HasRequired(a => a.Receipt).WithRequiredPrincipal();
+            //modelBuilder.Entity<Appointment>().HasRequired(a=>a.Receipt).WithRequiredDependent();
+            // modelBuilder.Entity<Appointment>().HasIndex(a => new { a.Id }).IsUnique(true);
 
         }
 

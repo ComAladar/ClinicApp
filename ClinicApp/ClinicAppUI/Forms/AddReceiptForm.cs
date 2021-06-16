@@ -39,7 +39,10 @@ namespace ClinicAppUI.Forms
                 Db.Staffs.Load();
                 Db.Appointments.Load();
                 //TODO: ПОМЕНЯТЬ ИЗ КОМПЛИТЕ ПОТОМ
-                var appointments= Db.Appointments.Where(a => a.PatientId == SelectedPatientId && a.IsComplete == (ComplitionType)0);
+                var appointments= Db.Appointments.Where(a => 
+                    a.PatientId == SelectedPatientId 
+                    && a.IsComplete == (ComplitionType)0 
+                    && a.Receipt == null);
                 foreach (var item in appointments)
                 {
                     AppointmentsList.Add(item);
@@ -99,6 +102,30 @@ namespace ClinicAppUI.Forms
         {
             textBoxFinalCost.Text =
                 (double.Parse(textBoxMainCost.Text) + double.Parse(textBoxAdditionalCost.Text)).ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxAppointments.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            var fullname = AppointmentsList[listBoxAppointments.SelectedIndex].Staff.Surname + " " +
+                           AppointmentsList[listBoxAppointments.SelectedIndex].Staff.Name + " " +
+                           AppointmentsList[listBoxAppointments.SelectedIndex].Staff.Patronymic;
+            labelStaffText.Text = fullname;
+            labelAppointmentTypeText.Text =
+                AppointmentsList[listBoxAppointments.SelectedIndex].AppointmentType.ToString();
+        }
+
+        private void checkBoxAdditionalCosts_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAdditionalCosts.Checked == true)
+            {
+                textBoxAdditionalCost.Enabled = true;
+            }
+            else textBoxAdditionalCost.Enabled = false;
         }
     }
 }

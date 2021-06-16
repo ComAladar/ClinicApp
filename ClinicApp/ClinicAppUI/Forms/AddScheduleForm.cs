@@ -17,7 +17,21 @@ namespace ClinicAppUI.Forms
     public partial class AddScheduleForm : Form
     {
         public Staff selectedStaff { get; set; }
-        public DateTime selectedDate { get; set; }
+        private DateTime _selectedDate;
+
+        public DateTime selectedDate
+        {
+            get
+            {
+                return _selectedDate;
+            }
+            set
+            {
+                _selectedDate = value;
+                dateTimePickerDate.Text = selectedDate.ToString();
+            }
+        }
+
         public Patient selectedPatient { get; set; }
         public AppointmentType SelectedAppointmentType { get; set; }
 

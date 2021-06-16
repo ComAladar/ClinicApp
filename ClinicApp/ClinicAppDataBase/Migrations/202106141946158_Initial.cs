@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialMigration : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -11,24 +11,24 @@
                 "dbo.Appointments",
                 c => new
                     {
-                        Id = c.Int(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         PatientId = c.Int(),
                         StaffId = c.Int(),
+                        AppointmentName = c.String(),
                         AppointmentType = c.Int(nullable: false),
-                        DateOfAppointment = c.DateTime(nullable: false),
                         Complains = c.String(),
                         Anamnesis = c.String(),
                         Condition = c.String(),
                         Diagnosis = c.String(),
                         ICDCode = c.String(),
-                        Recomendations = c.String(),
+                        Recommendations = c.String(),
                         MedicinalTherapy = c.String(),
+                        DateOfSchedule = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        IsComplete = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Patients", t => t.PatientId)
                 .ForeignKey("dbo.Staffs", t => t.StaffId)
-                .ForeignKey("dbo.Schedules", t => t.Id)
-                .Index(t => t.Id)
                 .Index(t => t.PatientId)
                 .Index(t => t.StaffId);
             
@@ -40,7 +40,9 @@
                         Name = c.String(),
                         Surname = c.String(),
                         Patronymic = c.String(),
-                        DateOfBirth = c.DateTime(nullable: false),
+                        Sex = c.Int(nullable: false),
+                        DateOfBirth = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        DateOfRegistration = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         City = c.String(),
                         Street = c.String(),
                         House = c.String(),
@@ -49,23 +51,25 @@
                         PhoneNumber = c.String(),
                         Email = c.String(),
                         MiscInformation = c.String(),
+                        InUse = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Schedules",
+                "dbo.Receipts",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Int(nullable: false),
                         StaffId = c.Int(),
-                        PatientId = c.Int(),
-                        DateOfSchedule = c.DateTime(nullable: false),
+                        ReceiptNumber = c.Int(nullable: false),
+                        Price = c.Double(nullable: false),
+                        Status = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Patients", t => t.PatientId)
+                .ForeignKey("dbo.Appointments", t => t.Id)
                 .ForeignKey("dbo.Staffs", t => t.StaffId)
-                .Index(t => t.StaffId)
-                .Index(t => t.PatientId);
+                .Index(t => t.Id)
+                .Index(t => t.StaffId);
             
             CreateTable(
                 "dbo.Staffs",
@@ -75,7 +79,9 @@
                         Name = c.String(),
                         Surname = c.String(),
                         Patronymic = c.String(),
-                        DateOfBirth = c.DateTime(nullable: false),
+                        Sex = c.Int(nullable: false),
+                        DateOfBirth = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        DateOfRegistration = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         PhoneNumber = c.String(),
                         Email = c.String(),
                         Login = c.String(),
@@ -84,7 +90,8 @@
                         Qualification = c.String(),
                         Position = c.String(),
                         Speciality = c.String(),
-                        DateOfEmployment = c.DateTime(nullable: false),
+                        DateOfEmployment = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
+                        InUse = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -94,9 +101,9 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         StaffId = c.Int(),
-                        DateOfMessage = c.DateTime(nullable: false),
                         Name = c.String(),
                         Message = c.String(),
+                        DateOfMessage = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Staffs", t => t.StaffId)
@@ -106,21 +113,19 @@
         
         public override void Down()
         {
-            DropForeignKey("dbo.Appointments", "Id", "dbo.Schedules");
-            DropForeignKey("dbo.Schedules", "StaffId", "dbo.Staffs");
+            DropForeignKey("dbo.Receipts", "StaffId", "dbo.Staffs");
             DropForeignKey("dbo.MessageBoards", "StaffId", "dbo.Staffs");
             DropForeignKey("dbo.Appointments", "StaffId", "dbo.Staffs");
-            DropForeignKey("dbo.Schedules", "PatientId", "dbo.Patients");
+            DropForeignKey("dbo.Receipts", "Id", "dbo.Appointments");
             DropForeignKey("dbo.Appointments", "PatientId", "dbo.Patients");
             DropIndex("dbo.MessageBoards", new[] { "StaffId" });
-            DropIndex("dbo.Schedules", new[] { "PatientId" });
-            DropIndex("dbo.Schedules", new[] { "StaffId" });
+            DropIndex("dbo.Receipts", new[] { "StaffId" });
+            DropIndex("dbo.Receipts", new[] { "Id" });
             DropIndex("dbo.Appointments", new[] { "StaffId" });
             DropIndex("dbo.Appointments", new[] { "PatientId" });
-            DropIndex("dbo.Appointments", new[] { "Id" });
             DropTable("dbo.MessageBoards");
             DropTable("dbo.Staffs");
-            DropTable("dbo.Schedules");
+            DropTable("dbo.Receipts");
             DropTable("dbo.Patients");
             DropTable("dbo.Appointments");
         }

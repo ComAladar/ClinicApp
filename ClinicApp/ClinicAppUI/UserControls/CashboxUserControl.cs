@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 using ClinicAppDataBase.Repositories;
@@ -22,10 +23,7 @@ namespace ClinicAppUI.UserControls
 
         public ClinicContext Db
         {
-            get
-            {
-                return _db;
-            }
+            get { return _db; }
             set
             {
                 _db = value;
@@ -86,27 +84,29 @@ namespace ClinicAppUI.UserControls
 
         private void ReceiptsDataSourceFillUp()
         {
-            dataGridViewReceipts.ClearSelection();
-            var tempItem = listBoxPatients.SelectedItem;
-            var testString = tempItem.ToString();
-            testString = Regex.Match(testString, @"\d+").Value;
-            var tempPatient = PatientsList.Find(x => x.Id.ToString() == testString);
-            try
+            dataGridViewReceipts.Rows.Clear();
+            if (ReceiptsList != null)
             {
+                var tempItem = listBoxPatients.SelectedItem;
+                var testString = tempItem.ToString();
+                testString = Regex.Match(testString, @"\d+").Value;
+                var tempPatient = PatientsList.Find(x => x.Id.ToString() == testString);
                 foreach (var item in ReceiptsList)
                 {
                     if (tempPatient.Id == item.Appointment.PatientId)
                     {
-                        dataGridViewReceipts.Rows.Add(item.Id, item.ReceiptNumber, item.Price, item.Status.ToString(),
-                            item.Appointment.DateOfSchedule.ToString(),
-                            item.Staff.Surname + " " + item.Staff.Name + " " + item.Staff.Patronymic);
+                        //var shortName = item.Staff.Name.Substring(0, 1);
+                        //var shortPatronymic = item.Staff.Patronymic.Substring(0, 1);
+                        //var fullname = item.Staff.Surname + " " + shortName + " " + shortPatronymic;
+                        dataGridViewReceipts.Rows.Add(item.Id.ToString(),
+                            item.ReceiptNumber.ToString(),
+                            item.Price.ToString(),
+                            item.Status.ToString(),
+                            item.Appointment.DateOfSchedule.ToShortDateString());
                     }
                 }
             }
-            catch
-            {
-
-            }
+            else return;
         }
 
         public CashboxUserControl()
@@ -116,6 +116,11 @@ namespace ClinicAppUI.UserControls
 
         private void buttonAddReceipt_Click(object sender, EventArgs e)
         {
+            if (listBoxPatients.SelectedIndex == -1)
+            {
+                return;
+            }
+
             var tempItem = listBoxPatients.SelectedItem;
             var testString = tempItem.ToString();
             testString = Regex.Match(testString, @"\d+").Value;
@@ -132,15 +137,52 @@ namespace ClinicAppUI.UserControls
                 currentReceipt.Price = receiptForm.Price;
                 currentReceipt.Staff = CurrentUser;
                 //TODO:сделать номера адекватно
-                currentReceipt.ReceiptNumber = 1;
+                int tempNumber=1;
+                foreach (var item in ReceiptsList)
+                {
+                    tempNumber++;
+                }
+                currentReceipt.ReceiptNumber = tempNumber;
                 Db.Receipts.Add(currentReceipt);
                 Db.SaveChanges();
+                UpdateReceipts();
             }
             else return;
         }
 
         private void buttonDeleteReceipt_Click(object sender, EventArgs e)
         {
+            if (listBoxPatients.SelectedIndex == -1)
+            {
+                return;
+            }
+            DialogResult deleteResult = MessageBox.Show("Вы точно хотите удалить чек?",
+                "Удаление чека", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (deleteResult == DialogResult.OK)
+            {
+                if (dataGridViewReceipts.SelectedRows.Count > 0)
+                {
+                    int index = dataGridViewReceipts.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dataGridViewReceipts[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    GenericRepository<Receipt> receiptRepo = new GenericRepository<Receipt>(Db);
+                    var selectedReceipt = receiptRepo.GetById(id);
+                    if (selectedReceipt.Status == 0)
+                    {
+                        receiptRepo.Delete(selectedReceipt);
+                        UpdateReceipts();
+              
+                    }
+                    else
+                    {
+                        MessageBox.Show("Невозможно удалить чек, который уже оплачен!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+
 
         }
 
@@ -150,6 +192,7 @@ namespace ClinicAppUI.UserControls
             {
                 return;
             }
+
             var tempItem = listBoxPatients.SelectedItem;
             var testString = tempItem.ToString();
             testString = Regex.Match(testString, @"\d+").Value;
@@ -160,6 +203,73 @@ namespace ClinicAppUI.UserControls
             labelPhoneNumberText.Text = tempPatient.PhoneNumber;
             labelEmailText.Text = tempPatient.Email;
             UpdateReceipts();
+            double sumPaid = 0;
+            int sumReceiptPaid = 0;
+            double sumNotPaid = 0;
+            int sumReceiptNotPaid = 0;
+            foreach (var item in ReceiptsList)
+            {
+                if (item.Status == (ReceiptStatus) 1)
+                {
+                    sumPaid += item.Price;
+                    sumReceiptPaid++;
+                }
+                else
+                {
+                    sumNotPaid += item.Price;
+                    sumReceiptNotPaid++;
+                }
+            }
+            labelPaidAmountText.Text = sumPaid.ToString();
+            labelPaidTimesText.Text = sumReceiptPaid.ToString();
+            labelNotPaidAmountText.Text = sumNotPaid.ToString();
+            labelNotPaidTimesText.Text = sumReceiptNotPaid.ToString();
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            listBoxPatients.Items.Clear();
+            foreach (var item in PatientsList)
+            {
+                var fullName = item.Id + ") " + item.Surname + " " + item.Name;
+                if (item.Surname.StartsWith(textBoxSearch.Text,
+                    StringComparison.CurrentCultureIgnoreCase)) listBoxPatients.Items.Add(fullName);
+            }
+        }
+
+        private void buttonUpdateStatus_Click(object sender, EventArgs e)
+        {
+            if (listBoxPatients.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            DialogResult updateResult = MessageBox.Show("Вы точно изменить статус чека на Оплачено?",
+                "Фиксирование оплаты", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (updateResult == DialogResult.OK)
+            {
+                if (dataGridViewReceipts.SelectedRows.Count > 0)
+                {
+                    int index = dataGridViewReceipts.SelectedRows[0].Index;
+                    int id = 0;
+                    bool converted = Int32.TryParse(dataGridViewReceipts[0, index].Value.ToString(), out id);
+                    if (converted == false)
+                        return;
+                    GenericRepository<Receipt> receiptRepo = new GenericRepository<Receipt>(Db);
+                    var selectedReceipt = receiptRepo.GetById(id);
+                    if (selectedReceipt.Status != (ReceiptStatus) 1)
+                    {
+                        selectedReceipt.Status = (ReceiptStatus) 1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Невозможно изменить статус уже оплаченного чека!","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        return;
+                    }
+                    receiptRepo.Modify(selectedReceipt);
+                    UpdateReceipts();
+                }
+            }
         }
     }
 }
