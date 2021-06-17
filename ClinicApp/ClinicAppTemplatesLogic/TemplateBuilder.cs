@@ -40,7 +40,15 @@ namespace ClinicAppTemplatesLogic
             paraICD.AppendText(appointment.ICDCode);
             paraMedicinialTherapy.AppendText(appointment.MedicinalTherapy);
             paraRecommendation.AppendText(appointment.Recommendations);
-            document.SaveToFile("firsttext.docx",FileFormat.Docx);
+            try
+            {
+                document.SaveToFile("firsttext.docx", FileFormat.Docx);
+            }
+            catch
+            {
+
+            }
+            //document.SaveToFile("firsttext.docx",FileFormat.Docx);
             System.Diagnostics.Process.Start("firsttext.docx");
         }
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddReceiptForm));
             this.labelAppointment = new System.Windows.Forms.Label();
             this.labelStaff = new System.Windows.Forms.Label();
             this.groupBoxAppointment = new System.Windows.Forms.GroupBox();
@@ -77,7 +78,7 @@
             this.groupBoxAppointment.Controls.Add(this.labelStaff);
             this.groupBoxAppointment.Location = new System.Drawing.Point(12, 12);
             this.groupBoxAppointment.Name = "groupBoxAppointment";
-            this.groupBoxAppointment.Size = new System.Drawing.Size(338, 258);
+            this.groupBoxAppointment.Size = new System.Drawing.Size(384, 258);
             this.groupBoxAppointment.TabIndex = 2;
             this.groupBoxAppointment.TabStop = false;
             this.groupBoxAppointment.Text = "Прием";
@@ -85,7 +86,7 @@
             // labelAppointmentTypeText
             // 
             this.labelAppointmentTypeText.AutoSize = true;
-            this.labelAppointmentTypeText.Location = new System.Drawing.Point(6, 210);
+            this.labelAppointmentTypeText.Location = new System.Drawing.Point(6, 192);
             this.labelAppointmentTypeText.Name = "labelAppointmentTypeText";
             this.labelAppointmentTypeText.Size = new System.Drawing.Size(19, 13);
             this.labelAppointmentTypeText.TabIndex = 5;
@@ -94,7 +95,7 @@
             // labelStaffText
             // 
             this.labelStaffText.AutoSize = true;
-            this.labelStaffText.Location = new System.Drawing.Point(17, 154);
+            this.labelStaffText.Location = new System.Drawing.Point(6, 143);
             this.labelStaffText.Name = "labelStaffText";
             this.labelStaffText.Size = new System.Drawing.Size(19, 13);
             this.labelStaffText.TabIndex = 4;
@@ -105,7 +106,7 @@
             this.listBoxAppointments.FormattingEnabled = true;
             this.listBoxAppointments.Location = new System.Drawing.Point(6, 32);
             this.listBoxAppointments.Name = "listBoxAppointments";
-            this.listBoxAppointments.Size = new System.Drawing.Size(326, 95);
+            this.listBoxAppointments.Size = new System.Drawing.Size(372, 95);
             this.listBoxAppointments.TabIndex = 3;
             this.listBoxAppointments.SelectedIndexChanged += new System.EventHandler(this.listBoxAppointments_SelectedIndexChanged);
             // 
@@ -127,24 +128,25 @@
             this.groupBoxReceipt.Controls.Add(this.labelAdditionalName);
             this.groupBoxReceipt.Controls.Add(this.textBoxAdditionalCost);
             this.groupBoxReceipt.Controls.Add(this.checkBoxAdditionalCosts);
-            this.groupBoxReceipt.Location = new System.Drawing.Point(356, 12);
+            this.groupBoxReceipt.Location = new System.Drawing.Point(402, 12);
             this.groupBoxReceipt.Name = "groupBoxReceipt";
-            this.groupBoxReceipt.Size = new System.Drawing.Size(304, 258);
+            this.groupBoxReceipt.Size = new System.Drawing.Size(258, 258);
             this.groupBoxReceipt.TabIndex = 3;
             this.groupBoxReceipt.TabStop = false;
             this.groupBoxReceipt.Text = "Чек";
             // 
             // textBoxFinalCost
             // 
-            this.textBoxFinalCost.Location = new System.Drawing.Point(177, 226);
+            this.textBoxFinalCost.Location = new System.Drawing.Point(133, 228);
             this.textBoxFinalCost.Name = "textBoxFinalCost";
+            this.textBoxFinalCost.ReadOnly = true;
             this.textBoxFinalCost.Size = new System.Drawing.Size(121, 20);
             this.textBoxFinalCost.TabIndex = 6;
             // 
             // labelFinalCost
             // 
             this.labelFinalCost.AutoSize = true;
-            this.labelFinalCost.Location = new System.Drawing.Point(174, 210);
+            this.labelFinalCost.Location = new System.Drawing.Point(130, 212);
             this.labelFinalCost.Name = "labelFinalCost";
             this.labelFinalCost.Size = new System.Drawing.Size(112, 13);
             this.labelFinalCost.TabIndex = 5;
@@ -152,7 +154,7 @@
             // 
             // textBoxMainCost
             // 
-            this.textBoxMainCost.Location = new System.Drawing.Point(9, 32);
+            this.textBoxMainCost.Location = new System.Drawing.Point(11, 32);
             this.textBoxMainCost.Name = "textBoxMainCost";
             this.textBoxMainCost.Size = new System.Drawing.Size(158, 20);
             this.textBoxMainCost.TabIndex = 4;
@@ -162,7 +164,7 @@
             // labelReceiptCost
             // 
             this.labelReceiptCost.AutoSize = true;
-            this.labelReceiptCost.Location = new System.Drawing.Point(6, 16);
+            this.labelReceiptCost.Location = new System.Drawing.Point(8, 16);
             this.labelReceiptCost.Name = "labelReceiptCost";
             this.labelReceiptCost.Size = new System.Drawing.Size(155, 13);
             this.labelReceiptCost.TabIndex = 3;
@@ -171,7 +173,7 @@
             // labelAdditionalName
             // 
             this.labelAdditionalName.AutoSize = true;
-            this.labelAdditionalName.Location = new System.Drawing.Point(6, 80);
+            this.labelAdditionalName.Location = new System.Drawing.Point(8, 80);
             this.labelAdditionalName.Name = "labelAdditionalName";
             this.labelAdditionalName.Size = new System.Drawing.Size(98, 13);
             this.labelAdditionalName.TabIndex = 2;
@@ -180,7 +182,7 @@
             // textBoxAdditionalCost
             // 
             this.textBoxAdditionalCost.Enabled = false;
-            this.textBoxAdditionalCost.Location = new System.Drawing.Point(9, 96);
+            this.textBoxAdditionalCost.Location = new System.Drawing.Point(11, 96);
             this.textBoxAdditionalCost.Name = "textBoxAdditionalCost";
             this.textBoxAdditionalCost.Size = new System.Drawing.Size(203, 20);
             this.textBoxAdditionalCost.TabIndex = 1;
@@ -190,7 +192,7 @@
             // checkBoxAdditionalCosts
             // 
             this.checkBoxAdditionalCosts.AutoSize = true;
-            this.checkBoxAdditionalCosts.Location = new System.Drawing.Point(6, 58);
+            this.checkBoxAdditionalCosts.Location = new System.Drawing.Point(8, 58);
             this.checkBoxAdditionalCosts.Name = "checkBoxAdditionalCosts";
             this.checkBoxAdditionalCosts.Size = new System.Drawing.Size(150, 17);
             this.checkBoxAdditionalCosts.TabIndex = 0;
@@ -228,9 +230,10 @@
             this.Controls.Add(this.groupBoxReceipt);
             this.Controls.Add(this.groupBoxAppointment);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddReceiptForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddReceiptForm";
+            this.Text = "Новый чек";
             this.groupBoxAppointment.ResumeLayout(false);
             this.groupBoxAppointment.PerformLayout();
             this.groupBoxReceipt.ResumeLayout(false);

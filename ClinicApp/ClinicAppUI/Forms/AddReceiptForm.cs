@@ -17,13 +17,11 @@ namespace ClinicAppUI.Forms
 {
     public partial class AddReceiptForm : Form
     {
-        //public Staff selectedStaff { get; set; }
-        //public Patient selectedPatient { get; set; }
-        //public AppointmentType SelectedAppointmentType { get; set; }
         public Appointment SelectedAppointment { get; set; }
         public double Price { get; set; }
         public int SelectedPatientId { get; set; }
         private List<Appointment> AppointmentsList { get; set; } = new List<Appointment>();
+        public EnumerationHandler EnumHandler = new EnumerationHandler();
 
         private ClinicContext _db;
         public ClinicContext Db
@@ -49,19 +47,11 @@ namespace ClinicAppUI.Forms
                 }
                 foreach (var item in AppointmentsList)
                 {
-                    listBoxAppointments.Items.Add(item.DateOfSchedule.Date.ToLongDateString() + " "
+                    listBoxAppointments.Items.Add("Дата: " + item.DateOfSchedule.Date.ToLongDateString() + " "
                         + item.DateOfSchedule.TimeOfDay.Hours + ":"
-                        + item.DateOfSchedule.TimeOfDay.Minutes + " => "
+                        + item.DateOfSchedule.TimeOfDay.Minutes + ". ФИ Пациента:  "
                         + item.Patient.Surname + " " + item.Patient.Name);
                 }
-                //comboBoxAppointment.DataSource = Db.Appointments.Local.Where(a => a.PatientId == SelectedPatientId && a.IsComplete==(ComplitionType)0).ToList();
-                //comboBoxAppointment.DisplayMember = "AppointmentName";
-                //comboBoxDoctor.DataSource = Db.Staffs.Local.ToBindingList();
-                //comboBoxDoctor.DisplayMember = "Surname";
-                //comboBoxDoctor.ValueMember = "Surname";
-                //comboBoxPatient.DataSource = Db.Patients.Local.ToBindingList();
-                //comboBoxPatient.DisplayMember = "Surname";
-                //comboBoxPatient.ValueMember = "Surname";
             }
         }
 
@@ -115,8 +105,7 @@ namespace ClinicAppUI.Forms
                            AppointmentsList[listBoxAppointments.SelectedIndex].Staff.Name + " " +
                            AppointmentsList[listBoxAppointments.SelectedIndex].Staff.Patronymic;
             labelStaffText.Text = fullname;
-            labelAppointmentTypeText.Text =
-                AppointmentsList[listBoxAppointments.SelectedIndex].AppointmentType.ToString();
+            labelAppointmentTypeText.Text = EnumHandler.GetDescription(AppointmentsList[listBoxAppointments.SelectedIndex].AppointmentType);
         }
 
         private void checkBoxAdditionalCosts_CheckedChanged(object sender, EventArgs e)

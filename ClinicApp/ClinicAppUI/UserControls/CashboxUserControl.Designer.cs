@@ -45,6 +45,11 @@
             this.buttonDeleteReceipt = new System.Windows.Forms.Button();
             this.buttonAddReceipt = new System.Windows.Forms.Button();
             this.dataGridViewReceipts = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColummID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNotPaidTimesText = new System.Windows.Forms.Label();
             this.labelNotPaidAmountText = new System.Windows.Forms.Label();
             this.labelPaidTimesText = new System.Windows.Forms.Label();
@@ -63,11 +68,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panelSelectedControlText = new System.Windows.Forms.Panel();
             this.labelCurrentControl = new System.Windows.Forms.Label();
-            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColummID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReceipts)).BeginInit();
             this.panelPatients.SuspendLayout();
             this.panelStatus.SuspendLayout();
@@ -234,6 +234,7 @@
             // 
             // dataGridViewReceipts
             // 
+            this.dataGridViewReceipts.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewReceipts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewReceipts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnID,
@@ -245,6 +246,36 @@
             this.dataGridViewReceipts.Name = "dataGridViewReceipts";
             this.dataGridViewReceipts.Size = new System.Drawing.Size(718, 278);
             this.dataGridViewReceipts.TabIndex = 0;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "#";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.Width = 95;
+            // 
+            // ColummID
+            // 
+            this.ColummID.HeaderText = "Номер Чека";
+            this.ColummID.Name = "ColummID";
+            this.ColummID.Width = 95;
+            // 
+            // ColumnPrice
+            // 
+            this.ColumnPrice.HeaderText = "Сумма";
+            this.ColumnPrice.Name = "ColumnPrice";
+            this.ColumnPrice.Width = 150;
+            // 
+            // ColumnStatus
+            // 
+            this.ColumnStatus.HeaderText = "Статус";
+            this.ColumnStatus.Name = "ColumnStatus";
+            this.ColumnStatus.Width = 150;
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "Дата";
+            this.ColumnDate.Name = "ColumnDate";
+            this.ColumnDate.Width = 150;
             // 
             // labelNotPaidTimesText
             // 
@@ -453,36 +484,6 @@
             this.labelCurrentControl.Size = new System.Drawing.Size(69, 25);
             this.labelCurrentControl.TabIndex = 5;
             this.labelCurrentControl.Text = "Касса";
-            // 
-            // ColumnID
-            // 
-            this.ColumnID.HeaderText = "#";
-            this.ColumnID.Name = "ColumnID";
-            this.ColumnID.Width = 95;
-            // 
-            // ColummID
-            // 
-            this.ColummID.HeaderText = "Номер Чека";
-            this.ColummID.Name = "ColummID";
-            this.ColummID.Width = 95;
-            // 
-            // ColumnPrice
-            // 
-            this.ColumnPrice.HeaderText = "Сумма";
-            this.ColumnPrice.Name = "ColumnPrice";
-            this.ColumnPrice.Width = 150;
-            // 
-            // ColumnStatus
-            // 
-            this.ColumnStatus.HeaderText = "Статус";
-            this.ColumnStatus.Name = "ColumnStatus";
-            this.ColumnStatus.Width = 150;
-            // 
-            // ColumnDate
-            // 
-            this.ColumnDate.HeaderText = "Дата";
-            this.ColumnDate.Name = "ColumnDate";
-            this.ColumnDate.Width = 150;
             // 
             // CashboxUserControl
             // 

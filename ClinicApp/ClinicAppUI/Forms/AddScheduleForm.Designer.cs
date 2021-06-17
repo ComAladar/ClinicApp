@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddScheduleForm));
             this.comboBoxDoctor = new System.Windows.Forms.ComboBox();
             this.comboBoxPatient = new System.Windows.Forms.ComboBox();
             this.labelDoctor = new System.Windows.Forms.Label();
@@ -166,6 +167,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddScheduleForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Новая запись";

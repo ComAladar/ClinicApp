@@ -92,6 +92,7 @@
             // 
             // listBoxAppointments
             // 
+            this.listBoxAppointments.BackColor = System.Drawing.SystemColors.Window;
             this.listBoxAppointments.FormattingEnabled = true;
             this.listBoxAppointments.Location = new System.Drawing.Point(9, 48);
             this.listBoxAppointments.Name = "listBoxAppointments";
@@ -112,6 +113,7 @@
             // dataGridViewMessages
             // 
             this.dataGridViewMessages.AllowUserToAddRows = false;
+            this.dataGridViewMessages.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewMessages.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewMessages.Location = new System.Drawing.Point(9, 36);
             this.dataGridViewMessages.Name = "dataGridViewMessages";

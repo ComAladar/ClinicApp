@@ -149,13 +149,7 @@ namespace ClinicAppUI.UserControls
             textBoxPhone.Text = tempPatient.PhoneNumber;
             textBoxEmail.Text = tempPatient.Email;
             richTextBoxMiscInfo.Text = tempPatient.MiscInformation;
-
             UpdateAppointments();
-            //TODO:логика трех текстбоксов сложнее всей приложухи
-            //textBoxLastAppointment.Text = Db.Schedules.;
-            //textBoxAmountAppointments.Text = ;
-            //textBoxNextAppointment.Text = ;
-
         }
 
         private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,8 +170,6 @@ namespace ClinicAppUI.UserControls
             AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
             GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
             appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
-            //GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
-            //appointmentForm.appointmentSchedule = scheduleRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             foreach (Control control in appointmentForm.Controls)
             {
                 control.Enabled = false;
@@ -197,8 +189,8 @@ namespace ClinicAppUI.UserControls
                 var updatedPatient = patientForm.Patient;
                 GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
                 patientRepo.Add(updatedPatient);
-                UpdatePatients();
             }
+            UpdatePatients();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -263,6 +255,7 @@ namespace ClinicAppUI.UserControls
                 patientRepo.DeleteById(selectedPatient.Id);
                 UpdatePatients();
             }
+            UpdatePatients();
         }
 
     }

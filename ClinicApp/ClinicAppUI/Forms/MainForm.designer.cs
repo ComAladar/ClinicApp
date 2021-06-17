@@ -241,7 +241,7 @@
             this.labelSpecialty.AutoSize = true;
             this.labelSpecialty.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSpecialty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.labelSpecialty.Location = new System.Drawing.Point(3, 115);
+            this.labelSpecialty.Location = new System.Drawing.Point(3, 90);
             this.labelSpecialty.Name = "labelSpecialty";
             this.labelSpecialty.Size = new System.Drawing.Size(11, 13);
             this.labelSpecialty.TabIndex = 7;
@@ -252,7 +252,7 @@
             this.labelPosition.AutoSize = true;
             this.labelPosition.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPosition.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.labelPosition.Location = new System.Drawing.Point(3, 90);
+            this.labelPosition.Location = new System.Drawing.Point(3, 65);
             this.labelPosition.Name = "labelPosition";
             this.labelPosition.Size = new System.Drawing.Size(11, 13);
             this.labelPosition.TabIndex = 6;
@@ -263,7 +263,7 @@
             this.labelQualification.AutoSize = true;
             this.labelQualification.Font = new System.Drawing.Font("Nirmala UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelQualification.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.labelQualification.Location = new System.Drawing.Point(3, 65);
+            this.labelQualification.Location = new System.Drawing.Point(3, 115);
             this.labelQualification.Name = "labelQualification";
             this.labelQualification.Size = new System.Drawing.Size(11, 13);
             this.labelQualification.TabIndex = 5;

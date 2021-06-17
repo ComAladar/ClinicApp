@@ -96,9 +96,6 @@ namespace ClinicAppUI.UserControls
                 {
                     if (tempPatient.Id == item.Appointment.PatientId)
                     {
-                        //var shortName = item.Staff.Name.Substring(0, 1);
-                        //var shortPatronymic = item.Staff.Patronymic.Substring(0, 1);
-                        //var fullname = item.Staff.Surname + " " + shortName + " " + shortPatronymic;
                         dataGridViewReceipts.Rows.Add(item.Id.ToString(),
                             item.ReceiptNumber.ToString(),
                             item.Price.ToString(),
@@ -199,7 +196,7 @@ namespace ClinicAppUI.UserControls
             testString = Regex.Match(testString, @"\d+").Value;
             var tempPatient = PatientsList.Find(x => x.Id.ToString() == testString);
             labelInitialsText.Text = tempPatient.Surname + " " + tempPatient.Name + " " + tempPatient.Patronymic;
-            labelDateOfBirthText.Text = tempPatient.DateOfBirth.Date.ToString();
+            labelDateOfBirthText.Text = tempPatient.DateOfBirth.ToShortDateString();
             labelSexText.Text = tempPatient.Sex.ToString();
             labelPhoneNumberText.Text = tempPatient.PhoneNumber;
             labelEmailText.Text = tempPatient.Email;

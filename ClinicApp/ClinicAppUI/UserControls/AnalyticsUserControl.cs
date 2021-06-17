@@ -14,14 +14,24 @@ namespace ClinicAppUI.UserControls
 {
     public partial class AnalyticsUserControl : UserControl
     {
-        public Staff CurrentUser { get; set; }
-        public ClinicContext Db { get; set; }
+        public Staff CurrentUser;
+        private ClinicContext _db;
+
+        public ClinicContext Db
+        {
+            get
+            {
+                return _db;
+            }
+            set
+            {
+                _db = value;
+            }
+        }
 
         public AnalyticsUserControl()
         {
             InitializeComponent();
         }
-
-
     }
 }

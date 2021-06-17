@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddMessageForm));
             this.groupBoxMessage = new System.Windows.Forms.GroupBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -77,7 +78,7 @@
             // 
             this.richTextBoxMessage.Location = new System.Drawing.Point(6, 85);
             this.richTextBoxMessage.Name = "richTextBoxMessage";
-            this.richTextBoxMessage.Size = new System.Drawing.Size(298, 61);
+            this.richTextBoxMessage.Size = new System.Drawing.Size(298, 110);
             this.richTextBoxMessage.TabIndex = 4;
             this.richTextBoxMessage.Text = "";
             // 
@@ -113,6 +114,7 @@
             this.ClientSize = new System.Drawing.Size(334, 261);
             this.Controls.Add(this.groupBoxMessage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddMessageForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Новое сообщение";

@@ -18,7 +18,6 @@ namespace ClinicAppUI.Forms
 {
     public partial class AddViewAppointmentForm : Form
     {
-        //public Schedule appointmentSchedule = new Schedule();
         public Appointment Appointment = new Appointment();
 
 
@@ -56,24 +55,10 @@ namespace ClinicAppUI.Forms
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            //Appointment.Id = appointmentSchedule.Id;
-            //Appointment.PatientId = appointmentSchedule.PatientId;
-            //Appointment.StaffId = appointmentSchedule.StaffId;
-            //Appointment.Complains = richTextBoxComplains.Text;
-            //Appointment.Anamnesis = richTextBoxAnamnesis.Text;
-            //Appointment.Condition = richTextBoxCondition.Text;
-            //Appointment.Diagnosis = richTextBoxDiagnosis.Text;
-            //Appointment.ICDCode = textBoxICD.Text;
-            //Appointment.Recommendations = richTextBoxRecommendations.Text;
-            //Appointment.MedicinalTherapy = richTextBoxMedicinalTherapy.Text;
-            //Appointment.AppointmentType = (AppointmentType)comboBoxAppointmentType.SelectedIndex;
-            ////Appointment.Schedule.IsComplete = (ComplitionType)1;
+
             try
             {
                 //TODO:МОЖЕТ БЫТЬ И НАДО
-                //Appointment.Id = appointmentSchedule.Id;
-                //Appointment.PatientId = appointmentSchedule.PatientId;
-                //Appointment.StaffId = appointmentSchedule.StaffId;
                 Appointment.Complains = richTextBoxComplains.Text;
                 Appointment.Anamnesis = richTextBoxAnamnesis.Text;
                 Appointment.Condition = richTextBoxCondition.Text;
@@ -82,7 +67,6 @@ namespace ClinicAppUI.Forms
                 Appointment.Recommendations = richTextBoxRecommendations.Text;
                 Appointment.MedicinalTherapy = richTextBoxMedicinalTherapy.Text;
                 Appointment.AppointmentType = (AppointmentType)comboBoxAppointmentType.SelectedIndex;
-                //Appointment.Schedule.IsComplete = (ComplitionType)1;
             }
             catch (Exception exception)
             {

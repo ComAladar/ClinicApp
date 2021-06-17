@@ -75,6 +75,7 @@
             // 
             this.dataGridViewSchedule.AllowUserToAddRows = false;
             this.dataGridViewSchedule.AllowUserToDeleteRows = false;
+            this.dataGridViewSchedule.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGridViewSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSchedule.Location = new System.Drawing.Point(11, 37);
             this.dataGridViewSchedule.Name = "dataGridViewSchedule";

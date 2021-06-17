@@ -27,15 +27,9 @@ namespace ClinicAppUI.UserControls
         {
             checkBoxShowPassword.Checked = false;
             panelLogin.Enabled = false;
-            //panelLogin.Visible = false;
-            //groupBoxLogin.Visible = false;
             panelMessages.Enabled = true;
-            //groupBoxMessages.Enabled = true;
             panelSchedule.Enabled = true;
-            //groupBoxSchedule.Enabled = true;
             panelTemplates.Enabled = true;
-            //groupBoxTemplates.Enabled = true;
-
             AppointmentsActivation();
         }
 
@@ -179,8 +173,7 @@ namespace ClinicAppUI.UserControls
             appointmentForm.Appointment = Db.Appointments.FirstOrDefault(a =>
                 DbFunctions.TruncateTime(a.DateOfSchedule) == DbFunctions.TruncateTime(appointmentTime)
                 && a.StaffId == CurrentUser.Id && a.PatientId == appointmentPatientId 
-                && a.IsComplete==0 
-                //&& a.Appointment.Id != a.Id 
+                && a.IsComplete==0
                 && a.DateOfSchedule == appointmentTime);
             if (appointmentForm.Appointment.Receipt == null || appointmentForm.Appointment.Receipt.Status == 0)
             {
@@ -191,7 +184,6 @@ namespace ClinicAppUI.UserControls
             if (appointmentForm.DialogResult == DialogResult.OK)
             {
                 var tempAppointment = appointmentForm.Appointment;
-                //var tempSchedule=Db.Appointments.FirstOrDefault(a => a.Id == tempAppointment.Id);
                 tempAppointment.IsComplete = (ComplitionType)1;
                 GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
                 appointmentRepo.Modify(tempAppointment);

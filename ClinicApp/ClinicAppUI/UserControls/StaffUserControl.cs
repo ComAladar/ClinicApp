@@ -135,8 +135,6 @@ namespace ClinicAppUI.UserControls
             var testString = tempItem.ToString();
             testString = Regex.Match(testString, @"\d+").Value;
             var tempStaff=StaffList.Find(x => x.Id.ToString() == testString);
-
-            //var tempStaff = StaffList[listBoxStaff.SelectedIndex];
             textBoxSurname.Text = tempStaff.Surname;
             textBoxName.Text = tempStaff.Name;
             textBoxPatronymic.Text = tempStaff.Patronymic;
@@ -152,8 +150,6 @@ namespace ClinicAppUI.UserControls
             textBoxEmploymentDate.Text = tempStaff.DateOfEmployment.ToShortDateString();
 
             UpdateAppointments();
-            //textBoxTodayAppointments.Text = ;
-            //textBoxAllAppointments.Text = ;
         }
 
         private void listBoxAppointments_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,8 +169,6 @@ namespace ClinicAppUI.UserControls
             AddViewAppointmentForm appointmentForm = new AddViewAppointmentForm();
             GenericRepository<Appointment> appointmentRepo = new GenericRepository<Appointment>(Db);
             appointmentForm.Appointment = appointmentRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
-            //GenericRepository<Schedule> scheduleRepo = new GenericRepository<Schedule>(Db);
-            //appointmentForm.appointmentSchedule = scheduleRepo.GetById(AppointmentsList[listBoxAppointments.SelectedIndex].Id);
             foreach (Control control in appointmentForm.Controls)
             {
                 control.Enabled = false;
@@ -194,8 +188,8 @@ namespace ClinicAppUI.UserControls
                 var updatedStaff = patientForm.Staff;
                 GenericRepository<Staff> staffRepo = new GenericRepository<Staff>(Db);
                 staffRepo.Add(updatedStaff);
-                UpdateStaff();
             }
+            UpdateStaff();
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -243,8 +237,16 @@ namespace ClinicAppUI.UserControls
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (listBoxStaff.SelectedIndex == -1 || StaffList[listBoxStaff.SelectedIndex].Id==CurrentUser.Id)
+            if (listBoxStaff.SelectedIndex == -1 || StaffList[listBoxStaff.SelectedIndex].Id == CurrentUser.Id)
             {
+                MessageBox.Show("Выбрана неверная запись!", "Ошибка", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+            if (listBoxStaff.SelectedIndex == 0)
+            {
+                MessageBox.Show("Нельзя удалить основного администратора!", "Ошибка", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return;
             }
 
@@ -258,8 +260,8 @@ namespace ClinicAppUI.UserControls
                 var selectedStaff = StaffList.Find(x => x.Id.ToString() == testString);
                 GenericRepository<Staff> staffRepo = new GenericRepository<Staff>(Db);
                 staffRepo.DeleteById(selectedStaff.Id);
-                UpdateStaff();
             }
+            UpdateStaff();
         }
     }
 }
