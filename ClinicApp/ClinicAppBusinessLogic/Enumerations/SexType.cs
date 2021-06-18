@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClinicAppBusinessLogic.Enumerations
 {
+    /// <summary>
+    /// Перечисление хранящее доступные для выбора пола пользователя.
+    /// </summary>
     public enum SexType
     {
         [Description("Не определенно")]

@@ -22,7 +22,6 @@ using ClinicAppUI.Forms;
 
 namespace ClinicAppUI.UserControls
 {
-    //https://sourceforge.net/projects/winformscalenda/
     public partial class ScheduleUserControl : UserControl
     {
         public Staff CurrentUser { get; set; }
@@ -99,15 +98,15 @@ namespace ClinicAppUI.UserControls
             //TODO:ЕСЛИ НОВЫЙ ПРИЕМ В ТЕЧЕНИИ 3 МЕСЯЦЕВ У ТОГО ЖЕ ВРАЧА- ТО ПОСОВЕТОВАТЬ ПОВТОРНЫЙ
             AddScheduleForm scheduleForm = new AddScheduleForm();
             scheduleForm.Db = Db;
-            scheduleForm.selectedDate = monthCalendar1.SelectionEnd;
+            scheduleForm.SelectedDate = monthCalendar1.SelectionEnd;
             scheduleForm.ShowDialog();
             if (scheduleForm.DialogResult == DialogResult.OK)
             {
                 Appointment currentAppointment = new Appointment();
 
-                currentAppointment.Patient = Db.Patients.Local.FirstOrDefault(a => a.Id == scheduleForm.selectedPatient.Id);
-                currentAppointment.Staff = Db.Staffs.Local.FirstOrDefault(s=>s.Id==scheduleForm.selectedStaff.Id);
-                currentAppointment.DateOfSchedule = scheduleForm.selectedDate;
+                currentAppointment.Patient = Db.Patients.Local.FirstOrDefault(a => a.Id == scheduleForm.SelectedPatient.Id);
+                currentAppointment.Staff = Db.Staffs.Local.FirstOrDefault(s=>s.Id==scheduleForm.SelectedStaff.Id);
+                currentAppointment.DateOfSchedule = scheduleForm.SelectedDate;
                 currentAppointment.AppointmentType = scheduleForm.SelectedAppointmentType;
                 currentAppointment.AppointmentName = "Прием (осмотр, консультация) врача-" +
                                                      currentAppointment.Staff.Speciality + " " + EnumHandler.GetDescription(currentAppointment.AppointmentType);
@@ -138,8 +137,6 @@ namespace ClinicAppUI.UserControls
 
                 currentAppointment.IsComplete = 0;
                 appointmentRepo.Add(currentAppointment);
-                //Db.Appointments.Add(currentAppointment);
-                //Db.SaveChanges();
                 UpdateSchedule();
             }
             else return;

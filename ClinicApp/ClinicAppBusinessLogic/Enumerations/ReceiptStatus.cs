@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClinicAppBusinessLogic.Enumerations
 {
+    /// <summary>
+    /// Перечисление хранящее статусы оплаты чеков.
+    /// </summary>
     public enum ReceiptStatus
     {
         [Description("Неоплачен")]

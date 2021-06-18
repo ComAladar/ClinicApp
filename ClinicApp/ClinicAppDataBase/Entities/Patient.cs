@@ -10,53 +10,51 @@ using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
+    /// <summary>
+    /// Класс для данных пациента.
+    /// </summary>
     public class Patient
     {
-        private int _id;
+        /// <summary>
+        /// Поле для хранения имени пациента.
+        /// </summary>
         private string _name;
+        /// <summary>
+        /// Поле для хранения фамилии пациента.
+        /// </summary>
         private string _surname;
+        /// <summary>
+        /// Поле для хранения отчества пациента.
+        /// </summary>
         private string _patronymic;
-        private SexType _sex; //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
+        /// <summary>
+        /// Поле для хранения даты рождения пациента.
+        /// </summary>
         private DateTime _dateOfBirth=DateTime.Now;
-        private DateTime _dateOfRegistration=DateTime.Now;
-        private string _city;
-        private string _street;
-        private string _house;
-        private string _flat;
-        private string _porch;
+        /// <summary>
+        /// Поле для хранения номера телефона пациента.
+        /// </summary>
         private string _phoneNumber;
+        /// <summary>
+        /// Поле для хранения адреса электронной почты пациента.
+        /// </summary>
         private string _email;
-        private string _miscInformation;
+        /// <summary>
+        /// Поле для определения максимальной длинны имя, фамилии и отчества.
+        /// </summary>
+        private static int _length = 30;
 
         //СВЯЗЬ PATIENT--->APPOINTMENT 1 К МНОГИМ
         public ICollection<Appointment> Appointments { get; set; }
-        //
 
-        //СВЯЗЬ PATIENT--->SCHEDULE 1 К МНОГИМ
-        //public ICollection<Schedule> Schedules { get; set; }
-        //
+        /// <summary>
+        /// Свойство хранящее уникальный номер пациента.
+        /// </summary>
+        public int Id { get; set; }
 
-        //ИНИЦИАЛИЗАЦИЯ СВЯЗЕЙ?
-        public Patient()
-        {
-            Appointments = new List<Appointment>();
-            //Schedules = new List<Schedule>();
-        }
-        //
-        private static int _length = 30;
-
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
-
+        /// <summary>
+        /// Свойство хранящее имя пациента.
+        /// </summary>
         public string Name
         {
             get
@@ -78,6 +76,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее фамилию пациента.
+        /// </summary>
         public string Surname
         {
             get
@@ -99,6 +100,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее отчество пациента.
+        /// </summary>
         public string Patronymic
         {
             get
@@ -115,19 +119,15 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
-        public SexType Sex
-        {
-            get
-            {
-                return _sex;
-            }
-            set
-            {
-                _sex = value;
-            }
+        //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
+        /// <summary>
+        /// Свойство хранящее пол пациента.
+        /// </summary>
+        public SexType Sex { get; set; }
 
-        }
-
+        /// <summary>
+        /// Свойство хранящее дату рождения пациента.
+        /// </summary>
         [Column(TypeName = "datetime2")]
         public DateTime DateOfBirth
         {
@@ -145,79 +145,40 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее дату регистрации пациента.
+        /// </summary>
         [Column(TypeName = "datetime2")]
-        public DateTime DateOfRegistration
-        {
-            get
-            {
-                return _dateOfRegistration;
-            }
-            set
-            {
-                _dateOfRegistration = value;
-            }
-        }
+        public DateTime DateOfRegistration { get; set; } = DateTime.Now;
 
-        public string City
-        {
-            get
-            {
-                return _city;
-            }
-            set
-            {
-                _city = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее город проживания пациента.
+        /// </summary>
+        public string City { get; set; }
 
-        public string Street
-        {
-            get
-            {
-                return _street;
-            }
-            set
-            {
-                _street = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее адрес улицы пациента.
+        /// </summary>
+        public string Street { get; set; }
 
-        public string House
-        {
-            get
-            {
-                return _house;
-            }
-            set
-            {
-                _house = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее номер дома пациента.
+        /// </summary>
+        public string House { get; set; }
 
-        public string Flat
-        {
-            get
-            {
-                return _flat;
-            }
-            set
-            {
-                _flat = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее номер квартиры пациента.
+        /// </summary>
+        public string Flat { get; set; }
 
-        public string Porch
-        {
-            get
-            {
-                return _porch;
-            }
-            set
-            {
-                _porch = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее номер подьезда пациента.
+        /// </summary>
+        public string Porch { get; set; }
 
+        /// <summary>
+        /// Свойство хранящее номер телефона пациента.
+        /// </summary>
         public string PhoneNumber
         {
             get
@@ -234,6 +195,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее адрес электронной почты пациента.
+        /// </summary>
         public string Email
         {
             get
@@ -252,19 +216,22 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
-        public string MiscInformation
-        {
-            get
-            {
-                return _miscInformation;
-            }
-            set
-            {
-                _miscInformation = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее сторонню информацию пациента.
+        /// </summary>
+        public string MiscInformation { get; set; }
 
+        /// <summary>
+        /// Свойство хранящее состояние редактирования данных пациента.
+        /// </summary>
         public InUseType InUse { get; set; }
 
+        /// <summary>
+        /// Конструктор пациента для инициализации связей.
+        /// </summary>
+        public Patient()
+        {
+            Appointments = new List<Appointment>();
+        }
     }
 }

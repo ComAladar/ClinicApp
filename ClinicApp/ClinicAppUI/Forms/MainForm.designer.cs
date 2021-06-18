@@ -32,7 +32,6 @@
             this.panelMainControl = new System.Windows.Forms.Panel();
             this.panelNavigation = new System.Windows.Forms.Panel();
             this.buttonAbout = new System.Windows.Forms.Button();
-            this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonAnalytics = new System.Windows.Forms.Button();
             this.buttonCashBox = new System.Windows.Forms.Button();
             this.buttonSchedule = new System.Windows.Forms.Button();
@@ -55,7 +54,6 @@
             this.panelMainControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.panelMainControl.Controls.Add(this.panelNavigation);
             this.panelMainControl.Controls.Add(this.buttonAbout);
-            this.panelMainControl.Controls.Add(this.buttonRefresh);
             this.panelMainControl.Controls.Add(this.buttonAnalytics);
             this.panelMainControl.Controls.Add(this.buttonCashBox);
             this.panelMainControl.Controls.Add(this.buttonSchedule);
@@ -93,21 +91,6 @@
             this.buttonAbout.Text = "О Приложении";
             this.buttonAbout.UseVisualStyleBackColor = true;
             this.buttonAbout.Click += new System.EventHandler(this.buttonAbout_Click);
-            // 
-            // buttonRefresh
-            // 
-            this.buttonRefresh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonRefresh.FlatAppearance.BorderSize = 0;
-            this.buttonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRefresh.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.buttonRefresh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(126)))), ((int)(((byte)(249)))));
-            this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRefresh.Location = new System.Drawing.Point(0, 470);
-            this.buttonRefresh.Name = "buttonRefresh";
-            this.buttonRefresh.Size = new System.Drawing.Size(207, 50);
-            this.buttonRefresh.TabIndex = 2;
-            this.buttonRefresh.Text = "Обновить";
-            this.buttonRefresh.UseVisualStyleBackColor = true;
             // 
             // buttonAnalytics
             // 
@@ -327,7 +310,6 @@
         private System.Windows.Forms.Button buttonSchedule;
         private System.Windows.Forms.Button buttonStaff;
         private System.Windows.Forms.Button buttonPatient;
-        private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonAnalytics;
         private System.Windows.Forms.Button buttonCashBox;
         private System.Windows.Forms.Panel panelCurrentUser;

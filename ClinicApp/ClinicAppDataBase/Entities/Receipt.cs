@@ -12,74 +12,40 @@ using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
+    /// <summary>
+    /// Класс для данных чеков.
+    /// </summary>
     public class Receipt
     {
-        private int _id;
-        private int _receiptNumber;
-        private double _price;
-        private ReceiptStatus _status;
-
-        //СВЯЗЬ С APPOINTMENT И STAFF
         //СВЯЗЬ Appointment ----> Receipt 1 к 1
-        //public  int? AppointmentId { get; set; }
         public virtual Appointment Appointment { get; set; }
-        //
 
         //Связь Staff ----> Receipt 1 к многим
         public int? StaffId { get; set; }
         public Staff Staff { get; set; }
         
-        //
+        /// <summary>
+        /// Свойство хранящее уникальный номер чека приема.
+        /// </summary>
         [Key]
         [ForeignKey("Appointment")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
+        public int Id { get; set; }
 
-        public int ReceiptNumber
-        {
-            get
-            {
-                return _receiptNumber;
-            }
-            set
-            {
-                _receiptNumber = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее номер чека пациента.
+        /// </summary>
+        public int ReceiptNumber { get; set; }
 
-        public double Price
-        {
-            get
-            {
-                return _price;
-            }
-            set
-            {
-                _price = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее стоимость приема.
+        /// </summary>
+        public double Price { get; set; }
 
-        public ReceiptStatus Status
-        {
-            get
-            {
-                return _status;
-            }
-            set
-            {
-                _status = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее статус оплаты чека.
+        /// </summary>
+        public ReceiptStatus Status { get; set; }
 
     }
 }

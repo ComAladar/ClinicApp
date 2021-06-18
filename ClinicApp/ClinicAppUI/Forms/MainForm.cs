@@ -21,56 +21,56 @@ namespace ClinicAppUI.Forms
 {
     public partial class MainForm : Form
     {
-        private ClinicContext Db;
-        private HomeUserControl homeControl;
-        private PatientUserControl patientControl;
-        private ScheduleUserControl scheduleControl;
-        private StaffUserControl staffControl;
-        private AnalyticsUserControl analyticsControl;
-        private CashboxUserControl cashboxControl;
+        private ClinicContext Db { get; set; }
+        private HomeUserControl _homeControl;
+        private PatientUserControl _patientControl;
+        private ScheduleUserControl _scheduleControl;
+        private StaffUserControl _staffControl;
+        private AnalyticsUserControl _analyticsControl;
+        private CashboxUserControl _cashboxControl;
 
         public Staff CurrentUser { get; set; }
 
 
         private void SelectHomeControl()
         {
-            homeControl.Db = Db;
+            _homeControl.Db = Db;
             panelMainUC.Controls["homeUserControl"].BringToFront();
         }
 
         private void SelectPatientControl()
         {
-            patientControl.Db = Db;
-            patientControl.CurrentUser = CurrentUser;
+            _patientControl.Db = Db;
+            _patientControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["patientUserControl"].BringToFront();
 
         }
 
         private void SelectScheduleControl()
         {
-            scheduleControl.Db = Db;
-            scheduleControl.CurrentUser = CurrentUser;
+            _scheduleControl.Db = Db;
+            _scheduleControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["scheduleUserControl"].BringToFront();
         }
 
         private void SelectStaffControl()
         {
-            staffControl.Db = Db;
-            staffControl.CurrentUser = CurrentUser;
+            _staffControl.Db = Db;
+            _staffControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["staffUserControl"].BringToFront();
         }
 
         private void SelectCashBoxControl()
         {
-            cashboxControl.Db = Db;
-            cashboxControl.CurrentUser = CurrentUser;
+            _cashboxControl.Db = Db;
+            _cashboxControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["cashboxUserControl"].BringToFront();
         }
 
         private void SelectAnalyticsControl()
         {
-            analyticsControl.Db = Db;
-            analyticsControl.CurrentUser = CurrentUser;
+            _analyticsControl.Db = Db;
+            _analyticsControl.CurrentUser = CurrentUser;
             panelMainUC.Controls["analyticsUserControl"].BringToFront();
         }
 
@@ -97,32 +97,32 @@ namespace ClinicAppUI.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            homeControl = new HomeUserControl();
-            homeControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(homeControl);
+            _homeControl = new HomeUserControl();
+            _homeControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(_homeControl);
 
-            patientControl = new PatientUserControl();
-            patientControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(patientControl);
+            _patientControl = new PatientUserControl();
+            _patientControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(_patientControl);
 
-            scheduleControl = new ScheduleUserControl();
-            scheduleControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(scheduleControl);
+            _scheduleControl = new ScheduleUserControl();
+            _scheduleControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(_scheduleControl);
 
-            staffControl = new StaffUserControl();
-            staffControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(staffControl);
+            _staffControl = new StaffUserControl();
+            _staffControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(_staffControl);
 
-            analyticsControl = new AnalyticsUserControl();
-            analyticsControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(analyticsControl);
+            _analyticsControl = new AnalyticsUserControl();
+            _analyticsControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(_analyticsControl);
 
-            cashboxControl = new CashboxUserControl();
-            cashboxControl.Dock = DockStyle.Fill;
-            panelMainUC.Controls.Add(cashboxControl);
+            _cashboxControl = new CashboxUserControl();
+            _cashboxControl.Dock = DockStyle.Fill;
+            panelMainUC.Controls.Add(_cashboxControl);
 
             SelectHomeControl();
-            homeControl.ButtonLoginClick += new EventHandler(HomeControl_ButtonLogicClick);
+            _homeControl.ButtonLoginClick += new EventHandler(HomeControl_ButtonLogicClick);
         }
 
         private void buttonHome_Click(object sender, EventArgs e)
@@ -163,7 +163,7 @@ namespace ClinicAppUI.Forms
 
         protected void HomeControl_ButtonLogicClick(object sender, EventArgs e)
         {
-            CurrentUser = homeControl.CurrentUser;
+            CurrentUser = _homeControl.CurrentUser;
             buttonPatient.Enabled = true;
             buttonSchedule.Enabled = true;
             buttonStaff.Enabled = true;
@@ -173,6 +173,19 @@ namespace ClinicAppUI.Forms
             labelQualification.Text = CurrentUser.Qualification;
             labelPosition.Text = CurrentUser.Position;
             labelSpecialty.Text = CurrentUser.Speciality;
+            if (CurrentUser.Access != AccessType.Admin)
+            {
+                buttonAnalytics.Enabled = false;
+                _patientControl.Controls["panelPatientSelect"].Controls["buttonDelete"].Enabled = false;
+                _staffControl.Controls["panelStaff"].Controls["buttonDelete"].Enabled = false;
+                _staffControl.Controls["panelStaff"].Controls["buttonEdit"].Enabled = false;
+            }
+
+            if (CurrentUser.Access != AccessType.Doctor)
+            {
+                _homeControl.Controls["panelSchedule"].Enabled = false;
+            }
+
         }
 
         private void buttonAbout_Click(object sender, EventArgs e)

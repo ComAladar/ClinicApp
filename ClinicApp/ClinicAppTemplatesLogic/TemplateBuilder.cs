@@ -12,8 +12,15 @@ using Spire.Doc.Formatting;
 
 namespace ClinicAppTemplatesLogic
 {
+    /// <summary>
+    /// Класс для построения шаблонов документов.
+    /// </summary>
     public class TemplateBuilder
     {
+        /// <summary>
+        /// Метод для построения шаблона приема.
+        /// </summary>
+        /// <param name="appointment"></param>
         public void OpenAppointmentTemplate(Appointment appointment)
         {
             //var filepath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Templates\TemplateMain.docs";
@@ -48,7 +55,6 @@ namespace ClinicAppTemplatesLogic
             {
 
             }
-            //document.SaveToFile("firsttext.docx",FileFormat.Docx);
             System.Diagnostics.Process.Start("firsttext.docx");
         }
 

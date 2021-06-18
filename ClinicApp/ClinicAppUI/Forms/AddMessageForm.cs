@@ -12,32 +12,10 @@ namespace ClinicAppUI.Forms
 {
     public partial class AddMessageForm : Form
     {
-        private string _messageName;
-        private string _messageText;
+        public string MessageName { get; set; }
 
-        public string MessageName
-        {
-            get
-            {
-                return _messageName;
-            }
-            set
-            {
-                _messageName = value;
-            }
-        }
+        public string MessageText { get; set; }
 
-        public string MessageText
-        {
-            get
-            {
-                return _messageText;
-            }
-            set
-            {
-                _messageText = value;
-            }
-        }
         public AddMessageForm()
         {
             InitializeComponent();

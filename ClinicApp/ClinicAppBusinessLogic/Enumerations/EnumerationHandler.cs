@@ -8,8 +8,16 @@ using System.Threading.Tasks;
 
 namespace ClinicAppBusinessLogic.Enumerations
 {
+    /// <summary>
+    /// Класс для работы с перечислениями.
+    /// </summary>
      public class EnumerationHandler
     {
+        /// <summary>
+        /// Метод для вывода описания выбранного элемента перечислений.
+        /// </summary>
+        /// <param name="enumElement">Элемент перечисления</param>
+        /// <returns>Описание выбранного элемента перечисления.</returns>
         public string GetDescription(Enum enumElement)
         {
             Type type = enumElement.GetType();

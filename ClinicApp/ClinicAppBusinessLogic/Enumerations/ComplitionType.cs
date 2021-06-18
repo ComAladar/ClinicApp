@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClinicAppBusinessLogic.Enumerations
 {
+    /// <summary>
+    /// Перечисления для хранения состояния приема.
+    /// </summary>
     public enum ComplitionType
     {
         [Description("Открыт")]

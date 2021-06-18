@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClinicAppBusinessLogic.Enumerations
 {
+    /// <summary>
+    /// Перечисление для хранения прав доступа пользователей приложения.
+    /// </summary>
     public enum AccessType
     {
         [Description("Администратор")]

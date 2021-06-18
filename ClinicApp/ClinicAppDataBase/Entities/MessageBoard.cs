@@ -7,30 +7,32 @@ using System.Threading.Tasks;
 
 namespace ClinicAppDataBase.Entities
 {
+    /// <summary>
+    /// Класс доски для обьявлений.
+    /// </summary>
     public class MessageBoard
     {
-        private int _id;
-        private DateTime _dateOfMessage=DateTime.Now;
+        /// <summary>
+        /// Поле для хранения названия сообщения.
+        /// </summary>
         private string _name;
+        /// <summary>
+        /// Поле для хранения текста сообщения.
+        /// </summary>
         private string _message;
 
         //СВЯЗЬ STAFF--->MESSAGEBOARD 1 К МНОГИМ
         public int? StaffId { get; set; }
         public Staff Staff { get; set; }
-        //
 
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее уникальный номер сообщения.
+        /// </summary>
+        public int Id { get; set; }
 
+        /// <summary>
+        /// Свойство хранящее тему сообщения.
+        /// </summary>
         public string Name
         {
             get
@@ -48,6 +50,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее текст сообщения.
+        /// </summary>
         public string Message
         {
             get
@@ -65,19 +70,10 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее дату отправки сообщения.
+        /// </summary>
         [Column(TypeName = "datetime2")]
-        public DateTime DateOfMessage
-        {
-            get
-            {
-                return _dateOfMessage;
-            }
-            set
-            {
-                _dateOfMessage = value;
-            }
-        }
-
-
+        public DateTime DateOfMessage { get; set; }
     }
 }

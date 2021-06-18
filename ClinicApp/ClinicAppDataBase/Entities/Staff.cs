@@ -10,64 +10,67 @@ using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
+    /// <summary>
+    /// Класс для данных персонала.
+    /// </summary>
     public class Staff
     {
-        private int _id;
+        /// <summary>
+        /// Поле для хранения имени персонала.
+        /// </summary>
         private string _name;
+        /// <summary>
+        /// Поле для хранение фамилии персонала.
+        /// </summary>
         private string _surname;
+        /// <summary>
+        /// Поле для хранения отчества персонала.
+        /// </summary>
         private string _patronymic;
-        private SexType _sex; //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
+        /// <summary>
+        /// Поле для хранения даты рождения персонала.
+        /// </summary>
         private DateTime _dateOfBirth=DateTime.Now;
-        private DateTime _dateOfRegistration=DateTime.Now;
+        /// <summary>
+        /// Поле для хранения номера телефона персонала.
+        /// </summary>
         private string _phoneNumber;
+        /// <summary>
+        /// Поле для хранения электронной почты персонала.
+        /// </summary>
         private string _email;
+        /// <summary>
+        /// Поле для хранения логина входа в систему персонала.
+        /// </summary>
         private string _login;
+        /// <summary>
+        /// Поле для хранения пароля входа в систему персонала.
+        /// </summary>
         private string _password;
-        private AccessType _access;
-        private string _qualification;
-        private string _position;
-        private string _speciality;
-        private DateTime _dateOfEmployment=DateTime.Now;
+        /// <summary>
+        /// Поле для определения максимальной длинны имя, фамилии и отчества.
+        /// </summary>
+        private static int _length = 30;
 
         //СВЯЗЬ STAFF--->APPOINTMENT 1 К МНОГИМ
         public ICollection<Appointment> Appointments { get; set; }
-        //
 
-        //СВЯЗЬ STAFF--->SCHEDULE 1 К МНОГИМ
-        //public ICollection<Schedule> Schedules { get; set; }
-        //
 
         //СВЯЗЬ STAFF--->MESSAGEBOARD 1 К МНОГИМ
         public ICollection<MessageBoard> MessageBoards { get; set; }
-        //
+
 
         //Связь Staff ----> Receipt 1 к МНОГИМ
         public ICollection<Receipt> Receipts { get; set; }
-        //
 
-        //ИНИЦИАЛИЗАЦИЯ СВЯЗЕЙ?
-        public Staff()
-        {
-            Appointments = new List<Appointment>();
-            //Schedules = new List<Schedule>();
-            MessageBoards = new List<MessageBoard>();
-            Receipts = new List<Receipt>();
-        }
+        /// <summary>
+        /// Свойство хранящее уникальный номер персонала.
+        /// </summary>
+        public int Id { get; set; }
 
-        private static int _length=30;
-        //
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
-
+        /// <summary>
+        /// Свойство хранящее имя персонала.
+        /// </summary>
         public string Name
         {
             get
@@ -89,6 +92,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее фамилию персонала.
+        /// </summary>
         public string Surname
         {
             get
@@ -110,6 +116,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее отчество персонала.
+        /// </summary>
         public string Patronymic
         {
             get
@@ -126,19 +135,15 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
-        public SexType Sex
-        {
-            get
-            {
-                return _sex;
-            }
-            set
-            {
-                _sex = value;
-            }
+        //https://en.wikipedia.org/wiki/ISO/IEC_5218 0-Неизвестно; 1-Мужчина 2-Женщина
+        /// <summary>
+        /// Свойство хранящее пол персонала.
+        /// </summary>
+        public SexType Sex { get; set; }
 
-        }
-
+        /// <summary>
+        /// Свойство хранящее дату рождения персонала.
+        /// </summary>
         [Column(TypeName ="datetime2")]
         public DateTime DateOfBirth
         {
@@ -156,18 +161,11 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее телефонный номер персонала.
+        /// </summary>
         [Column(TypeName = "datetime2")]
-        public DateTime DateOfRegistration
-        {
-            get
-            {
-                return _dateOfRegistration;
-            }
-            set
-            {
-                _dateOfRegistration = value;
-            }
-        }
+        public DateTime DateOfRegistration { get; set; } = DateTime.Now;
 
         public string PhoneNumber
         {
@@ -185,6 +183,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее адрес электронной почты персонала.
+        /// </summary>
         public string Email
         {
             get
@@ -203,6 +204,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее логин для входа в систему персонала.
+        /// </summary>
         public string Login
         {
             get
@@ -211,7 +215,6 @@ namespace ClinicAppDataBase.Entities
             }
             set
             {
-                //Проверить робит ли Первыми должны быть минимум 5 букв потом цифры(может и не быть)
                 if (Regex.IsMatch(value, @"^(?=.{5,10}$)(?=[a-zA-Z]){5}(?=[^0-9])") == false)
                 {
                     throw new ArgumentException("Логин имеет неверный формат.");
@@ -220,6 +223,9 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
+        /// <summary>
+        /// Свойство хранящее пароль для входа в систему персонала.
+        /// </summary>
         public string Password
         {
             get
@@ -236,70 +242,46 @@ namespace ClinicAppDataBase.Entities
             }
         }
 
-        public AccessType Access
-        {
-            get
-            {
-                return _access;
-            }
-            set
-            {
-                _access = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее права доступа персонала.
+        /// </summary>
+        public AccessType Access { get; set; }
 
-        public string Qualification
-        {
-            get
-            {
-                return _qualification;
-            }
-            set
-            {
-                _qualification = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее квалификацию персонала.
+        /// </summary>
+        public string Qualification { get; set; }
 
-        public string Position
-        {
-            get
-            {
-                return _position;
-            }
-            set
-            {
-                _position = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее должность персонала.
+        /// </summary>
+        public string Position { get; set; }
 
-        public string Speciality
-        {
-            get
-            {
-                return _speciality;
-            }
-            set
-            {
-                _speciality = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее специальность персонала.
+        /// </summary>
+        public string Speciality { get; set; }
 
+        /// <summary>
+        /// Свойство хранящее дату трудоустройства персонала.
+        /// </summary>
         [Column(TypeName = "datetime2")]
-        public DateTime DateOfEmployment
-        {
-            get
-            {
-                return _dateOfEmployment;
-            }
-            set
-            {
-                _dateOfEmployment = value;
-            }
-        }
+        public DateTime DateOfEmployment { get; set; } = DateTime.Now;
 
+        /// <summary>
+        /// Свойство хранящее состояние редактирования данных персонала.
+        /// </summary>
         public InUseType InUse { get; set; }
 
-
+        /// <summary>
+        /// Конструктор персонала для инициализации связей.
+        /// </summary>
+        public Staff()
+        {
+            Appointments = new List<Appointment>();
+            MessageBoards = new List<MessageBoard>();
+            Receipts = new List<Receipt>();
+        }
 
     }
 }

@@ -9,41 +9,53 @@ using ClinicAppDataBase.Entities;
 
 namespace ClinicAppDataBase
 {
+    /// <summary>
+    /// Класс контекста базы данных.
+    /// </summary>
     public class ClinicContext : DbContext
     {
+        /// <summary>
+        /// Стандартный конструктор с подключением к БД по строке соединения.
+        /// </summary>
         public ClinicContext() : base("DbConnection") { }
 
+        /// <summary>
+        /// Свойство для создания таблицы приемов.
+        /// </summary>
         public DbSet<Appointment> Appointments { get; set; }
+        /// <summary>
+        /// Свойство для создания таблицы пациентов.
+        /// </summary>
         public DbSet<Patient> Patients { get; set; }
+        /// <summary>
+        /// Свойство для создания таблицы доски для обьявлений.
+        /// </summary>
         public DbSet<MessageBoard> MessageBoards { get; set; }
+        /// <summary>
+        /// Свойство для создания табилцы персонала.
+        /// </summary>
         public DbSet<Staff> Staffs { get; set; }
+        /// <summary>
+        /// Свойство для создания таблицы чеков.
+        /// </summary>
         public DbSet<Receipt> Receipts { get; set; }
 
+        /// <summary>
+        /// Статичное задание инициализатора контекста БД.
+        /// </summary>
         static ClinicContext()
         {
             Database.SetInitializer<ClinicContext>(new ClinicContextInitializer());
         }
 
-        
+        /// <summary>
+        /// Метод вызывающийся при создании БД.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-           // modelBuilder.Entity<Appointment>().HasOptional(a => a.Receipt).WithRequired(r => r.Appointment);
-            //modelBuilder.Entity<Receipt>().Property(r => r.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
-
-
-            //modelBuilder.Entity<Receipt>().HasRequired(a => a.Appointment).WithRequiredDependent(a => a.Receipt);
-            //modelBuilder.Entity<Receipt>().HasRequired(a => a.Appointment).WithRequiredPrincipal();
-            //modelBuilder.Entity<Appointment>().HasRequired(a => a.Receipt).WithRequiredPrincipal();
-            //modelBuilder.Entity<Appointment>().HasRequired(a=>a.Receipt).WithRequiredDependent();
-            // modelBuilder.Entity<Appointment>().HasIndex(a => new { a.Id }).IsUnique(true);
 
         }
-
-        //protected void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Schedule>().HasIndex(s => new {s.DateOfSchedule}).IsUnique(true);
-        //}
     }
 }

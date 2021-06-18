@@ -10,8 +10,15 @@ using ClinicAppDataBase.Entities;
 
 namespace ClinicAppDataBase
 {
+    /// <summary>
+    /// Класс инициализатора контекста базы данных.
+    /// </summary>
     public class ClinicContextInitializer:CreateDatabaseIfNotExists<ClinicContext>
     {
+        /// <summary>
+        /// Метод вызывающийся при создании БД.
+        /// </summary>
+        /// <param name="db"></param>
         protected override void Seed(ClinicContext db)
         {
             Staff adminStaff = new Staff{Access =(AccessType) 0,

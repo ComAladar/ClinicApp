@@ -21,13 +21,13 @@ namespace ClinicAppUI.Forms
         private DateTime _selectedDate;
         private ClinicContext _db;
 
-        public Staff selectedStaff { get; set; }
-        public Patient selectedPatient { get; set; }
+        public Staff SelectedStaff { get; set; }
+        public Patient SelectedPatient { get; set; }
         public AppointmentType SelectedAppointmentType { get; set; }
         private List<Staff> StaffList { get; set; } = new List<Staff>();
         private List<Patient> PatientsList { get; set; } = new List<Patient>();
 
-        public DateTime selectedDate
+        public DateTime SelectedDate
         {
             get
             {
@@ -36,7 +36,7 @@ namespace ClinicAppUI.Forms
             set
             {
                 _selectedDate = value;
-                dateTimePickerDate.Text = selectedDate.ToString();
+                dateTimePickerDate.Text = SelectedDate.ToString();
             }
         }
 
@@ -78,7 +78,7 @@ namespace ClinicAppUI.Forms
             IEnumerable<Staff> staff = staffRepo.GetList();
             foreach (var item in staff)
             {
-                StaffList.Add(item);
+                if(item.Access==AccessType.Doctor) StaffList.Add(item);
             }
             StaffList.OrderBy(item => item.Surname).ToList();
 
@@ -98,7 +98,7 @@ namespace ClinicAppUI.Forms
             comboBoxAppointmentType.DataSource = Enum.GetNames(typeof(AppointmentType));
         }
 
-        private Patient SelectedPatient()
+        private Patient GetSelectedPatient()
         {
             var tempItem = listBoxPatients.SelectedItem;
             var testString = tempItem.ToString();
@@ -107,7 +107,7 @@ namespace ClinicAppUI.Forms
             return tempPatient;
         }
 
-        private Staff SelectedStaff()
+        private Staff GetSelectedStaff()
         {
             var tempItem = listBoxStaff.SelectedItem;
             var testString = tempItem.ToString();
@@ -124,25 +124,13 @@ namespace ClinicAppUI.Forms
                 return;
             }
 
-            selectedStaff = SelectedStaff();
-            selectedPatient = SelectedPatient();
-            //if (string.IsNullOrEmpty(comboBoxDoctor.Text) || string.IsNullOrEmpty(comboBoxPatient.Text))
-            //{
-            //    MessageBox.Show("Выберите доктора и пациента.");
-            //    return;
-            //}
-
-            //Staff tempStaff = comboBoxDoctor.SelectedItem as Staff;
-            //Patient tempPatient = comboBoxPatient.SelectedItem as Patient;
-            //selectedStaff = tempStaff;
-            //selectedPatient = tempPatient;
-
-
+            SelectedStaff = GetSelectedStaff();
+            SelectedPatient = GetSelectedPatient();
             SelectedAppointmentType = (AppointmentType)comboBoxAppointmentType.SelectedIndex;
             try
             {
-                selectedDate = dateTimePickerDate.Value.Date + dateTimePickerTime.Value.TimeOfDay;
-                if (selectedDate < DateTime.Now.Date)
+                SelectedDate = dateTimePickerDate.Value.Date + dateTimePickerTime.Value.TimeOfDay;
+                if (SelectedDate < DateTime.Now.Date)
                 {
                     throw new ArgumentException();
                 }
@@ -190,13 +178,13 @@ namespace ClinicAppUI.Forms
 
         private void listBoxPatients_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var tempPatient = SelectedPatient();
+            var tempPatient = GetSelectedPatient();
             labelDateOfBirthText.Text = tempPatient.DateOfBirth.ToShortDateString();
         }
 
         private void listBoxStaff_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var tempStaff = SelectedStaff();
+            var tempStaff = GetSelectedStaff();
             labelPositionText.Text = tempStaff.Position;
             labelSpecialtyText.Text = tempStaff.Speciality;
         }

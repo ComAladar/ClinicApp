@@ -12,204 +12,81 @@ using ClinicAppBusinessLogic.Enumerations;
 
 namespace ClinicAppDataBase.Entities
 {
+    /// <summary>
+    /// Класс для данных приема.
+    /// </summary>
     public class Appointment
     {
-        private int _id;
-        //TODO: ДОБАВИТЬ НАИМЕНОВАНИЕ ПРИЕМА(ДЛЯ ИЗБЕЖАНИЯ ИЗМЕНЕНИЯ НАЗВАНИЯ ПРИЕМА ПРИ СМЕНЕ ДАННЫХ ВРАЧА)
-        private string _appointmentName;
-        private AppointmentType _appointmentType;
-        private string _complaints;
-        private string _anamnesis;
-        private string _condition;
-        private string _diagnosis;
-        private string _icdCode;
-        private string _recommendations;
-        private string _medicinalTherapy;
-        private DateTime _dateOfSchedule;
-
-
-        //Проверить и разузнать насчет типа int?  СВЯЗЬ 1 К 1 SCHEDULE--->APPOINTMENT
-        //public int? ScheduleId { get; set; }
-        //public Schedule Schedule { get; set; }
-        //
         //СВЯЗЬ PATIENT--->APPOINTMENT 1 К МНОГИМ
         public int? PatientId { get; set; }
         public Patient Patient { get; set; }
-        //
         //Связь STAFF--->APPOINTMENT 1 К МНОГИМ
         public int? StaffId { get; set; }
         public Staff Staff { get; set; }
-        //
-        //СВЯЗЬ Appointment ----> Receipt 1 к 1 МНОГИМ
-        //public ICollection<Receipt> Receipts { get; set; }
+        //СВЯЗЬ Appointment ----> Receipt 1 к 1
         public virtual Receipt Receipt { get; set; }
         //
 
-        //public Appointment()
-        //{
-        //    Receipts = new List<Receipt>();
-        //}
-
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        /// <summary>
+        /// Свойство хранящее уникальный номер пользователя.
+        /// </summary>
         [Key]
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                _id = value;
-            }
-        }
+        public int Id { get; set; }
 
-        public string AppointmentName
-        {
-            get
-            {
-                return _appointmentName;
-            }
-            set
-            {
-                _appointmentName = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее полное название приема.
+        /// </summary>
+        public string AppointmentName { get; set; }
 
-        public AppointmentType AppointmentType
-        {
-            get
-            {
-                return _appointmentType;
-            }
-            set
-            {
-                _appointmentType = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее тип приема.
+        /// </summary>
+        public AppointmentType AppointmentType { get; set; }
 
-        public string Complains
-        {
-            get
-            {
-                return _complaints;
-            }
-            set
-            {
-                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                //{
-                //    throw new ArgumentException(
-                //        "Поле заполнено неверно.");
-                //}
-                _complaints = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее жалобы пациента.
+        /// </summary>
+        public string Complains { get; set; }
 
-        public string Anamnesis
-        {
-            get
-            {
-                return _anamnesis;
-            }
-            set
-            {
-                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                //{
-                //    throw new ArgumentException(
-                //        "Поле заполнено неверно.");
-                //}
-                _anamnesis = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее анамнез пациента.
+        /// </summary>
+        public string Anamnesis { get; set; }
 
-        public string Condition
-        {
-            get
-            {
-                return _condition;
-            }
-            set
-            {
-                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                //{
-                //    throw new ArgumentException(
-                //        "Поле заполнено неверно.");
-                //}
-                _condition = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее обьективное состояние пациента.
+        /// </summary>
+        public string Condition { get; set; }
 
-        public string Diagnosis
-        {
-            get
-            {
-                return _diagnosis;
-            }
-            set
-            {
-                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                //{
-                //    throw new ArgumentException(
-                //        "Поле заполнено неверно.");
-                //}
-                _diagnosis = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее вынесенный диагноз пациента.
+        /// </summary>
+        public string Diagnosis { get; set; }
 
-        public string ICDCode
-        {
-            get
-            {
-                return _icdCode;
-            }
-            set
-            {
-                //if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-                //{
-                //    throw new ArgumentException(
-                //        "Поле заполнено неверно.");
-                //}
-                _icdCode = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее МКБ-код вынесенного диагноза и заболевания.
+        /// </summary>
+        public string ICDCode { get; set; }
 
-        public string Recommendations
-        {
-            get
-            {
-                return _recommendations;
-            }
-            set
-            {
-                _recommendations = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее рекомендации врача.
+        /// </summary>
+        public string Recommendations { get; set; }
 
-        public string MedicinalTherapy
-        {
-            get
-            {
-                return _medicinalTherapy;
-            }
-            set
-            {
-                _medicinalTherapy = value;
-            }
-        }
+        /// <summary>
+        /// Свойство хранящее лекарственную террапию пациента.
+        /// </summary>
+        public string MedicinalTherapy { get; set; }
 
+        /// <summary>
+        /// Свойство хранящее дату приема.
+        /// </summary>
         [Column(TypeName = "datetime2")]
-        public DateTime DateOfSchedule
-        {
-            get
-            {
-                return _dateOfSchedule;
-            }
-            set
-            {
-                _dateOfSchedule = value;
-            }
-        }
+        public DateTime DateOfSchedule { get; set; }
 
+        /// <summary>
+        /// Свойство хранящее статус приема.
+        /// </summary>
         public ComplitionType IsComplete { get; set; }
 
     }

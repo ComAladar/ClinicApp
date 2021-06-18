@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClinicAppBusinessLogic.Enumerations
 {
+    /// <summary>
+    /// Перечисления для хранение типов приемов.
+    /// </summary>
     public enum AppointmentType
     {
         [Description("Первичный")]

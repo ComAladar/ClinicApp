@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClinicAppDataBase.Repositories
 {
+    /// <summary>
+    /// Интерфейс для стандратного репозитория базы данных EF.
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public interface IGenericRepository<TEntity> where  TEntity : class
     {
         TEntity GetById(int id);
