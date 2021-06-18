@@ -104,8 +104,9 @@ namespace ClinicAppUI.UserControls
             if (scheduleForm.DialogResult == DialogResult.OK)
             {
                 Appointment currentAppointment = new Appointment();
-                currentAppointment.Patient = scheduleForm.selectedPatient;
-                currentAppointment.Staff = scheduleForm.selectedStaff;
+
+                currentAppointment.Patient = Db.Patients.Local.FirstOrDefault(a => a.Id == scheduleForm.selectedPatient.Id);
+                currentAppointment.Staff = Db.Staffs.Local.FirstOrDefault(s=>s.Id==scheduleForm.selectedStaff.Id);
                 currentAppointment.DateOfSchedule = scheduleForm.selectedDate;
                 currentAppointment.AppointmentType = scheduleForm.SelectedAppointmentType;
                 currentAppointment.AppointmentName = "Прием (осмотр, консультация) врача-" +
@@ -136,8 +137,9 @@ namespace ClinicAppUI.UserControls
                 }
 
                 currentAppointment.IsComplete = 0;
-                Db.Appointments.Add(currentAppointment);
-                Db.SaveChanges();
+                appointmentRepo.Add(currentAppointment);
+                //Db.Appointments.Add(currentAppointment);
+                //Db.SaveChanges();
                 UpdateSchedule();
             }
             else return;

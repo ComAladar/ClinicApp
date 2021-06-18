@@ -114,18 +114,6 @@
     <Compile Include="Forms\AddViewAppointmentForm.designer.cs">
       <DependentUpon>AddViewAppointmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SearchPatientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SearchPatientForm.Designer.cs">
-      <DependentUpon>SearchPatientForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\SearchStaffForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SearchStaffForm.Designer.cs">
-      <DependentUpon>SearchStaffForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
