@@ -52,6 +52,9 @@
             this.labelMessagesText = new System.Windows.Forms.Label();
             this.panelSchedule = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonPersonalDataProcessing = new System.Windows.Forms.Button();
+            this.buttonMedicinalIntervation = new System.Windows.Forms.Button();
+            this.buttonServiceFees = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMessages)).BeginInit();
             this.panelSelectedControlText.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -64,7 +67,7 @@
             // 
             this.buttonPatientData.Location = new System.Drawing.Point(9, 253);
             this.buttonPatientData.Name = "buttonPatientData";
-            this.buttonPatientData.Size = new System.Drawing.Size(119, 23);
+            this.buttonPatientData.Size = new System.Drawing.Size(119, 30);
             this.buttonPatientData.TabIndex = 5;
             this.buttonPatientData.Text = "Данные пациента";
             this.buttonPatientData.UseVisualStyleBackColor = true;
@@ -74,7 +77,7 @@
             // 
             this.buttonAddAppointment.Location = new System.Drawing.Point(134, 253);
             this.buttonAddAppointment.Name = "buttonAddAppointment";
-            this.buttonAddAppointment.Size = new System.Drawing.Size(120, 23);
+            this.buttonAddAppointment.Size = new System.Drawing.Size(120, 30);
             this.buttonAddAppointment.TabIndex = 2;
             this.buttonAddAppointment.Text = "Начать прием";
             this.buttonAddAppointment.UseVisualStyleBackColor = true;
@@ -102,11 +105,11 @@
             // 
             // buttonAddMessage
             // 
-            this.buttonAddMessage.Location = new System.Drawing.Point(655, 227);
+            this.buttonAddMessage.Location = new System.Drawing.Point(642, 227);
             this.buttonAddMessage.Name = "buttonAddMessage";
-            this.buttonAddMessage.Size = new System.Drawing.Size(73, 32);
+            this.buttonAddMessage.Size = new System.Drawing.Size(80, 30);
             this.buttonAddMessage.TabIndex = 0;
-            this.buttonAddMessage.Text = "Добав";
+            this.buttonAddMessage.Text = "Добавить";
             this.buttonAddMessage.UseVisualStyleBackColor = true;
             this.buttonAddMessage.Click += new System.EventHandler(this.buttonAddMessage_Click);
             // 
@@ -173,9 +176,9 @@
             // 
             // buttonLogin
             // 
-            this.buttonLogin.Location = new System.Drawing.Point(146, 124);
+            this.buttonLogin.Location = new System.Drawing.Point(148, 117);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(82, 23);
+            this.buttonLogin.Size = new System.Drawing.Size(80, 30);
             this.buttonLogin.TabIndex = 2;
             this.buttonLogin.Text = "Войти";
             this.buttonLogin.UseVisualStyleBackColor = true;
@@ -230,6 +233,9 @@
             // panelTemplates
             // 
             this.panelTemplates.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(42)))), ((int)(((byte)(64)))));
+            this.panelTemplates.Controls.Add(this.buttonServiceFees);
+            this.panelTemplates.Controls.Add(this.buttonPersonalDataProcessing);
+            this.panelTemplates.Controls.Add(this.buttonMedicinalIntervation);
             this.panelTemplates.Controls.Add(this.labelTemplatesText);
             this.panelTemplates.Enabled = false;
             this.panelTemplates.Location = new System.Drawing.Point(3, 227);
@@ -296,6 +302,36 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Расписание";
             // 
+            // buttonPersonalDataProcessing
+            // 
+            this.buttonPersonalDataProcessing.Location = new System.Drawing.Point(11, 50);
+            this.buttonPersonalDataProcessing.Name = "buttonPersonalDataProcessing";
+            this.buttonPersonalDataProcessing.Size = new System.Drawing.Size(211, 30);
+            this.buttonPersonalDataProcessing.TabIndex = 3;
+            this.buttonPersonalDataProcessing.Text = "Обработка персональных данных";
+            this.buttonPersonalDataProcessing.UseVisualStyleBackColor = true;
+            this.buttonPersonalDataProcessing.Click += new System.EventHandler(this.buttonPersonalDataProcessing_Click);
+            // 
+            // buttonMedicinalIntervation
+            // 
+            this.buttonMedicinalIntervation.Location = new System.Drawing.Point(11, 100);
+            this.buttonMedicinalIntervation.Name = "buttonMedicinalIntervation";
+            this.buttonMedicinalIntervation.Size = new System.Drawing.Size(211, 30);
+            this.buttonMedicinalIntervation.TabIndex = 3;
+            this.buttonMedicinalIntervation.Text = "Медицинское вмешательство";
+            this.buttonMedicinalIntervation.UseVisualStyleBackColor = true;
+            this.buttonMedicinalIntervation.Click += new System.EventHandler(this.buttonMedicinalIntervation_Click);
+            // 
+            // buttonServiceFees
+            // 
+            this.buttonServiceFees.Location = new System.Drawing.Point(11, 150);
+            this.buttonServiceFees.Name = "buttonServiceFees";
+            this.buttonServiceFees.Size = new System.Drawing.Size(211, 30);
+            this.buttonServiceFees.TabIndex = 4;
+            this.buttonServiceFees.Text = "Оказания платных услуг";
+            this.buttonServiceFees.UseVisualStyleBackColor = true;
+            this.buttonServiceFees.Click += new System.EventHandler(this.buttonServiceFees_Click);
+            // 
             // HomeUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -347,5 +383,8 @@
         private System.Windows.Forms.Label labelMessagesText;
         private System.Windows.Forms.Panel panelSchedule;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonServiceFees;
+        private System.Windows.Forms.Button buttonPersonalDataProcessing;
+        private System.Windows.Forms.Button buttonMedicinalIntervation;
     }
 }

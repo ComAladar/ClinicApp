@@ -12,6 +12,7 @@ using ClinicAppBusinessLogic.Enumerations;
 using ClinicAppDataBase;
 using ClinicAppDataBase.Entities;
 using ClinicAppDataBase.Repositories;
+using ClinicAppTemplatesLogic;
 using ClinicAppUI.Forms;
 
 namespace ClinicAppUI.UserControls
@@ -208,6 +209,24 @@ namespace ClinicAppUI.UserControls
 
             patientForm.Controls["buttonCancel"].Enabled = true;
             patientForm.Show();
+        }
+
+        private void buttonPersonalDataProcessing_Click(object sender, EventArgs e)
+        {
+            TemplateBuilder tempBuilder = new TemplateBuilder();
+            tempBuilder.OpenPersonalDataProcessingTemplate();
+        }
+
+        private void buttonMedicinalIntervation_Click(object sender, EventArgs e)
+        {
+            TemplateBuilder tempBuilder = new TemplateBuilder();
+            tempBuilder.OpenMedicinalIntervationTemplate();
+        }
+
+        private void buttonServiceFees_Click(object sender, EventArgs e)
+        {
+            TemplateBuilder tempBuilder = new TemplateBuilder();
+            tempBuilder.OpenServiceFeesTemplate();
         }
     }
 }

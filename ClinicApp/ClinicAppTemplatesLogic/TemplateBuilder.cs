@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
 using ClinicAppDataBase.Entities;
 using Spire.Doc;
 using Spire.Doc.Documents;
@@ -17,29 +18,33 @@ namespace ClinicAppTemplatesLogic
     /// </summary>
     public class TemplateBuilder
     {
+        private static string FilepathToTemplates = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\ClinicAppTemplatesLogic\Templates";
         /// <summary>
         /// Метод для построения шаблона приема.
         /// </summary>
         /// <param name="appointment"></param>
         public void OpenAppointmentTemplate(Appointment appointment)
         {
-            //var filepath = System.AppDomain.CurrentDomain.BaseDirectory + @"\Templates\TemplateMain.docs";
-            var filepath =
-                @"C:\Users\Nikita\Source\Repos\ComAladar\ClinicApp\ClinicApp\ClinicAppTemplatesLogic\Templates\TemplateMain.docx";
+            var filepath = FilepathToTemplates + @"\TemplateAppointment.docx";
             Document document = new Document(filepath);
             Section section = document.Sections[0];
-            Paragraph paraAppointmentType = section.Paragraphs[0];
-            Paragraph paraPatientInfo = section.Paragraphs[1];
-            Paragraph paraComplains = section.Paragraphs[2];
-            Paragraph paraAnamnesis = section.Paragraphs[3];
-            Paragraph paraCondition = section.Paragraphs[4];
-            Paragraph paraDiagnosis = section.Paragraphs[5];
-            Paragraph paraICD = section.Paragraphs[6];
-            Paragraph paraMedicinialTherapy = section.Paragraphs[7];
-            Paragraph paraRecommendation = section.Paragraphs[8];
-            paraAppointmentType.Text = appointment.AppointmentType.ToString();
-            paraPatientInfo.AppendText(appointment.Patient.Surname + " " + appointment.Patient.Name + " " +
-                                           appointment.Patient.Patronymic);
+            Paragraph paraAppointmentName = section.Paragraphs[2];
+            Paragraph paraAppointmentNumber = section.Paragraphs[3];
+            Paragraph paraPatientInfo = section.Paragraphs[5];
+            Paragraph paraComplains = section.Paragraphs[8];
+            Paragraph paraAnamnesis = section.Paragraphs[10];
+            Paragraph paraCondition = section.Paragraphs[12];
+            Paragraph paraDiagnosis = section.Paragraphs[14];
+            Paragraph paraICD = section.Paragraphs[16];
+            Paragraph paraMedicinialTherapy = section.Paragraphs[18];
+            Paragraph paraRecommendation = section.Paragraphs[20];
+            Paragraph paraDateOfAppointment = section.Paragraphs[21];
+            Paragraph paraStaff = section.Paragraphs[23];
+
+            paraAppointmentName.Text = appointment.AppointmentName;
+            paraAppointmentNumber.AppendText(" " + appointment.Id);
+            paraPatientInfo.AppendText(" " + appointment.Patient.Surname + " " + appointment.Patient.Name + " " +
+                                       appointment.Patient.Patronymic);
             paraComplains.AppendText(appointment.Complains);
             paraAnamnesis.AppendText(appointment.Anamnesis);
             paraCondition.AppendText(appointment.Condition);
@@ -47,72 +52,64 @@ namespace ClinicAppTemplatesLogic
             paraICD.AppendText(appointment.ICDCode);
             paraMedicinialTherapy.AppendText(appointment.MedicinalTherapy);
             paraRecommendation.AppendText(appointment.Recommendations);
+            paraDateOfAppointment.AppendText(" " + appointment.DateOfSchedule.ToString());
+            paraStaff.AppendText(" " + appointment.Staff.Surname
+                                     + " " + appointment.Staff.Name.Substring(0, 1)
+                                     + ". " + appointment.Staff.Patronymic.Substring(0, 1) + ".");
             try
             {
-                document.SaveToFile("firsttext.docx", FileFormat.Docx);
+                document.SaveToFile("Прием.docx", FileFormat.Docx);
             }
             catch
             {
 
             }
-            System.Diagnostics.Process.Start("firsttext.docx");
+            System.Diagnostics.Process.Start("Прием.docx");
         }
 
-        public void OpenPatientTemplate()
+        public void OpenServiceFeesTemplate()
         {
+            var filepath = FilepathToTemplates + @"\TemplateServiceFees.docx";
+            Document document = new Document(filepath);
+            try
+            {
+                document.SaveToFile("ОказаниеПлатныхУслуг.docx", FileFormat.Docx);
+            }
+            catch
+            {
 
+            }
+            System.Diagnostics.Process.Start("ОказаниеПлатныхУслуг.docx");
         }
 
-        //ДОБАВЛЕНИЕ НОВОГО ТЕКСТА\ПАРАГРАФА
-        //Section sec = document.AddSection();
-        //Paragraph par = sec.AddParagraph();
-        //CharacterFormat format = new CharacterFormat(document);
-        //format.FontName = "Calibri";
-        //format.FontSize = 15;
-        //format.Bold = true;
-        //par.AppendText("TESTTEXTFROMPROG").ApplyCharacterFormat(format);
+        public void OpenPersonalDataProcessingTemplate()
+        {
+            var filepath = FilepathToTemplates + @"\TemplatePersonalDataProcessing.docx";
+            Document document = new Document(filepath);
+            try
+            {
+                document.SaveToFile("ОбработкаПерсональныхДанных.docx", FileFormat.Docx);
+            }
+            catch
+            {
 
-        //Если аппендом без отступов
-        //Paragraph paraAppointmentType = section.Paragraphs[0];
-        //Paragraph paraPatientInfo = section.Paragraphs[1];
-        //Paragraph paraComplains = section.Paragraphs[2];
-        //Paragraph paraAnamnesis = section.Paragraphs[3];
-        //Paragraph paraCondition = section.Paragraphs[4];
-        //Paragraph paraDiagnosis = section.Paragraphs[5];
-        //Paragraph paraICD = section.Paragraphs[6];
-        //Paragraph paraMedicinialTherapy = section.Paragraphs[7];
-        //Paragraph paraRecommendation = section.Paragraphs[8];
-        //paraAppointmentType.Text = appointment.AppointmentType.ToString();
-        //paraPatientInfo.AppendText(appointment.Patient.Surname + " " + appointment.Patient.Name + " " +
-        //                           appointment.Patient.Patronymic);
-        //paraComplains.AppendText(appointment.Complains);
-        //paraAnamnesis.AppendText(appointment.Anamnesis);
-        //paraCondition.AppendText(appointment.Condition);
-        //paraDiagnosis.AppendText(appointment.Diagnosis);
-        //paraICD.AppendText(appointment.ICDCode);
-        //paraMedicinialTherapy.AppendText(appointment.MedicinalTherapy);
-        //paraRecommendation.AppendText(appointment.Recommendations);
+            }
+            System.Diagnostics.Process.Start("ОбработкаПерсональныхДанных.docx");
+        }
 
-        //Через замещение текста параграфа
-        
-        //Paragraph paraAppointmentType = section.Paragraphs[0];
-        //Paragraph paraPatientInfo = section.Paragraphs[2];
-        //Paragraph paraComplains = section.Paragraphs[3];
-        //Paragraph paraAnamnesis = section.Paragraphs[4];
-        //Paragraph paraCondition = section.Paragraphs[5];
-        //Paragraph paraDiagnosis = section.Paragraphs[6];
-        //Paragraph paraICD = section.Paragraphs[7];
-        //Paragraph paraMedicinialTherapy = section.Paragraphs[8];
-        //Paragraph paraRecommendation = section.AddParagraph();
-        //paraAppointmentType.Text = appointment.AppointmentType.ToString();
-        //paraPatientInfo.Text=(appointment.Patient.Surname + " " + appointment.Patient.Name + " " +
-        //                           appointment.Patient.Patronymic);
-        //paraComplains.Text=(appointment.Complains);
-        //paraAnamnesis.Text=(appointment.Anamnesis);
-        //paraCondition.Text=(appointment.Condition);
-        //paraDiagnosis.Text=(appointment.Diagnosis);
-        //paraICD.Text=(appointment.ICDCode);
-        //paraMedicinialTherapy.Text=(appointment.MedicinalTherapy);
-        //paraRecommendation.Text=(appointment.Recommendations);
+        public void OpenMedicinalIntervationTemplate()
+        {
+            var filepath = FilepathToTemplates + @"\TemplateMedicalIntervention.docx";
+            Document document = new Document(filepath);
+            try
+            {
+                document.SaveToFile("МедицинскиеВмешательства.docx", FileFormat.Docx);
+            }
+            catch
+            {
+
+            }
+            System.Diagnostics.Process.Start("МедицинскиеВмешательства.docx");
+        }
     }
 }

@@ -94,21 +94,25 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(87, 531);
+            this.buttonEdit.FlatAppearance.BorderSize = 0;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.Image = global::ClinicAppUI.Properties.Resources.EditItem;
+            this.buttonEdit.Location = new System.Drawing.Point(102, 526);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(42, 30);
+            this.buttonEdit.Size = new System.Drawing.Size(38, 38);
             this.buttonEdit.TabIndex = 2;
-            this.buttonEdit.Text = "Редакт";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(135, 531);
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Image = global::ClinicAppUI.Properties.Resources.RemoveItem;
+            this.buttonDelete.Location = new System.Drawing.Point(143, 526);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(43, 30);
+            this.buttonDelete.Size = new System.Drawing.Size(38, 38);
             this.buttonDelete.TabIndex = 3;
-            this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
@@ -357,11 +361,13 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(39, 531);
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Image = global::ClinicAppUI.Properties.Resources.AddItem;
+            this.buttonAdd.Location = new System.Drawing.Point(61, 526);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(42, 30);
+            this.buttonAdd.Size = new System.Drawing.Size(38, 38);
             this.buttonAdd.TabIndex = 0;
-            this.buttonAdd.Text = "Добав";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
@@ -396,7 +402,7 @@
             // 
             this.buttonAppointmentInfo.Location = new System.Drawing.Point(403, 268);
             this.buttonAppointmentInfo.Name = "buttonAppointmentInfo";
-            this.buttonAppointmentInfo.Size = new System.Drawing.Size(95, 23);
+            this.buttonAppointmentInfo.Size = new System.Drawing.Size(95, 30);
             this.buttonAppointmentInfo.TabIndex = 5;
             this.buttonAppointmentInfo.Text = "Посмотреть выбранный визит";
             this.buttonAppointmentInfo.UseVisualStyleBackColor = true;
@@ -435,7 +441,7 @@
             this.panelPatientSelect.Controls.Add(this.buttonAdd);
             this.panelPatientSelect.Location = new System.Drawing.Point(3, 71);
             this.panelPatientSelect.Name = "panelPatientSelect";
-            this.panelPatientSelect.Size = new System.Drawing.Size(181, 567);
+            this.panelPatientSelect.Size = new System.Drawing.Size(181, 571);
             this.panelPatientSelect.TabIndex = 22;
             // 
             // labelPatientsText
@@ -523,7 +529,7 @@
             this.panelContacts.Controls.Add(this.label17);
             this.panelContacts.Location = new System.Drawing.Point(190, 381);
             this.panelContacts.Name = "panelContacts";
-            this.panelContacts.Size = new System.Drawing.Size(378, 257);
+            this.panelContacts.Size = new System.Drawing.Size(378, 261);
             this.panelContacts.TabIndex = 25;
             // 
             // label9
@@ -544,7 +550,7 @@
             this.panelMisc.Controls.Add(this.label11);
             this.panelMisc.Location = new System.Drawing.Point(574, 381);
             this.panelMisc.Name = "panelMisc";
-            this.panelMisc.Size = new System.Drawing.Size(403, 257);
+            this.panelMisc.Size = new System.Drawing.Size(403, 261);
             this.panelMisc.TabIndex = 26;
             // 
             // label11

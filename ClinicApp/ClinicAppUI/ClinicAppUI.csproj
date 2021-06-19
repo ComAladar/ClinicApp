@@ -274,6 +274,15 @@
   <ItemGroup>
     <None Include="Resources\ClinicAppMainIcon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AddItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditItem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RemoveItem.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

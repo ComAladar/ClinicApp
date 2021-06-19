@@ -73,6 +73,16 @@ namespace ClinicAppUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddItem {
+            get {
+                object obj = ResourceManager.GetObject("AddItem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AnalyticsIconUI {
             get {
                 object obj = ResourceManager.GetObject("AnalyticsIconUI", resourceCulture);
@@ -103,6 +113,16 @@ namespace ClinicAppUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EditItem {
+            get {
+                object obj = ResourceManager.GetObject("EditItem", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap HomeIconUI {
             get {
                 object obj = ResourceManager.GetObject("HomeIconUI", resourceCulture);
@@ -116,6 +136,16 @@ namespace ClinicAppUI.Properties {
         internal static System.Drawing.Bitmap PatientsIconUI {
             get {
                 object obj = ResourceManager.GetObject("PatientsIconUI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RemoveItem {
+            get {
+                object obj = ResourceManager.GetObject("RemoveItem", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

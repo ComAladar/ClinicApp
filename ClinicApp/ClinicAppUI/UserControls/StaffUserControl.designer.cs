@@ -55,7 +55,6 @@
             this.panelSelectedControlText = new System.Windows.Forms.Panel();
             this.labelCurrentControl = new System.Windows.Forms.Label();
             this.panelPersonalInfo = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.textBoxRegistrationDate = new System.Windows.Forms.TextBox();
             this.textBoxSex = new System.Windows.Forms.TextBox();
             this.textBoxBirthDate = new System.Windows.Forms.TextBox();
@@ -68,6 +67,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelRank = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.panelAppointments = new System.Windows.Forms.Panel();
@@ -85,39 +85,45 @@
             // listBoxStaff
             // 
             this.listBoxStaff.FormattingEnabled = true;
-            this.listBoxStaff.Location = new System.Drawing.Point(8, 60);
+            this.listBoxStaff.Location = new System.Drawing.Point(13, 66);
             this.listBoxStaff.Name = "listBoxStaff";
-            this.listBoxStaff.Size = new System.Drawing.Size(178, 472);
+            this.listBoxStaff.Size = new System.Drawing.Size(165, 459);
             this.listBoxStaff.TabIndex = 2;
             this.listBoxStaff.SelectedIndexChanged += new System.EventHandler(this.listBoxStaff_SelectedIndexChanged);
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(48, 538);
+            this.buttonAdd.FlatAppearance.BorderSize = 0;
+            this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdd.Image = global::ClinicAppUI.Properties.Resources.AddItem;
+            this.buttonAdd.Location = new System.Drawing.Point(61, 526);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(42, 30);
+            this.buttonAdd.Size = new System.Drawing.Size(38, 38);
             this.buttonAdd.TabIndex = 3;
-            this.buttonAdd.Text = "Добав";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(95, 538);
+            this.buttonEdit.FlatAppearance.BorderSize = 0;
+            this.buttonEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEdit.Image = global::ClinicAppUI.Properties.Resources.EditItem;
+            this.buttonEdit.Location = new System.Drawing.Point(102, 526);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(42, 30);
+            this.buttonEdit.Size = new System.Drawing.Size(38, 38);
             this.buttonEdit.TabIndex = 4;
-            this.buttonEdit.Text = "Редакт";
             this.buttonEdit.UseVisualStyleBackColor = true;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(143, 538);
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Image = global::ClinicAppUI.Properties.Resources.RemoveItem;
+            this.buttonDelete.Location = new System.Drawing.Point(143, 526);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(43, 30);
+            this.buttonDelete.Size = new System.Drawing.Size(38, 38);
             this.buttonDelete.TabIndex = 5;
-            this.buttonDelete.Text = "Удалить";
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
@@ -125,7 +131,7 @@
             // 
             this.buttonAppointmentInfo.Location = new System.Drawing.Point(395, 268);
             this.buttonAppointmentInfo.Name = "buttonAppointmentInfo";
-            this.buttonAppointmentInfo.Size = new System.Drawing.Size(95, 23);
+            this.buttonAppointmentInfo.Size = new System.Drawing.Size(95, 30);
             this.buttonAppointmentInfo.TabIndex = 5;
             this.buttonAppointmentInfo.Text = "Посмотреть";
             this.buttonAppointmentInfo.UseVisualStyleBackColor = true;
@@ -270,7 +276,7 @@
             // 
             this.textBoxSearch.Location = new System.Drawing.Point(48, 32);
             this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(138, 20);
+            this.textBoxSearch.Size = new System.Drawing.Size(130, 20);
             this.textBoxSearch.TabIndex = 18;
             this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
@@ -351,17 +357,6 @@
             this.panelPersonalInfo.Name = "panelPersonalInfo";
             this.panelPersonalInfo.Size = new System.Drawing.Size(276, 304);
             this.panelPersonalInfo.TabIndex = 24;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(6, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(236, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Персональные данные";
             // 
             // textBoxRegistrationDate
             // 
@@ -470,6 +465,17 @@
             this.label15.Size = new System.Drawing.Size(56, 13);
             this.label15.TabIndex = 20;
             this.label15.Text = "Фамилия";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(6, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Персональные данные";
             // 
             // panelRank
             // 

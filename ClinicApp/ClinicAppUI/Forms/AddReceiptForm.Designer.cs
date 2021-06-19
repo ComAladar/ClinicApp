@@ -78,7 +78,7 @@
             this.groupBoxAppointment.Controls.Add(this.labelStaff);
             this.groupBoxAppointment.Location = new System.Drawing.Point(12, 12);
             this.groupBoxAppointment.Name = "groupBoxAppointment";
-            this.groupBoxAppointment.Size = new System.Drawing.Size(384, 258);
+            this.groupBoxAppointment.Size = new System.Drawing.Size(384, 247);
             this.groupBoxAppointment.TabIndex = 2;
             this.groupBoxAppointment.TabStop = false;
             this.groupBoxAppointment.Text = "Прием";
@@ -130,14 +130,14 @@
             this.groupBoxReceipt.Controls.Add(this.checkBoxAdditionalCosts);
             this.groupBoxReceipt.Location = new System.Drawing.Point(402, 12);
             this.groupBoxReceipt.Name = "groupBoxReceipt";
-            this.groupBoxReceipt.Size = new System.Drawing.Size(258, 258);
+            this.groupBoxReceipt.Size = new System.Drawing.Size(258, 247);
             this.groupBoxReceipt.TabIndex = 3;
             this.groupBoxReceipt.TabStop = false;
             this.groupBoxReceipt.Text = "Чек";
             // 
             // textBoxFinalCost
             // 
-            this.textBoxFinalCost.Location = new System.Drawing.Point(133, 228);
+            this.textBoxFinalCost.Location = new System.Drawing.Point(133, 217);
             this.textBoxFinalCost.Name = "textBoxFinalCost";
             this.textBoxFinalCost.ReadOnly = true;
             this.textBoxFinalCost.Size = new System.Drawing.Size(121, 20);
@@ -146,7 +146,7 @@
             // labelFinalCost
             // 
             this.labelFinalCost.AutoSize = true;
-            this.labelFinalCost.Location = new System.Drawing.Point(130, 212);
+            this.labelFinalCost.Location = new System.Drawing.Point(130, 201);
             this.labelFinalCost.Name = "labelFinalCost";
             this.labelFinalCost.Size = new System.Drawing.Size(112, 13);
             this.labelFinalCost.TabIndex = 5;
@@ -202,9 +202,9 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(490, 276);
+            this.buttonAdd.Location = new System.Drawing.Point(494, 263);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(80, 30);
             this.buttonAdd.TabIndex = 4;
             this.buttonAdd.Text = "Добавить";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -212,9 +212,9 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(571, 276);
+            this.buttonCancel.Location = new System.Drawing.Point(580, 263);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(89, 23);
+            this.buttonCancel.Size = new System.Drawing.Size(80, 30);
             this.buttonCancel.TabIndex = 5;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
