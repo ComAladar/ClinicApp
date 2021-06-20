@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Drawing;
 using System.Data;
 using System.Data.Entity;
@@ -211,22 +212,22 @@ namespace ClinicAppUI.UserControls
                 using (ClinicContext Db = new ClinicContext())
                 {
                     patientForm.Patient.InUse = (InUseType)1;
-                GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
-                patientRepo.Modify(patientForm.Patient);
-                patientForm.ShowDialog();
-                if (patientForm.DialogResult == DialogResult.OK)
-                {
-                    var updatedPatient = patientForm.Patient;
-                    updatedPatient.InUse = 0;
-                    patientRepo.Modify(updatedPatient);
-                    UpdatePatients();
-                }
-                else
-                {
-                    patientForm.Patient.InUse = 0;
+                    GenericRepository<Patient> patientRepo = new GenericRepository<Patient>(Db);
                     patientRepo.Modify(patientForm.Patient);
-                    UpdatePatients();
-                }
+                    patientForm.ShowDialog();
+                    if (patientForm.DialogResult == DialogResult.OK)
+                    {
+                        var updatedPatient = patientForm.Patient;
+                        updatedPatient.InUse = 0;
+                        patientRepo.Modify(updatedPatient);
+                        UpdatePatients();
+                    }
+                    else
+                    {
+                        patientForm.Patient.InUse = 0;
+                        patientRepo.Modify(patientForm.Patient);
+                        UpdatePatients();
+                    }
                 }
             }
             else

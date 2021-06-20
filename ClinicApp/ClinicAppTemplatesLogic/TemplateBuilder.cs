@@ -18,9 +18,8 @@ namespace ClinicAppTemplatesLogic
     /// </summary>
     public class TemplateBuilder
     {
-        private static string FilepathToTemplates = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\ClinicAppTemplatesLogic\Templates";
-        /// <summary>
-        /// Метод для построения шаблона приема.
+        //Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\ClinicAppTemplatesLogic\Templates";
+        private static string FilepathToTemplates = Environment.CurrentDirectory + @"\Templates";
         /// </summary>
         /// <param name="appointment"></param>
         public void OpenAppointmentTemplate(Appointment appointment)

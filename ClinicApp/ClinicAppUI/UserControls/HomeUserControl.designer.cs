@@ -47,14 +47,14 @@
             this.panelLogin = new System.Windows.Forms.Panel();
             this.labelLoginText = new System.Windows.Forms.Label();
             this.panelTemplates = new System.Windows.Forms.Panel();
+            this.buttonServiceFees = new System.Windows.Forms.Button();
+            this.buttonPersonalDataProcessing = new System.Windows.Forms.Button();
+            this.buttonMedicinalIntervation = new System.Windows.Forms.Button();
             this.labelTemplatesText = new System.Windows.Forms.Label();
             this.panelMessages = new System.Windows.Forms.Panel();
             this.labelMessagesText = new System.Windows.Forms.Label();
             this.panelSchedule = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonPersonalDataProcessing = new System.Windows.Forms.Button();
-            this.buttonMedicinalIntervation = new System.Windows.Forms.Button();
-            this.buttonServiceFees = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMessages)).BeginInit();
             this.panelSelectedControlText.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -162,7 +162,6 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
             this.textBoxPassword.TabIndex = 2;
-            this.textBoxPassword.Text = "bagrpassmy";
             // 
             // labelLogin
             // 
@@ -190,7 +189,6 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(100, 20);
             this.textBoxLogin.TabIndex = 4;
-            this.textBoxLogin.Text = "bargovacc";
             // 
             // checkBoxShowPassword
             // 
@@ -242,6 +240,36 @@
             this.panelTemplates.Name = "panelTemplates";
             this.panelTemplates.Size = new System.Drawing.Size(231, 413);
             this.panelTemplates.TabIndex = 7;
+            // 
+            // buttonServiceFees
+            // 
+            this.buttonServiceFees.Location = new System.Drawing.Point(11, 150);
+            this.buttonServiceFees.Name = "buttonServiceFees";
+            this.buttonServiceFees.Size = new System.Drawing.Size(211, 30);
+            this.buttonServiceFees.TabIndex = 4;
+            this.buttonServiceFees.Text = "Оказания платных услуг";
+            this.buttonServiceFees.UseVisualStyleBackColor = true;
+            this.buttonServiceFees.Click += new System.EventHandler(this.buttonServiceFees_Click);
+            // 
+            // buttonPersonalDataProcessing
+            // 
+            this.buttonPersonalDataProcessing.Location = new System.Drawing.Point(11, 50);
+            this.buttonPersonalDataProcessing.Name = "buttonPersonalDataProcessing";
+            this.buttonPersonalDataProcessing.Size = new System.Drawing.Size(211, 30);
+            this.buttonPersonalDataProcessing.TabIndex = 3;
+            this.buttonPersonalDataProcessing.Text = "Обработка персональных данных";
+            this.buttonPersonalDataProcessing.UseVisualStyleBackColor = true;
+            this.buttonPersonalDataProcessing.Click += new System.EventHandler(this.buttonPersonalDataProcessing_Click);
+            // 
+            // buttonMedicinalIntervation
+            // 
+            this.buttonMedicinalIntervation.Location = new System.Drawing.Point(11, 100);
+            this.buttonMedicinalIntervation.Name = "buttonMedicinalIntervation";
+            this.buttonMedicinalIntervation.Size = new System.Drawing.Size(211, 30);
+            this.buttonMedicinalIntervation.TabIndex = 3;
+            this.buttonMedicinalIntervation.Text = "Медицинское вмешательство";
+            this.buttonMedicinalIntervation.UseVisualStyleBackColor = true;
+            this.buttonMedicinalIntervation.Click += new System.EventHandler(this.buttonMedicinalIntervation_Click);
             // 
             // labelTemplatesText
             // 
@@ -301,36 +329,6 @@
             this.label1.Size = new System.Drawing.Size(129, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Расписание";
-            // 
-            // buttonPersonalDataProcessing
-            // 
-            this.buttonPersonalDataProcessing.Location = new System.Drawing.Point(11, 50);
-            this.buttonPersonalDataProcessing.Name = "buttonPersonalDataProcessing";
-            this.buttonPersonalDataProcessing.Size = new System.Drawing.Size(211, 30);
-            this.buttonPersonalDataProcessing.TabIndex = 3;
-            this.buttonPersonalDataProcessing.Text = "Обработка персональных данных";
-            this.buttonPersonalDataProcessing.UseVisualStyleBackColor = true;
-            this.buttonPersonalDataProcessing.Click += new System.EventHandler(this.buttonPersonalDataProcessing_Click);
-            // 
-            // buttonMedicinalIntervation
-            // 
-            this.buttonMedicinalIntervation.Location = new System.Drawing.Point(11, 100);
-            this.buttonMedicinalIntervation.Name = "buttonMedicinalIntervation";
-            this.buttonMedicinalIntervation.Size = new System.Drawing.Size(211, 30);
-            this.buttonMedicinalIntervation.TabIndex = 3;
-            this.buttonMedicinalIntervation.Text = "Медицинское вмешательство";
-            this.buttonMedicinalIntervation.UseVisualStyleBackColor = true;
-            this.buttonMedicinalIntervation.Click += new System.EventHandler(this.buttonMedicinalIntervation_Click);
-            // 
-            // buttonServiceFees
-            // 
-            this.buttonServiceFees.Location = new System.Drawing.Point(11, 150);
-            this.buttonServiceFees.Name = "buttonServiceFees";
-            this.buttonServiceFees.Size = new System.Drawing.Size(211, 30);
-            this.buttonServiceFees.TabIndex = 4;
-            this.buttonServiceFees.Text = "Оказания платных услуг";
-            this.buttonServiceFees.UseVisualStyleBackColor = true;
-            this.buttonServiceFees.Click += new System.EventHandler(this.buttonServiceFees_Click);
             // 
             // HomeUserControl
             // 

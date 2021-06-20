@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicAppTemplatesLogic", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicAppUnitTests", "ClinicAppUnitTests\ClinicAppUnitTests.csproj", "{6F049FBE-3A70-4829-AF5D-C79E664A69A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicAppInstaller", "ClinicAppInstaller\ClinicAppInstaller.csproj", "{D8CEDCD0-18EE-46E8-A028-E607B3D65CC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F049FBE-3A70-4829-AF5D-C79E664A69A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8CEDCD0-18EE-46E8-A028-E607B3D65CC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8CEDCD0-18EE-46E8-A028-E607B3D65CC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8CEDCD0-18EE-46E8-A028-E607B3D65CC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8CEDCD0-18EE-46E8-A028-E607B3D65CC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
