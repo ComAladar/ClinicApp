@@ -43,9 +43,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "C:\Users\Nikita\Source\Repos\ComAladar\ClinicApp\ClinicApp\ClinicAppUI\bin\Release\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Release\*.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Release\*.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\Nikita\Source\Repos\ComAladar\ClinicApp\ClinicApp\ClinicAppUI\Resources\{#MyAppIcoName}"; DestDir: "{app}\Icon"; Flags: ignoreversion
+Source: "Release\*.*"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Release\Templates\*.docx"; DestDir: "{app}\Templates"; Flags: ignoreversion
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files

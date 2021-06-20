@@ -324,8 +324,7 @@ md "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release"
 md "$(SolutionDir)ClinicAppInstaller\InstallScripts\Installers"
 md "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release\Templates"
 xcopy "$(ProjectDir)$(OutDir)Templates\*.docx" "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release\Templates"
-xcopy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release"
-xcopy "$(ProjectDir)$(OutDir)*.exe" "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release"
+xcopy "$(ProjectDir)$(OutDir)" "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release"
 xcopy "$(SolutionDir)ClinicAppUI\Resources\ClinicAppMainIcon.ico" "$(SolutionDir)ClinicAppInstaller\InstallScripts\Release"</PostBuildEvent>
   </PropertyGroup>
 </Project>
